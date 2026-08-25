@@ -667,7 +667,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 }
 .chat-btn:hover { box-shadow: 6px 6px 0 oklch(0.45 0.02 260 / 0.7); }
 .chat-btn:active { box-shadow: 1px 1px 0 oklch(0.45 0.02 260 / 0.7); }
-/* the one hard rule, marked in the margin's red — you can see the trap and take it anyway */
+/* the one hard rule, marked in the margin’s red — 13 options in 927 lead here, and you can see them coming */
 .chat-btn--rule {
   color: oklch(0.83 0.12 27);
   border-color: oklch(0.65 0.17 27);
@@ -675,7 +675,6 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 }
 .chat-btn--rule:hover { box-shadow: 6px 6px 0 oklch(0.5 0.16 27 / 0.7); }
 .chat-btn--rule:active { box-shadow: 1px 1px 0 oklch(0.5 0.16 27 / 0.7); }
-.chat-btn--again { border-style: dashed; }
 .arbiter-built { margin-top: calc(var(--rule-h) * 1.2); border-top: 2px dashed oklch(0.4 0.02 260); color: oklch(0.72 0.01 260); }
 
 /* ————— about ————— */
