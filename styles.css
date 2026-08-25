@@ -18,6 +18,11 @@
   --font-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  /* the pen: Wordsword's sword doodle, mirrored so the tip leads like an arrow.
+     White keyline first, ink over it — legible on paper AND on the arbiter's black page. */
+  --cursor-sword: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23fff' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M71 58Q42 26 14 12Q30 44 58 71ZM60 60L26 26M76 55Q67 68 54 77M64.5 64.5L78 78M69 69L66 72M73 73L70 76'/%3E%3Ccircle cx='81.25' cy='81.75' r='4.25'/%3E%3C/g%3E%3Cg fill='none' stroke='%23171b22' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M71 58Q42 26 14 12Q30 44 58 71ZM60 60L26 26M76 55Q67 68 54 77M64.5 64.5L78 78M69 69L66 72M73 73L70 76'/%3E%3Ccircle cx='81.25' cy='81.75' r='4.25'/%3E%3C/g%3E%3C/svg%3E") 6 5;
+  --cursor-slash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23fff' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M71 58Q42 26 14 12Q30 44 58 71ZM60 60L26 26M76 55Q67 68 54 77M64.5 64.5L78 78M69 69L66 72M73 73L70 76M50 20L64 38M61 14L73 29'/%3E%3Ccircle cx='81.25' cy='81.75' r='4.25'/%3E%3C/g%3E%3Cg fill='none' stroke='%23171b22' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M71 58Q42 26 14 12Q30 44 58 71ZM60 60L26 26M76 55Q67 68 54 77M64.5 64.5L78 78M69 69L66 72M73 73L70 76M50 20L64 38M61 14L73 29'/%3E%3Ccircle cx='81.25' cy='81.75' r='4.25'/%3E%3C/g%3E%3C/svg%3E") 6 5;
+
   --z-doodle: 1;
   --z-content: 2;
   --z-nav: 10;
@@ -44,6 +49,13 @@ body {
 ::selection { background: var(--ink-faint); color: var(--ink); }
 
 img { max-width: 100%; height: auto; display: block; }
+
+/* ————— the cursor ————— */
+body { cursor: var(--cursor-sword), default; }
+a, button, summary, [role="button"], label[for], .btn {
+  cursor: var(--cursor-slash), pointer;   /* mid-swing: the affordance pointer used to carry */
+}
+:disabled, [aria-disabled="true"] { cursor: var(--cursor-sword), not-allowed; }
 
 .skip {
   position: absolute; left: -999px; top: 0; z-index: 100;
@@ -96,7 +108,25 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 1.4rem;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;   /* the shoe never breaks away onto its own line */
+  position: relative;
+  padding-left: 62px;    /* the lane the shoe stands in — 54px wide + 8px gap */
 }
+/* The sneaker walks in front of the name. Taken out of flow on purpose: in the
+   line box it grew the sticky header by 6px, and every sticky panel's height
+   budget (--shot-h) is measured off that header. It overhangs the 28px line
+   into the nav's 14px padding, which is where the slack already was. */
+.shoe {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+}
+.shoe path { stroke-width: 4.2; }   /* ~1.7px rendered — the small-doodle ink weight */
+/* the ring has to clear the shoe, which overhangs the 28px line box by ~3px.
+   Same shape as the chat log's ring — the site's one existing focus style. */
+.wordmark:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; border-radius: 2px; }
 .topnav nav { display: flex; gap: clamp(14px, 3vw, 32px); }
 .topnav nav a {
   color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem;
@@ -420,7 +450,6 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   box-shadow: 4px 4px 0 var(--ink);
   padding: 10px 18px;
   text-decoration: none;
-  cursor: pointer;
   transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
 }
 .btn:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--ink); }
@@ -722,6 +751,18 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 @media (max-width: 480px) {
   .panel { box-shadow: 5px 5px 0 var(--ink); }
 }
+
+/* The wordmark got 65% wider with the rename, and the nav already had only ~26px
+   of slack at 375px. One row is worth keeping — a second row would make the sticky
+   header eat a tenth of a phone viewport — so the whole bar steps down together. */
+@media (max-width: 640px) {
+  .topnav { padding-left: calc(var(--margin-x) + 12px); padding-right: 16px; }
+  .wordmark { font-size: 1rem; padding-left: 34px; }
+  .shoe { width: 30px; }
+  .topnav nav { gap: 8px; }
+  .topnav nav a { font-size: 0.875rem; }   /* 14px — the floor, not below it */
+}
+
 
 @media (max-width: 560px) {
   /* three long replies side by side become confetti — stack them */
