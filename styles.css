@@ -216,13 +216,18 @@ h1 {
   font-weight: 700;
   font-size: clamp(1.9rem, 4.5vw, 3rem);
   line-height: 1.1;
-  color: var(--accent, var(--ink));
+  color: var(--ink);
+  text-wrap: balance;
 }
+/* the deck has to read as a deck, not as another line of body copy — 1.1rem sat one
+   notch off 1rem and the whole header ran flat. 1.25rem still sits inside the 28px
+   line box, so the panel's height budget does not move. */
 .study-sub {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 500;
   color: var(--ink-soft);
   margin-top: 4px;
+  text-wrap: balance;
 }
 .stamp {
   position: absolute; right: 0; top: 0;
@@ -302,13 +307,23 @@ h1 {
 .t2 { top: -12px; right: 6%; transform: rotate(8deg); }
 .beats { position: relative; }
 .beat { margin-bottom: calc(var(--rule-h) * 1); }
+/* A beat heading is a signpost — what / why / how — not a headline competing with the
+   paragraph it introduces. So it drops to the mono label tier the page already owns
+   (stamp, built-with line) and lets the copy lead. Family, size, case and colour all
+   move at once, which is what fixes a ramp that ran 1rem / 1.1rem / 1.15rem and read
+   as one flat step. Only one beat is ever visible at a time, so these never stack into
+   a column of eyebrows. */
 .beat h3 {
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--accent, var(--ink));
-  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
 }
-.beat p { max-width: 46em; }
+/* 46em never bound anything: the column is ~48ch wide. Say the real measure. */
+.beat p { max-width: 48ch; text-wrap: pretty; }
 .beat strong { font-weight: 700; }
 
 .study-built {
@@ -424,8 +439,12 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 .enhanced .panel { max-height: calc(100vh - 56px); overflow: hidden; }
 /* the panel is clipped to the viewport, so the tall shots must fit what is left of it
    after the header, footer and padding. Widths are height * the shot's aspect.
-   300px = 112 padding + 85 head + 28 head margin + 44 footer + 28 footer margin + rule. */
-.enhanced .shot { --shot-h: calc(100vh - 356px); }
+   364px = 112 padding + 85 head + 28 head margin + 44 footer + 28 footer margin + 8 shot margin
+   + rule; studies with link pills pay 14px more for the taller footer. */
+.enhanced .shot { --shot-h: calc(100vh - 364px); }
+/* a study with live-link pills carries a 58px footer instead of 44px — the pill is taller
+   than the mono line it sits beside, and the difference comes straight off the shot. */
+.enhanced .study:has(.study-links) .shot { --shot-h: calc(100vh - 378px); }
 .enhanced .phone-shot { max-width: min(460px, calc(var(--shot-h) * 0.70)); }   /* 0.70 < the box's 0.724: the 3/6deg fan costs height too */
 /* 0.6 leaves room for the -1.6deg tilt on top of the reel's own 960x1560 (0.615) */
 .enhanced .tall-shot  { max-width: min(420px, calc(var(--shot-h) * 0.6)); }
@@ -563,7 +582,10 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   line-height: calc(var(--rule-h) * 1.1);
   letter-spacing: 0.01em;
   color: oklch(0.88 0.005 260);
-  max-width: 56em;
+  /* 56em never bound: the container is 720px, so this ran ~90ch. Light-on-dark wants a
+     shorter measure than paper does, not a longer one. */
+  max-width: 66ch;
+  text-wrap: pretty;
 }
 .arbiter-copy strong { font-weight: 700; font-size: 1.1em; white-space: nowrap; }
 

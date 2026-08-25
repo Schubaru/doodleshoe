@@ -36,7 +36,7 @@ Punk-rock doodle on college-rule paper × neubrutalist minimalism. Three words: 
 2. **Ink earns its place** — every doodle is drawn (real SVG strokes that animate in), not decorative clip-art. Doodles interact; they don't just sit there.
 3. **The grid is the straight man** — ruled paper + rigid type discipline make the doodle chaos funny. Never let both be loud at once.
 4. **Short is the voice** — Arbiter-grade brevity. Every sentence pulls weight. Whimsy through precision, not padding.
-5. **Show the machine** — each case study says how it was actually built (stack, tools, one clever implementation detail), in plain words.
+5. **Show the machine** — each case study says why it works the way it does (the decision, and what it rejected) and how it was actually built, first person, one hard part, in plain words. Voice reference: the Arbiter's own Discord output — short declaratives, consequence framing, flat verdicts, no gush.
 
 ## Accessibility & Inclusion
 
