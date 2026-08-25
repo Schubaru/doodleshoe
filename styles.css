@@ -202,8 +202,9 @@ h1 {
 
 .panel {
   position: relative;
-  width: min(1120px, calc(100% - var(--margin-x) - clamp(20px, 5vw, 72px) * 2));
-  max-width: calc(100% - var(--margin-x) - clamp(16px, 4vw, 72px) - var(--gutter-x));
+  /* fills the lane between the red margin line and the monkey's gutter; the same
+     clamp() gap is subtracted on both sides so the panel sits centered in that lane. */
+  width: calc(100% - var(--margin-x) - var(--gutter-x) - clamp(16px, 4vw, 72px) * 2);
   margin-left: calc(var(--margin-x) + clamp(16px, 4vw, 72px));
   background: var(--paper);
   border: 2.5px solid var(--ink);
@@ -275,7 +276,7 @@ h1 {
 .phone-shot .t2 { top: 6%; right: 3%; transform: rotate(9deg); }
 .tall-shot { max-width: 420px; }
 
-/* B43: a centre-forward trio, not another dealt deck — the middle screen leads and the
+/* Unscary.ai: a centre-forward trio, not another dealt deck — the middle screen leads and the
    other two fan out from behind it. Wordsword already owns the deck; two identical fans
    back to back would read as a template. */
 .stack-shot { max-width: 560px; aspect-ratio: 1 / 1.06; }
@@ -480,7 +481,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   --r: clamp(0, (var(--p, 0) - 0.34) * 10, 1);
   transform: rotate(-3deg) translate(calc((1 - var(--r)) * -14px), calc((1 - var(--r)) * 16px));
 }
-/* B43's trio opens instead of dealing: both wings start hidden behind the centre screen,
+/* Unscary.ai's trio opens instead of dealing: both wings start hidden behind the centre screen,
    unrotated, then swing out to their fanned angle as their beat arrives. */
 .enhanced .stack-shot .s2,
 .enhanced .stack-shot .s3 { opacity: var(--r); }
