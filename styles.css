@@ -179,8 +179,11 @@ h1 {
   width: clamp(44px, 4.4vw, 60px);
   z-index: var(--z-doodle);
   pointer-events: none;   /* never in the way of a click */
-  /* --drift / --lean are sprung back to 0 by main.js after each scroll */
-  transform: translateY(var(--drift, 0px)) rotate(var(--lean, 0deg));
+  /* three composed layers, outermost first: --mx/--my is the journey (the pre-scroll
+     bottom-centre peek, then the one-way swim home), --drift/--lean is the scroll
+     spring, and the inner svg's orbit rides on top. All default to 0 so no-JS and
+     reduced-motion visitors get him parked at home. */
+  transform: translate(var(--mx, 0px), var(--my, 0px)) translateY(var(--drift, 0px)) rotate(var(--lean, 0deg));
   will-change: transform;
 }
 .m-arm { transform-origin: 66px 72px; }
