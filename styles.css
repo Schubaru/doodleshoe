@@ -317,7 +317,7 @@ h1 {
 .stack-shot .s2 { left: 0;   transform: rotate(-7deg); }
 .stack-shot .s3 { left: 60%; transform: rotate(7deg); }
 .stack-shot .t1 { top: -14px; left: 38%; z-index: 2; }
-.stack-shot .t2 { top: 2%; right: 2%; width: 60px; height: 22px; transform: rotate(13deg); z-index: 2; }
+.stack-shot .t2 { top: 4.5%; right: 9%; width: 60px; height: 22px; transform: rotate(13deg); z-index: 2; }
 
 /* desktop screenshots don't survive being shrunk to a phone's width, so these are cropped
    to the part that matters: one wide screen, with two panel close-ups taped over it.
