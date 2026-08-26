@@ -142,7 +142,7 @@ a, button, summary, [role="button"], label[for], .btn {
   align-content: center;
   padding: calc(var(--rule-h) * 3) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 4) calc(var(--margin-x) + clamp(16px, 4vw, 64px));
 }
-.hero-inner { max-width: 780px; position: relative; z-index: var(--z-content); }
+.hero-inner { max-width: 780px; position: relative; z-index: var(--z-content); container-type: inline-size; }
 .hello {
   font-weight: 500;
   color: var(--ink-soft);
@@ -150,17 +150,24 @@ a, button, summary, [role="button"], label[for], .btn {
 }
 h1 {
   font-weight: 700;
-  font-size: clamp(2.6rem, 8.5vw, 5.4rem);
+  /* "Product designer" measures 7.70em, and the two-row read dies the moment it wraps.
+     Sized off the container, not the viewport, so it holds one line at every width and
+     stays right if the hero padding ever moves. 12.4cqw = 7.70em fit with ~4% slack for
+     the fallback face during swap; the 5.4rem cap still governs from ~700px up. */
+  font-size: clamp(1.9rem, 12.4cqw, 5.4rem);
   line-height: 1.08;
   letter-spacing: -0.02em;
-  text-wrap: balance;
   margin-bottom: calc(var(--rule-h) * 1.5);
 }
+/* the "er" and the "/" — the only two characters that turn the job title into two roles */
+.h1-soft { color: var(--ink-soft); }
+.h1-slash { margin-left: -0.06em; }   /* the slash's own sidebearing already sets it off the margin */
 .lede {
   font-size: 1.2rem;
   line-height: calc(var(--rule-h) * 1.25);
   max-width: 34em;
   color: var(--ink);
+  text-wrap: balance;   /* six words: break at the comma, never orphan "them." */
 }
 
 /* hero doodle placement */
@@ -214,16 +221,6 @@ h1 {
 /* reduced motion: arm parked mid-wave, no loop, no drift (JS gates that too) */
 @media (prefers-reduced-motion: reduce) {
   .m-arm { transform: rotate(4deg); }
-}
-
-/* ————— work intro ————— */
-.work-intro {
-  font-weight: 600;
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  padding-left: calc(var(--margin-x) + clamp(16px, 4vw, 64px));
-  margin-bottom: calc(var(--rule-h) * 2);
-  transform: rotate(-1deg);
-  max-width: 640px;
 }
 
 /* ————— case studies ————— */

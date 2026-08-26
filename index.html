@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schubaru — Alex Schumacher, product design engineer</title>
+<title>Doodle ‘Schu’ — Alex Schumacher, product design engineer</title>
 <meta name="description" content="Alex Schumacher designs products, then builds them. Case studies: Wordsword, Unscary.ai, N00B Portfolios, 368 Dinos, and one very terse Discord bot.">
-<meta property="og:title" content="Schubaru — product design engineer">
+<meta property="og:title" content="Doodle ‘Schu’ — product design engineer">
 <meta property="og:description" content="Punk-rock doodles, college-rule paper, and real shipped software.">
 <meta property="og:image" content="https://doodleshoe.vercel.app/assets/og.png">
 <meta property="og:url" content="https://doodleshoe.vercel.app">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 L16 22 M10 9 L22 9 M13 22 L19 22 L18 27 L14 27 Z' fill='none' stroke='%23151b24' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M4%2018%20Q1.8%2021.5%203.5%2024.5%20Q5%2026%208.5%2026%20L24%2026%20Q29%2025.5%2030%2020.5%20M4%2018%20Q2%2010%208%207.5%20Q14%207%2015.5%2012.5%20Q23%2014%2030%2020.5%20M4%2018%20Q17%2020.5%2030%2020.5%27%20fill%3D%27none%27%20stroke%3D%27%23151b24%27%20stroke-width%3D%272.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#work">Skip to the work</a>
+<a class="skip" href="#wordsword">Skip to the work</a>
 
 <!-- shared doodle symbols -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -50,9 +50,16 @@
   </div>
 
 <header class="topnav">
-  <a class="wordmark" href="#top">Schubaru</a>
+  <a class="wordmark" href="#top"><svg class="shoe doodle draw" viewBox="0 0 120 76" aria-hidden="true">
+      <path pathLength="1" d="M10 48 Q3 55 5 63 Q9 70 22 70 L94 70 Q111 69 115 58 Q117 51 106 48"/>
+      <path pathLength="1" d="M6 59 Q48 63 96 61 Q110 60 116 54"/>
+      <path pathLength="1" d="M10 48 Q4 34 14 26 Q24 31 33 27 Q40 14 52 16 Q62 20 63 30 Q82 31 97 38 Q106 42 107 48"/>
+      <path pathLength="1" d="M79 33 Q74 41 75 50"/>
+      <path pathLength="1" d="M19 47 Q14 37 20 31"/>
+      <path pathLength="1" d="M36 29 L46 39 M43 24 L53 34"/>
+    </svg><span>Doodle&nbsp;&lsquo;Schu&rsquo;</span></a>
   <nav aria-label="Site">
-    <a href="#work">Work</a>
+    <a href="#wordsword">Work</a>
     <a href="#arbiter">The Arbiter</a>
     <a href="#about">About</a>
   </nav>
@@ -64,14 +71,15 @@
   <section class="hero">
     <div class="hero-inner">
       <p class="hello">Hi. I'm Alex Schumacher.</p>
-      <h1>Product design engineer.</h1>
-      <p class="lede">I design products, then I actually build them&nbsp;— with Figma, Claude&nbsp;Code, Cursor, and more doodles than strictly necessary.</p>
+      <!-- the two soft characters are the whole joke: at full strength it reads "Product design
+           engineer", and the "er" + "/" resolve it into two roles. Both in --ink-soft, one gesture. -->
+      <h1 aria-label="Product designer and engineer">Product design<span class="h1-soft">er</span><br><span class="h1-soft h1-slash">/</span>engineer</h1>
+      <p class="lede">I design products, then I build them.</p>
     </div>
 
   </section>
 
   <!-- ============ WORK ============ -->
-  <p class="work-intro" id="work">Four shipped things, and a bot.</p>
 
   <!-- WORDSWORD -->
   <section class="study" id="wordsword" data-progress>

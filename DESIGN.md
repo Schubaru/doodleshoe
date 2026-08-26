@@ -30,6 +30,7 @@ Strategy: **Restrained to the point of monochrome.** The page is ink on paper. E
 - No display/handwriting font. The doodles carry the hand; the type stays plain and legible — the grid-is-the-straight-man principle taken all the way into the typography.
 - Mono (build-notes / stack lines): `ui-monospace, SFMono-Regular, Menlo, monospace` — system, not loaded.
 - Scale: fluid clamp() for display (ratio ≥1.33); body fixed. Body max measure 65ch.
+- **The hero headline is a two-reading pun, and the line break is load-bearing.** `Product design`+`er` / `/`+`engineer`: at full strength it reads *Product design engineer* (the title in `<title>` and the h1's `aria-label`), and the two `--ink-soft` characters — the `er` and the `/` — resolve it into *Product designer / engineer*. Both soft marks are one gesture in one ink; giving them different weights, or the slash a hue, breaks the joke. The break is a hard `<br>`, so `Product designer` (7.70em) must never wrap — hence the h1 is sized in `cqw` off `.hero-inner` (`container-type: inline-size`), not in `vw`: the viewport doesn't know about the hero's padding, and a `vw` scale silently dropped it to three rows at 375px. If you retype the headline, re-measure the longest line and reset the `12.4cqw` term.
 - Baseline discipline: body text sits ON the rule lines (28px vertical rhythm everywhere).
 
 ## Doodles (the illustration system)
