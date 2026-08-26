@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Doodle ‘Schu’ — Alex Schumacher, product design engineer</title>
-<meta name="description" content="Alex Schumacher designs products, then builds them. Case studies: Wordsword, Unscary.ai, N00B Portfolios, 368 Dinos, and one very terse Discord bot.">
+<meta name="description" content="Alex Schumacher designs products, then builds them. Case studies: Unscary.ai, Wordsword, N00B Portfolios, 368 Dinos, and one very terse Discord bot.">
 <meta property="og:title" content="Doodle ‘Schu’ — product design engineer">
 <meta property="og:description" content="Punk-rock doodles, college-rule paper, and real shipped software.">
 <meta property="og:image" content="https://doodleshoe.vercel.app/assets/og.png">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#wordsword">Skip to the work</a>
+<a class="skip" href="#b43">Skip to the work</a>
 
 <!-- shared doodle symbols -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -59,7 +59,7 @@
       <path pathLength="1" d="M36 29 L46 39 M43 24 L53 34"/>
     </svg><span>Doodle&nbsp;&lsquo;Schu&rsquo;</span></a>
   <nav aria-label="Site">
-    <a href="#wordsword">Work</a>
+    <a href="#b43">Work</a>
     <a href="#arbiter">The Arbiter</a>
     <a href="#about">About</a>
   </nav>
@@ -80,6 +80,47 @@
   </section>
 
   <!-- ============ WORK ============ -->
+
+  <!-- Unscary.ai -->
+  <section class="study" id="b43" data-progress>
+    <div class="pin"><div class="panel">
+      <header class="study-head">
+        <h2>Unscary.ai</h2>
+        <p class="study-sub">Teaching whole teams to actually use AI.</p>
+        <span class="stamp">IN PRODUCTION</span>
+      </header>
+      <div class="study-body">
+        <figure class="shot stack-shot">
+          <img class="s1" src="assets/b43-hub.webp" alt="Unscary, Unscary.ai's iPhone app: a Learn tab greeting 'Welcome back, Sarah', a Monday-to-Friday week strip set to three lessons a week, and the next lesson — 'What is AI, really?' — waiting behind a Start button" width="644" height="1400">
+          <img class="s2" src="assets/b43-rep.png" alt="A lesson in progress, 'Same tool, two answers': two chat exchanges compared side by side, one vague and one that added 'I have chicken and twenty minutes', then three choices for why the second answer fit better" width="644" height="1400">
+          <img class="s3" src="assets/b43-progress.png" alt="The Progress tab: 350 points across 20 lessons, a Level 5 bar, and standing on the four rungs — Recognize strong, Try developing, Standardize marked as the frontier, Automate developing" width="644" height="1400">
+          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+        </figure>
+        <div class="beats">
+          <div class="beat">
+            <h3>What it is</h3>
+            <p>An AI-enablement platform. Seven modules take a team from “what's a prompt” to shipping their own reusable AI skills. Unscary is the same ladder as an iPhone app — the screens on the left are its.</p>
+          </div>
+          <div class="beat">
+            <h3>Why it works this way</h3>
+            <p>Nobody learns a tool by watching someone else use it, so there are no lecture videos. Five interactive formats instead — sort it, sequence it, build the prompt, place the chips — ending at a Skill Builder that turns a conversation into a skill the whole team can run.</p>
+          </div>
+          <div class="beat">
+            <h3>How I built it</h3>
+            <p>React, TypeScript, Supabase. 48 routes, 32 edge functions. I built the Skill Builder three times before it was right, so now it is graded like a student: live-LLM tests run real scenarios and score the output on every deploy. If it gets dumber, the build says so.</p>
+          </div>
+        </div>
+      </div>
+      <footer class="study-built">
+        <span class="built-stack">React · TypeScript · Supabase · Playwright · built with Claude&nbsp;Code&nbsp;+&nbsp;Cursor</span>
+        <span class="study-links">
+          <a class="site-link" href="https://www.b43.ai/">b43.ai&nbsp;→</a>
+          <a class="site-link" href="https://www.unscary.ai/">unscary.ai&nbsp;→</a>
+        </span>
+      </footer>
+    </div></div>
+  </section>
 
   <!-- WORDSWORD -->
   <section class="study" id="wordsword" data-progress>
@@ -158,47 +199,6 @@
           <path class="duel-spark" pathLength="1" d="M78.5 32 Q78.9 29.5 78.5 27 M83.5 37 Q86 37.4 88.5 37 M73.5 37 Q71 37.4 68.5 37 M76 41.3 Q74.5 43.4 73.5 45.7 M81 41.3 Q82.5 43.4 83.5 45.7"/>
         </svg>
         <span class="built-stack">SwiftUI &middot; SwiftData &middot; Datamuse &middot; on-device AI &middot; built in Claude&nbsp;Code</span></footer>
-    </div></div>
-  </section>
-
-  <!-- Unscary.ai -->
-  <section class="study" id="b43" data-progress>
-    <div class="pin"><div class="panel">
-      <header class="study-head">
-        <h2>Unscary.ai</h2>
-        <p class="study-sub">Teaching whole teams to actually use AI.</p>
-        <span class="stamp">IN PRODUCTION</span>
-      </header>
-      <div class="study-body">
-        <figure class="shot stack-shot">
-          <img class="s1" src="assets/b43-hub.webp" alt="Unscary, Unscary.ai's iPhone app: a Learn tab greeting 'Welcome back, Sarah', a Monday-to-Friday week strip set to three lessons a week, and the next lesson — 'What is AI, really?' — waiting behind a Start button" width="644" height="1400">
-          <img class="s2" src="assets/b43-rep.png" alt="A lesson in progress, 'Same tool, two answers': two chat exchanges compared side by side, one vague and one that added 'I have chicken and twenty minutes', then three choices for why the second answer fit better" width="644" height="1400">
-          <img class="s3" src="assets/b43-progress.png" alt="The Progress tab: 350 points across 20 lessons, a Level 5 bar, and standing on the four rungs — Recognize strong, Try developing, Standardize marked as the frontier, Automate developing" width="644" height="1400">
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-        </figure>
-        <div class="beats">
-          <div class="beat">
-            <h3>What it is</h3>
-            <p>An AI-enablement platform. Seven modules take a team from “what's a prompt” to shipping their own reusable AI skills. Unscary is the same ladder as an iPhone app — the screens on the left are its.</p>
-          </div>
-          <div class="beat">
-            <h3>Why it works this way</h3>
-            <p>Nobody learns a tool by watching someone else use it, so there are no lecture videos. Five interactive formats instead — sort it, sequence it, build the prompt, place the chips — ending at a Skill Builder that turns a conversation into a skill the whole team can run.</p>
-          </div>
-          <div class="beat">
-            <h3>How I built it</h3>
-            <p>React, TypeScript, Supabase. 48 routes, 32 edge functions. I built the Skill Builder three times before it was right, so now it is graded like a student: live-LLM tests run real scenarios and score the output on every deploy. If it gets dumber, the build says so.</p>
-          </div>
-        </div>
-      </div>
-      <footer class="study-built">
-        <span class="built-stack">React · TypeScript · Supabase · Playwright · built with Claude&nbsp;Code&nbsp;+&nbsp;Cursor</span>
-        <span class="study-links">
-          <a class="site-link" href="https://www.b43.ai/">b43.ai&nbsp;→</a>
-          <a class="site-link" href="https://www.unscary.ai/">unscary.ai&nbsp;→</a>
-        </span>
-      </footer>
     </div></div>
   </section>
 
@@ -354,7 +354,7 @@
   <!-- ============ ABOUT ============ -->
   <section class="about" id="about">
     <h2>About</h2>
-    <p>Product designer at Upstory. I've designed fintech research tools, taught UX at Northwestern's bootcamp, and spent the last few years closing the gap between "designed it" and "shipped it." The doodles are load-bearing.</p>
+    <p>Product designer at Upstory. I've designed fintech research tools, taught UX at Northwestern's bootcamp, and spent the last few years making ideas move. The doodles are load-bearing.</p>
     <div class="links">
       <a class="btn" href="https://github.com/Schubaru" rel="me">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/alexschu" rel="me">LinkedIn</a>
