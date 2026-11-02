@@ -807,7 +807,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 .alt-install summary:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; }
 .skill .site-link { display: inline-block; margin-top: 18px; }
 /* a skill whose output is words gets them taped in as a note, set the way they came back:
-   bullets for the Slack brief, a ledger for the audit runs, mono for a prompt */
+   bullets for the Slack brief, a ledger for the audit runs, a finding for an audit */
 .note {
   border: 2.5px solid var(--ink);
   background: var(--paper);
@@ -828,7 +828,6 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 }
 .note ul { padding-left: 1.1em; display: grid; gap: 2px; }
 .note-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); }
-.note-mono { font-family: var(--font-mono); font-size: 0.75rem; }
 .note-fixed { border-top: 2px dashed var(--rule); padding-top: 10px; font-weight: 500; }
 .ledger { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; }
 .ledger dt { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); padding-top: 2px; }
