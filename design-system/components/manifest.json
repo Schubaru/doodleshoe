@@ -203,7 +203,7 @@
     "name": "TopNav",
     "category": "navigation",
     "tier": "core",
-    "purpose": "The sticky header: the wordmark with the shoe walking in front of it, and three destinations.",
+    "purpose": "The sticky header: the wordmark with the shoe walking in front of it, and two destinations: Skills and The Arbiter.",
     "useFor": "One per page, always. It is the only chrome the site has.",
     "dontUseFor": "Growing. Its height is what every sticky panel's height budget is measured off, which is why the shoe is taken out of flow and overhangs into the nav's padding.",
     "anatomy": "Wordmark at 700/1.4rem with the shoe absolutely positioned in a 62px lane, then three nav links with an ink underline on hover. Paper at 88 percent with a 6px backdrop blur, 2px ink bottom border.",

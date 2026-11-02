@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Arbiter: Alex Schumacher, Design Engineer</title>
+<meta name="description" content="A Discord bot of very few words: a Sangheili warrior who lives in my friends' Discord. Talk to him. There is no way out.">
+<meta property="og:title" content="The Arbiter: a Discord bot of very few words">
+<meta property="og:description" content="Two Zapier automations and a prompt made almost entirely of restrictions. Talk to him.">
+<meta property="og:url" content="https://doodleshoe.vercel.app/arbiter">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M4%2018%20Q1.8%2021.5%203.5%2024.5%20Q5%2026%208.5%2026%20L24%2026%20Q29%2025.5%2030%2020.5%20M4%2018%20Q2%2010%208%207.5%20Q14%207%2015.5%2012.5%20Q23%2014%2030%2020.5%20M4%2018%20Q17%2020.5%2030%2020.5%27%20fill%3D%27none%27%20stroke%3D%27%23151b24%27%20stroke-width%3D%272.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#chatLog">Skip to the conversation</a>
+
+<header class="topnav">
+  <a class="wordmark" href="/"><svg class="shoe doodle" viewBox="0 0 120 76" aria-hidden="true">
+      <path pathLength="1" d="M10 48 Q3 55 5 63 Q9 70 22 70 L94 70 Q111 69 115 58 Q117 51 106 48"/>
+      <path pathLength="1" d="M6 59 Q48 63 96 61 Q110 60 116 54"/>
+      <path pathLength="1" d="M10 48 Q4 34 14 26 Q24 31 33 27 Q40 14 52 16 Q62 20 63 30 Q82 31 97 38 Q106 42 107 48"/>
+      <path pathLength="1" d="M79 33 Q74 41 75 50"/>
+      <path pathLength="1" d="M19 47 Q14 37 20 31"/>
+      <path pathLength="1" d="M36 29 L46 39 M43 24 L53 34"/>
+    </svg><span>Doodle&nbsp;&lsquo;Schu&rsquo;</span></a>
+  <nav aria-label="Site">
+    <a href="/skills/">Skills</a>
+    <a href="/arbiter/" aria-current="page">The Arbiter</a>
+  </nav>
+</header>
+
+<main>
+  <section class="arbiter" id="arbiter">
+    <div class="arbiter-inner">
+      <h1>The Arbiter</h1>
+      <p class="study-sub">A Discord bot of very few words.</p>
+      <p class="arbiter-copy">A Sangheili warrior (Halo, yes) who lives in my friends' Discord. Two Zapier automations: one answers the channel, one wakes on a schedule and issues proclamations nobody asked for. The whole bot is a prompt, and the prompt is almost entirely restrictions: a model's instinct is to explain itself, and explanation would kill him.</p>
+
+      <noscript><style>.chat { display: none; }</style></noscript>
+      <div class="chat">
+        <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-label="Conversation with the Arbiter" tabindex="0">
+          <p class="msg bot">Speak.</p>
+        </div>
+        <div class="chat-actions" id="chatActions" role="group" aria-label="Your reply"></div>
+      </div>
+
+      <p class="study-built arbiter-built">Zapier · Discord · Claude Cowork</p>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p>Hand-drawn SVG · vanilla HTML/CSS/JS · no framework · no build step. 309 hand-written nodes, 927 replies, no exit. Site built in Claude&nbsp;Code.</p>
+  <p>© 2026 Alex Schumacher</p>
+</footer>
+
+<script src="/arbiter/arbiter.js" defer></script>
+</body>
+</html>
