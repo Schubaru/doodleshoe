@@ -1,0 +1,112 @@
+/* ————— doodleshoe site layer —————
+   Hand-authored, and authoritative. tokens.css is generated from style-spec.json and
+   carries the ramps, the type scale, space, radius and a generic elevation table.
+   These are the things the generator has no concept of, and they are the things that
+   make this site the thing it is: a 28px ruled grid with two reserved lanes, a hard
+   zero-blur offset shadow standing in for the whole elevation scale, a 2.5px ink
+   border, and one dark surface that is not a dark mode.
+
+   Values are oklch and match styles.css exactly. Do not fork them: when one moves,
+   both move. MIGRATION.md maps every var here to the --ink / --paper name that
+   styles.css still uses today. */
+
+:root {
+  /* ——— paper: the surface, and the grid drawn on it ——— */
+  --doodle-paper: oklch(1 0 0);
+  --doodle-rule-line: oklch(0.9 0.03 230);   /* the ruled line: structural, never text */
+  --doodle-rule-h: 28px;                     /* the vertical rhythm; body line-height IS this */
+  --doodle-margin-x: 64px;                   /* the red margin line's lane. Nothing crosses it. */
+  --doodle-gutter-x: 148px;                  /* the monkey's lane: 40 offset + 60 width + 24 swing + 24 clearance */
+
+  /* ——— ink: the only pen ——— */
+  --doodle-ink: oklch(0.22 0.015 260);       /* body text and every doodle stroke */
+  --doodle-ink-soft: oklch(0.45 0.015 260);  /* secondary text, 7.2:1 on paper */
+  --doodle-ink-faint: oklch(0.88 0.008 260); /* selection wash, tape */
+  --doodle-ink-black: oklch(0.16 0 0);       /* zero-chroma black: the diver's outline only */
+  --doodle-margin-red: oklch(0.58 0.19 27);  /* the one hue. The margin line and the stamp. */
+
+  /* ——— the night surface: the Arbiter's black page ———
+     A surface inside the light theme, not a second mode. Nothing else inverts.
+     Every value the black page needs is named here, because a literal oklch buried in
+     a .chat-btn rule is exactly how a second ink gets onto this site by accident. */
+  --doodle-night: oklch(0.17 0.01 260);          /* the page */
+  --doodle-night-panel: oklch(0.21 0.012 260);   /* the chat, one step up off the page */
+  --doodle-night-ink: oklch(0.97 0 0);           /* headings and the bot's own voice */
+  --doodle-night-copy: oklch(0.88 0.005 260);    /* body copy */
+  --doodle-night-muted: oklch(0.75 0.01 260);    /* the deck */
+  --doodle-night-faint: oklch(0.72 0.01 260);    /* the built-with line */
+  --doodle-night-rule: oklch(0.4 0.02 260);      /* the dashed rule above the built-with line */
+  --doodle-night-scroll: oklch(0.45 0.02 260);   /* the log's scrollbar thumb */
+  --doodle-night-you: oklch(0.82 0 0);           /* your own replies, quieter than his */
+  --doodle-night-you-border: oklch(0.62 0 0);
+
+  /* the wall reply. Still the one hue: 27 is the margin red's hue, lifted in lightness
+     because the same red that reads on paper disappears on the black page. */
+  --doodle-wall-text: oklch(0.83 0.12 27);
+  --doodle-wall-border: oklch(0.65 0.17 27);
+
+  /* ——— elevation: one hard offset, no blur, always ink ———
+     The generated --doodle-elevation-* scale is blurred and alpha-based, and is not
+     used on this site. Depth here is a shadow you could have drawn with the same pen. */
+  --doodle-shadow-sm: 4px 4px 0 var(--doodle-ink);   /* button at rest */
+  --doodle-shadow-md: 6px 6px 0 var(--doodle-ink);   /* button on hover */
+  --doodle-shadow-lg: 8px 8px 0 var(--doodle-ink);   /* the case-study panel */
+  --doodle-shadow-pressed: 1px 1px 0 var(--doodle-ink);
+  --doodle-shadow-fan: 6px 6px 0 oklch(0.22 0.015 260 / 0.25);  /* screens behind the lead screen */
+
+  /* the same three shadows again, in the night surface's ink. On black an ink shadow
+     is invisible, so the offset is carried by a lifted grey instead. */
+  --doodle-shadow-night-sm: 4px 4px 0 oklch(0.45 0.02 260 / 0.7);
+  --doodle-shadow-night-md: 6px 6px 0 oklch(0.45 0.02 260 / 0.7);
+  --doodle-shadow-night-lg: 8px 8px 0 oklch(0.4 0.02 260 / 0.6);
+  --doodle-shadow-night-pressed: 1px 1px 0 oklch(0.45 0.02 260 / 0.7);
+  --doodle-shadow-wall-sm: 4px 4px 0 oklch(0.5 0.16 27 / 0.7);
+  --doodle-shadow-wall-md: 6px 6px 0 oklch(0.5 0.16 27 / 0.7);
+  --doodle-shadow-wall-pressed: 1px 1px 0 oklch(0.5 0.16 27 / 0.7);
+
+  /* ——— the frame ———
+     Generated --doodle-border-width-* tops out at 2px. Neubrutalist frames need 2.5. */
+  --doodle-border-ink: 2.5px solid var(--doodle-ink);
+  --doodle-border-ink-thin: 2px solid var(--doodle-ink);
+  --doodle-border-dashed: 2px dashed var(--doodle-rule-line);   /* the built-with rule */
+
+  /* ——— the hand ——— */
+  --doodle-stroke-w: 2.6;        /* doodle stroke at a 100-unit viewBox */
+  --doodle-stroke-w-small: 4.2;  /* small doodles (the shoe): heavier, so it survives the scale-down */
+  --doodle-tape: oklch(0.9 0.006 260 / 0.72);
+  --doodle-tilt-shot: -1.6deg;
+  --doodle-tilt-stamp: 6deg;
+  --doodle-tilt-annot: -3deg;
+
+  /* ——— motion ———
+     Expo/quart out. No bounce, no elastic, anywhere. */
+  --doodle-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --doodle-ease-quick: ease-out;
+  --doodle-dur-tap: 0.12s;   /* button press and hover */
+  --doodle-dur-draw: 1.1s;   /* ink drawing itself in */
+
+  /* ——— layers ——— */
+  --doodle-z-doodle: 1;
+  --doodle-z-content: 2;
+  --doodle-z-nav: 10;
+
+  /* the families, with the fallback stacks the generator flattens away */
+  --doodle-font-family-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
+  --doodle-font-family-display: var(--doodle-font-family-body);
+  --doodle-font-family-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --doodle-dur-tap: 0s; --doodle-dur-draw: 0s; }
+}
+
+/* The monkey's lane closes and the margin narrows; below this width he is hidden
+   and the panel is free to use the full measure. */
+@media (max-width: 900px) {
+  :root { --doodle-margin-x: 30px; --doodle-gutter-x: 0px; }
+}
+
+/* A phone cannot spend 8px on a shadow and still hold the panel's measure. */
+@media (max-width: 480px) {
+  :root { --doodle-shadow-lg: 5px 5px 0 var(--doodle-ink); }
+}

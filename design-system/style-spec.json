@@ -1,0 +1,46 @@
+{
+  "version": "1.1.0",
+  "name": "doodleshoe",
+  "prefix": "doodle",
+  "platforms": ["web"],
+  "output": "design-system",
+  "modes": ["light"],
+
+  "color": {
+    "primary": "#D33B36",
+    "secondary": null,
+    "accent": null,
+    "neutral": "cool",
+    "status": {
+      "success": "#171B22",
+      "warning": "#171B22",
+      "info": "#171B22",
+      "danger": "#D33B36"
+    }
+  },
+
+  "type": {
+    "display": "Atkinson Hyperlegible Next",
+    "body": "Atkinson Hyperlegible Next",
+    "mono": "ui-monospace",
+    "staticWeights": false,
+    "baseSize": 16,
+    "ratio": 1.25,
+    "density": "normal"
+  },
+
+  "space": { "base": 4 },
+  "shape": { "radius": "sharp", "border": "regular" },
+  "elevation": "low",
+  "feedback": { "toastStyle": "strong" },
+
+  "components": { "tier": "custom", "include": [], "exclude": [] },
+  "accessibility": { "target": "AA" },
+
+  "sources": [
+    { "type": "codebase", "note": "styles.css :root (the shipped variables) and index.html markup" },
+    { "type": "description", "note": "DESIGN.md, hand-written by Alex, is the prose original of this spec" }
+  ],
+
+  "notes": "Ink on college-rule paper. Exactly one hue exists on the site: the margin red (primary). Every status seed is therefore ink except danger, which is that same red; a green or amber has never appeared on this page and must not. Light only, on purpose: paper has no dark mode. The Arbiter's black page is a dark SURFACE inside the light theme, not a second mode. Three things the generic generator cannot express live in tokens/tokens.site.css: the 28px rule grid with its margin and gutter lanes, the hard zero-blur offset shadow that carries all elevation, and the 2.5px ink border. Those are hand-authored and authoritative."
+}

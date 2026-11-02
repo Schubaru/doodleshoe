@@ -1,0 +1,302 @@
+[
+  {
+    "name": "Button",
+    "category": "actions",
+    "tier": "core",
+    "purpose": "The site's one solid control. It is a promise to go somewhere on this site, or to start something here.",
+    "useFor": "In-site destinations (368 Dinos), and the About page's profile links.",
+    "dontUseFor": "Leaving the site from inside a case-study panel. That is SiteLink, which borrows the Stamp's pill so a panel gains a control without gaining a second visual language.",
+    "anatomy": "Ink border 2.5px, paper fill, hard 4px offset shadow, body font at 700. Hover lifts 1px and the shadow grows to 6px; press drops 3px and the shadow collapses to 1px, so the button meets the paper.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:442",
+    "html": "<div style=\"display:flex;gap:20px;align-items:center;flex-wrap:wrap\"><a class=\"btn\" href=\"#\">GitHub</a><a class=\"btn play-btn\" href=\"#\">Play it &rarr;</a><span class=\"btn\" style=\"transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--ink)\">hover</span><span class=\"btn\" style=\"transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)\">pressed</span></div>"
+  },
+  {
+    "name": "SiteLink",
+    "category": "actions",
+    "tier": "core",
+    "purpose": "A live link out of the site, worn as the Stamp's pill so it costs the panel no new language.",
+    "useFor": "Only for leaving the site. It lives in the panel footer next to the built-with line.",
+    "dontUseFor": "In-site navigation, which keeps the solid Button because it is a different promise. Never rotate it: a tilted pill reads as a Stamp.",
+    "anatomy": "Mono caps at 0.72rem, 2px ink border, full radius, no fill. Hover fills with ink and lifts 1px.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:375",
+    "html": "<span class=\"study-links\"><a class=\"site-link\" href=\"#\">b43.ai&nbsp;&rarr;</a><a class=\"site-link\" href=\"#\">unscary.ai&nbsp;&rarr;</a><span class=\"site-link\" style=\"background:var(--ink);color:var(--paper);transform:translateY(-1px)\">hover&nbsp;&rarr;</span></span>"
+  },
+  {
+    "name": "CopyLine",
+    "category": "actions",
+    "tier": "core",
+    "purpose": "An install command a visitor can take: the command as selectable mono text, with an ink Copy half.",
+    "useFor": "Commands on the skills page, one per skill plus the install-everything line at the top.",
+    "dontUseFor": "Prose, or a prompt someone types into Claude; that is the plain mono '›' line above it. Never inside a sticky panel: it has no place in their height budget.",
+    "anatomy": "2.5px ink frame with the Button's 4px resting shadow. Mono command at 0.85rem, wrapping at its spaces. The Copy half is mono caps on ink, 9ch wide so Copy and Copied never shift the line. Hidden without JS; the command stays selectable.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:751",
+    "html": "<div class=\"copyline\"><code>npx skills add Schubaru/skills --skill norm-dog</code><button class=\"copy\" type=\"button\">Copy</button></div><div class=\"copyline\" style=\"margin-top:20px\"><code>npx skills add Schubaru/skills</code><button class=\"copy\" type=\"button\">Copied</button></div>"
+  },
+  {
+    "name": "Stamp",
+    "category": "status",
+    "tier": "core",
+    "purpose": "The graded mark on a case study: what state the work is actually in.",
+    "useFor": "One per panel, top right of the study head. Short and factual: IN PRODUCTION, iOS · v1, SHIPPED.",
+    "dontUseFor": "Anything that can be clicked. It is a mark, not a control, and its rotation is what says so.",
+    "anatomy": "Mono caps at 0.72rem, 2px ink border, full radius, rotated 6 degrees. Absolutely positioned in the study head; it becomes static and inline below 900px.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:263",
+    "html": "<div style=\"display:flex;gap:28px;align-items:center;flex-wrap:wrap;padding:14px 0\"><span class=\"stamp\" style=\"position:static\">IN PRODUCTION</span><span class=\"stamp\" style=\"position:static\">iOS &middot; v1</span><span class=\"stamp\" style=\"position:static;color:var(--margin-red);border-color:var(--margin-red)\">SHIPPED</span></div>"
+  },
+  {
+    "name": "Panel",
+    "category": "content",
+    "tier": "core",
+    "purpose": "The case-study card: a sheet of paper laid on the paper, holding one piece of work end to end.",
+    "useFor": "One per case study. It fills the lane between the red margin line and the monkey's gutter, and it is capped so it can never grow into either.",
+    "dontUseFor": "Short content. A panel that is not carrying a head, three beats, shots and a built-with line is just a bordered box.",
+    "anatomy": "Head (h2 + deck + Stamp), body (TapedShot in the 8fr column, Beats in the 5fr column), footer (built-with line + SiteLinks). Ink border 2.5px, hard 8px offset shadow, fluid padding 24-56px.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:233",
+    "html": "<div style=\"padding:20px 0\"><div class=\"panel\" style=\"width:100%;margin-left:0\"><header class=\"study-head\"><h2 style=\"font-size:1.9rem\">Wordsword</h2><p class=\"study-sub\">A dictionary that keeps your words.</p><span class=\"stamp\">iOS &middot; v1</span></header><div class=\"study-body\"><div class=\"beat\"><h3>What it is</h3><p>The head, one beat and the built-with line, with the shots left out so the frame itself is visible.</p></div></div><footer class=\"study-built\"><span class=\"built-stack\">SwiftUI &middot; Claude&nbsp;Code</span><span class=\"study-links\"><a class=\"site-link\" href=\"#\">wordsword.app&nbsp;&rarr;</a></span></footer></div></div>"
+  },
+  {
+    "name": "Beat",
+    "category": "content",
+    "tier": "core",
+    "purpose": "One step of the case study's argument: what it is, then why it works this way, then my role.",
+    "useFor": "Exactly three per panel, in that order. The middle one names the decision and the thing it rejected; the third is first person and picks one hard part.",
+    "dontUseFor": "A stack list. The built-with line already carries the stack. And never more than three: only one beat is visible at a time, so a fourth is a beat nobody reads.",
+    "anatomy": "Mono caps heading at 0.76rem in ink-soft, then a paragraph at a 48ch measure. The heading sits BELOW the body in the hierarchy because it is a signpost, not a headline.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:339",
+    "html": "<div style=\"max-width:48ch;padding:14px 0\"><div class=\"beat\"><h3>What it is</h3><p>A tiny browser puzzle. Match three dinos to rescue them; let the board fill and it is an <strong>EXTINCTION EVENT</strong>.</p></div><div class=\"beat\"><h3>Why it works this way</h3><p>A five-second game has no business asking for an install, an account, or a tutorial.</p></div><div class=\"beat\"><h3>My role</h3><p>Three files. Zero dependencies. No build step. Every dino is hand-inlined SVG.</p></div></div>"
+  },
+  {
+    "name": "TapedShot",
+    "category": "content",
+    "tier": "core",
+    "purpose": "Real screenshots taped onto the paper. The evidence, and the reason the shots get the wide column.",
+    "useFor": "One arrangement per case study, and they must stay distinct: two identical fans back to back read as a template rather than a hand.",
+    "dontUseFor": "Mockups, device frames, or anything that is not the software actually running.",
+    "anatomy": "A figure rotated -1.6deg holding absolutely positioned screens, each with a 2.5px ink border, plus two masking-tape SVGs. Three arrangements: phone-shot is a dealt deck, stack-shot is a centre-forward trio, wide-shot is one letterboxed dashboard with close-ups taped over it.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:287",
+    "html": "<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\"><defs><symbol id=\"pg-tape\" viewBox=\"0 0 90 30\"><path d=\"M4 6 L86 3 L88 24 L2 27 L5 17 Z\" fill=\"var(--tape)\" stroke=\"none\"/></symbol></defs></svg><div style=\"display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;padding:28px 12px\"><div style=\"flex:0 0 auto\"><p class=\"annot\" style=\"margin-bottom:10px\">phone-shot &middot; a dealt deck</p><figure class=\"shot phone-shot\" style=\"max-width:240px;margin:0\"><img class=\"s1\" src=\"../../assets/wordsword-home.png\" alt=\"\"><img class=\"s2\" src=\"../../assets/wordsword-chain.png\" alt=\"\"><img class=\"s3\" src=\"../../assets/wordsword-cards.png\" alt=\"\"><svg class=\"tape t1\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg><svg class=\"tape t2\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg></figure></div><div style=\"flex:0 0 auto\"><p class=\"annot\" style=\"margin-bottom:10px\">stack-shot &middot; centre forward</p><figure class=\"shot stack-shot\" style=\"max-width:280px;margin:0\"><img class=\"s1\" src=\"../../assets/b43-hub.webp\" alt=\"\"><img class=\"s2\" src=\"../../assets/b43-rep.png\" alt=\"\"><img class=\"s3\" src=\"../../assets/b43-progress.png\" alt=\"\"><svg class=\"tape t1\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg><svg class=\"tape t2\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg></figure></div><div style=\"flex:0 0 auto\"><p class=\"annot\" style=\"margin-bottom:10px\">wide-shot &middot; taped close-ups</p><figure class=\"shot wide-shot\" style=\"max-width:300px;margin:0\"><img class=\"s1\" src=\"../../assets/noob-hero.png\" alt=\"\"><img class=\"s2\" src=\"../../assets/noob-search.png\" alt=\"\"><img class=\"s3\" src=\"../../assets/noob-trade.png\" alt=\"\"><svg class=\"tape t1\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg><svg class=\"tape t2\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg></figure></div></div>"
+  },
+  {
+    "name": "DemoReel",
+    "category": "content",
+    "tier": "core",
+    "purpose": "The same taped frame, but a silent looping video of the thing actually running.",
+    "useFor": "When the work is motion and a still cannot carry it. 368 Dinos is the one instance.",
+    "dontUseFor": "Anything a screenshot already proves. A reel costs bandwidth and attention that a still does not.",
+    "anatomy": "A video inside a .shot with preload none and a real screenshot as poster, so it costs nothing until it is nearly on screen and a reduced-motion visitor keeps a true still. Autoplay lives in JS, never in the markup: that is what keeps the motion contract in one place.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:294",
+    "html": "<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\"><defs><symbol id=\"pg-tape\" viewBox=\"0 0 90 30\"><path d=\"M4 6 L86 3 L88 24 L2 27 L5 17 Z\" fill=\"var(--tape)\" stroke=\"none\"/></symbol></defs></svg><div style=\"padding:24px 8px\"><figure class=\"shot\" style=\"max-width:260px;margin:0\"><video class=\"demo\" muted loop playsinline preload=\"none\" poster=\"../../assets/dinos-shot.png\" src=\"../../assets/dinos-demo.mp4\"></video><svg class=\"tape t1\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg><svg class=\"tape t2\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg></figure><p class=\"annot\" style=\"margin-top:12px\">Shown at its poster frame, which is exactly what a reduced-motion visitor gets.</p></div>"
+  },
+  {
+    "name": "Doodle",
+    "category": "content",
+    "tier": "core",
+    "purpose": "Hand-authored inline SVG in one ink, one weight. The illustration system, and the site's whole hand.",
+    "useFor": "Only the cast: the shoe in the wordmark, the monkey in the right lane, the knight and his challenger on Wordsword's built-with line, the diver in the case-study transition, and the masking tape. Each one has a job.",
+    "dontUseFor": "Scattered marks. Skulls, stars, sparks, bolts, crowns, flames, hearts and horns are all gone: decoration was the thing making the page loud. If a new mark cannot name its job, it does not go on the page.",
+    "anatomy": "Stroke width 2.6 at a 100-unit viewBox (4.2 for small doodles like the shoe), round caps and joins, no fill, currentColor so the mark inherits ink. Every path carries pathLength=1 so it can draw itself in on scroll entry; reduced motion gets it pre-drawn.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:68",
+    "html": "<div style=\"display:flex;gap:32px;align-items:center;flex-wrap:wrap;padding:16px 0\"><svg class=\"doodle\" viewBox=\"0 0 120 76\" width=\"120\" aria-label=\"The shoe\"><path d=\"M10 48 Q3 55 5 63 Q9 70 22 70 L94 70 Q111 69 115 58 Q117 51 106 48\"/><path d=\"M6 59 Q48 63 96 61 Q110 60 116 54\"/><path d=\"M10 48 Q4 34 14 26 Q24 31 33 27 Q40 14 52 16 Q62 20 63 30 Q82 31 97 38 Q106 42 107 48\"/><path d=\"M79 33 Q74 41 75 50\"/><path d=\"M19 47 Q14 37 20 31\"/><path d=\"M36 29 L46 39 M43 24 L53 34\"/></svg><svg class=\"doodle\" viewBox=\"0 0 110 110\" width=\"90\" aria-label=\"The monkey astronaut\"><path d=\"M55 12 Q30 12 28 40 Q28 66 55 66 Q82 66 82 40 Q80 12 55 12 Z\"/><path d=\"M36 28 Q40 20 48 18\"/><path d=\"M55 8 L55 12 M55 8 Q55 4 59 4\"/><path d=\"M44 32 Q40 32 40 37 Q40 42 44 42 M66 32 Q70 32 70 37 Q70 42 66 42\"/><path d=\"M44 30 Q55 24 66 30 Q70 38 64 45 Q55 50 46 45 Q40 38 44 30 Z\"/><path d=\"M49 34 L49 36 M61 34 L61 36 M51 42 Q55 45 59 42\"/><path d=\"M44 66 Q40 80 46 88 Q55 92 64 88 Q70 80 66 66\"/><path d=\"M44 72 Q32 76 26 70\"/><path d=\"M66 71 Q88 70 92 45\"/><path d=\"M92 45 Q99 41 97 34 Q95 29 90 31 Q85 33 87 41\"/><path d=\"M48 89 Q44 98 38 101 M62 89 Q66 98 72 101\"/><path d=\"M64 92 Q80 98 84 88 Q86 80 78 80\"/></svg><svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\"><defs><symbol id=\"pg-tape\" viewBox=\"0 0 90 30\"><path d=\"M4 6 L86 3 L88 24 L2 27 L5 17 Z\" fill=\"var(--tape)\" stroke=\"none\"/></symbol></defs></svg><svg class=\"doodle tape\" viewBox=\"0 0 90 30\" width=\"90\" style=\"position:static\" aria-label=\"Masking tape\"><use href=\"#pg-tape\"/></svg></div>"
+  },
+  {
+    "name": "Annotation",
+    "category": "content",
+    "tier": "core",
+    "purpose": "A margin note in the reader's own hand: small, soft, slightly off-axis.",
+    "useFor": "Labelling something the layout cannot say by itself, like the diver strip's “going deeper…”.",
+    "dontUseFor": "Anything load-bearing. If the page falls over without the annotation, it is body copy and should look like it.",
+    "anatomy": "0.95rem at weight 500 in ink-soft, line-height 1.3, rotated 2-4 degrees when it sits in the margin.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:88",
+    "html": "<div style=\"padding:20px 0;display:flex;gap:40px;flex-wrap:wrap\"><p class=\"annot\">going deeper&hellip;</p><p class=\"annot\" style=\"transform:rotate(-3deg)\">rotated, the way it sits in the margin</p></div>"
+  },
+  {
+    "name": "TopNav",
+    "category": "navigation",
+    "tier": "core",
+    "purpose": "The sticky header: the wordmark with the shoe walking in front of it, and three destinations.",
+    "useFor": "One per page, always. It is the only chrome the site has.",
+    "dontUseFor": "Growing. Its height is what every sticky panel's height budget is measured off, which is why the shoe is taken out of flow and overhangs into the nav's padding.",
+    "anatomy": "Wordmark at 700/1.4rem with the shoe absolutely positioned in a 62px lane, then three nav links with an ink underline on hover. Paper at 88 percent with a 6px backdrop blur, 2px ink bottom border.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:98",
+    "html": "<div style=\"position:relative;padding-bottom:8px\"><header class=\"topnav\" style=\"position:static;padding-left:20px\"><a class=\"wordmark\" href=\"#\"><svg class=\"shoe doodle\" viewBox=\"0 0 120 76\" aria-hidden=\"true\"><path d=\"M10 48 Q3 55 5 63 Q9 70 22 70 L94 70 Q111 69 115 58 Q117 51 106 48\"/><path d=\"M6 59 Q48 63 96 61 Q110 60 116 54\"/><path d=\"M10 48 Q4 34 14 26 Q24 31 33 27 Q40 14 52 16 Q62 20 63 30 Q82 31 97 38 Q106 42 107 48\"/><path d=\"M79 33 Q74 41 75 50\"/><path d=\"M19 47 Q14 37 20 31\"/><path d=\"M36 29 L46 39 M43 24 L53 34\"/></svg><span>Doodle&nbsp;&lsquo;Schu&rsquo;</span></a><nav aria-label=\"Site\"><a href=\"#\">Work</a><a href=\"#\">The Arbiter</a><a href=\"#\">About</a></nav></header></div>"
+  },
+  {
+    "name": "SkipLink",
+    "category": "navigation",
+    "tier": "core",
+    "purpose": "The first thing in the tab order: a way straight to the work.",
+    "useFor": "Once, as the first element in the body. It is off-screen until focused.",
+    "dontUseFor": "Anything else. There is one skip target on this site and it is the work.",
+    "anatomy": "Absolutely positioned off-screen at left -999px; focus brings it to left 8px. Ink fill, paper text, 700 weight.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:60",
+    "html": "<div style=\"padding:20px 12px;display:flex;gap:20px;align-items:center;flex-wrap:wrap\"><a class=\"skip\" href=\"#\" style=\"position:static;white-space:nowrap\">Skip to the work</a><span class=\"annot\">shown in its focused state; until then it sits at left:-999px</span></div>"
+  },
+  {
+    "name": "Chat",
+    "category": "content",
+    "tier": "core",
+    "purpose": "The Arbiter's mini chat on the black page: a hand-authored dialogue tree of 309 nodes and 927 replies.",
+    "useFor": "Once, in the Arbiter section. Three replies per turn; slots one and two stay in the bit, slot three turns philosophical.",
+    "dontUseFor": "A general chat component. There is no exit here: every reply opens three more, and the conversation outlasting the visitor is the character.",
+    "anatomy": "A log (role=log, aria-live=polite, focusable) over a group of three ChatButtons. The wall reply is marked in margin-red so you can see it coming. On the night surface, so every ink value inverts to night-ink.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:622",
+    "html": "<div class=\"arbiter\" style=\"padding:28px;border-radius:0\"><div class=\"arbiter-inner\"><div class=\"chat\"><div class=\"chat-log\" role=\"log\" style=\"max-height:none\"><p class=\"msg bot\">Speak.</p><p class=\"msg you\">What do you do all day?</p><p class=\"msg bot\">I wait for a webhook.</p></div><div class=\"chat-actions\" role=\"group\"><button class=\"chat-btn\" type=\"button\">Fair enough.</button><button class=\"chat-btn\" type=\"button\">And when it comes?</button><button class=\"chat-btn chat-btn--rule\" type=\"button\">Were it so easy.</button></div></div></div></div>"
+  },
+  {
+    "name": "ChatButton",
+    "category": "actions",
+    "tier": "core",
+    "purpose": "One of the Arbiter's three replies. The only control that lives on the night surface.",
+    "useFor": "Always three at a time, inside Chat. The --rule modifier marks a reply that reaches the wall.",
+    "dontUseFor": "Anywhere on paper. It is built for the black page and its shadow colour assumes it.",
+    "anatomy": "Night-ink border and text, hard offset shadow in soft ink at 70 percent, growing on hover and collapsing to 1px on press. The rule modifier swaps the shadow to margin-red. Below 560px the three stack full width, because three long replies side by side read as confetti.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:688",
+    "html": "<div class=\"arbiter\" style=\"padding:24px\"><div class=\"chat-actions\" role=\"group\" style=\"position:static\"><button class=\"chat-btn\" type=\"button\">Fair enough.</button><button class=\"chat-btn\" type=\"button\" style=\"box-shadow:6px 6px 0 oklch(0.45 0.02 260 / 0.7)\">hover</button><button class=\"chat-btn chat-btn--rule\" type=\"button\">Were it so easy.</button></div></div>"
+  },
+  {
+    "name": "Colophon",
+    "category": "content",
+    "tier": "core",
+    "purpose": "The last word: how the site was made, and the copyright.",
+    "useFor": "Once, at the end of the page. Two short paragraphs, mono.",
+    "dontUseFor": "Navigation. The nav is at the top and the page is one scroll; a link farm down here would be a second nav nobody asked for.",
+    "anatomy": "Mono at 0.8rem in ink-soft, centred under a top border, sitting on the rule grid like everything else.",
+    "variants": [
+      "default"
+    ],
+    "sizes": [
+      "md"
+    ],
+    "states": [
+      "default"
+    ],
+    "source": "styles.css:725",
+    "html": "<footer class=\"colophon\" style=\"padding:20px\"><p>Hand-drawn SVG &middot; vanilla HTML/CSS/JS &middot; no framework &middot; no build step. The paper is one CSS gradient.</p><p>&copy; 2026 Alex Schumacher</p></footer>"
+  }
+]
