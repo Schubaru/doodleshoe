@@ -4,10 +4,8 @@ const url = 'http://localhost:5180/review?page=main&view=slides&screen=def-01-sa
 await record('take2a', { url, init: { 'rv:wordsword:reviewer': 'Alex' } }, async (r) => {
   const p = r.page;
   const btn = (sel) => p.locator(sel).first();
-  await r.cardOn('don-star · 2 of 3', 'Comments, answered', 'Pin a question on the live screen. An agent answers in the thread.');
   await btn('button[aria-label="Hide sidebar"],button[title="Hide sidebar"]').click();
   await r.wait(2400);
-  await r.cardOff();
   await r.wait(700);
 
   const tool = await r.box(btn('button[aria-label^="Comment mode"],button[title^="Comment mode"]'));

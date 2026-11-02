@@ -58,7 +58,7 @@
       "default"
     ],
     "source": "styles.css:751",
-    "html": "<div class=\"copyline\"><code>npx skills add Schubaru/skills --skill norm-dog</code><button class=\"copy\" type=\"button\">Copy</button></div><div class=\"copyline\" style=\"margin-top:20px\"><code>npx skills add Schubaru/skills</code><button class=\"copy\" type=\"button\">Copied</button></div>"
+    "html": "<div class=\"copyline\"><code>npx skills add Schubaru/skills --skill ui-surgeon</code><button class=\"copy\" type=\"button\">Copy</button></div><div class=\"copyline\" style=\"margin-top:20px\"><code>npx skills add Schubaru/skills</code><button class=\"copy\" type=\"button\">Copied</button></div>"
   },
   {
     "name": "Stamp",

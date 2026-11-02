@@ -9,7 +9,7 @@ struct Frame: Decodable { let f: String; let t: Double }
 struct Capture: Decodable { let t0: Double; let end: Double; let frames: [Frame] }
 struct Key: Decodable { let t: Double; let x: Double; let y: Double; let z: Double; let ms: Double }
 struct Take: Decodable { let dir: String; let trimStart: Double?; let trimEnd: Double? }
-struct Spec: Decodable { let takes: [Take]; let fps: Int; let kbps: Int; let w: Int; let h: Int; let viewW: Double; let viewH: Double; let fade: Double }
+struct Spec: Decodable { let takes: [Take]; let fps: Int; let kbps: Int; let w: Int; let h: Int; let viewW: Double; let viewH: Double; let fade: Double; let loop: Bool? }
 
 let a = CommandLine.arguments
 guard a.count >= 3 else { FileHandle.standardError.write("usage: cam2mp4 <takes.json> <out.mp4>\n".data(using: .utf8)!); exit(2) }
@@ -71,6 +71,8 @@ let fps = Double(spec.fps), fade = spec.fade
 var starts: [Double] = [], cursor = 0.0
 for c in clips { starts.append(cursor); cursor += c.duration - fade }
 let total = cursor + fade
+// loop: the first take also fades in over the last one's tail, and playback starts `fade` in, so the wrap is a crossfade
+let loop = spec.loop ?? false, shift = loop ? fade : 0, length = loop ? total - fade : total
 
 try? FileManager.default.removeItem(at: out)
 let writer = try AVAssetWriter(outputURL: out, fileType: .mp4)
@@ -88,14 +90,14 @@ writer.add(input)
 writer.startWriting()
 writer.startSession(atSourceTime: .zero)
 
-let count = Int((total * fps / 1000).rounded())
+let count = Int((length * fps / 1000).rounded())
 let queue = DispatchQueue(label: "frames"), done = DispatchSemaphore(value: 0)
 var i = 0
 input.requestMediaDataWhenReady(on: queue) {
     while input.isReadyForMoreMediaData {
         guard i < count else { input.markAsFinished(); done.signal(); return }
         defer { i += 1 }
-        let t = Double(i) * 1000 / fps
+        let t = Double(i) * 1000 / fps + shift
         guard let pool = adaptor.pixelBufferPool else { continue }
         var pb: CVPixelBuffer?
         CVPixelBufferPoolCreatePixelBuffer(nil, pool, &pb)
@@ -114,6 +116,7 @@ input.requestMediaDataWhenReady(on: queue) {
                 let alpha = k > 0 && local < fade ? CGFloat(ease(local / fade)) : 1
                 c.draw(local, in: ctx, alpha: alpha)
             }
+            if loop, t >= length { clips[0].draw(t - length, in: ctx, alpha: CGFloat(ease((t - length) / fade))) }
         }
         CVPixelBufferUnlockBaseAddress(buf, [])
         adaptor.append(buf, withPresentationTime: CMTime(value: CMTimeValue(i), timescale: CMTimeScale(spec.fps)))
@@ -123,4 +126,4 @@ done.wait()
 writer.finishWriting { done.signal() }
 done.wait()
 guard writer.status == .completed else { FileHandle.standardError.write("write failed: \(writer.error?.localizedDescription ?? "?")\n".data(using: .utf8)!); exit(1) }
-print("\(out.path) — \(count) frames @ \(spec.fps)fps, \(spec.w)x\(spec.h), \(String(format: "%.1f", total / 1000))s")
+print("\(out.path) — \(count) frames @ \(spec.fps)fps, \(spec.w)x\(spec.h), \(String(format: "%.1f", length / 1000))s")

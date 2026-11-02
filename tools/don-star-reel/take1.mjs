@@ -4,10 +4,8 @@ const url = 'http://localhost:5180/review?page=main&view=slides&screen=def-01-sa
 await record('take1', { url, init: { 'rv:wordsword:reviewer': 'Alex' } }, async (r) => {
   const p = r.page;
   const btn = (sel) => p.locator(sel).first();
-  await r.cardOn('don-star · 1 of 3', 'Design tool', 'Pick anything on the live screen and restyle it.');
   await btn('button[aria-label="Hide sidebar"],button[title="Hide sidebar"]').click();
   await r.wait(2200);
-  await r.cardOff();
   await r.wait(700);
 
   const design = await r.box(btn('button[aria-label^="Design"],button[title^="Design"]'));

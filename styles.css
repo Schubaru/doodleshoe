@@ -107,25 +107,25 @@ a, button, summary, [role="button"], label[for], .btn {
   font-size: 1.4rem;
   color: var(--ink);
   text-decoration: none;
-  white-space: nowrap;   /* the shoe never breaks away onto its own line */
+  white-space: nowrap;   /* the knight never breaks away onto its own line */
   position: relative;
-  padding-left: 62px;    /* the lane the shoe stands in — 54px wide + 8px gap */
+  padding-left: 41px;    /* the lane the knight stands in — 33px wide + 8px gap */
 }
-/* The sneaker walks in front of the name. Taken out of flow on purpose: in the
-   line box it grew the sticky header by 6px, and every sticky panel's height
-   budget (--shot-h) is measured off that header. It overhangs the 28px line
-   into the nav's 14px padding, which is where the slack already was. */
-.shoe {
+/* The knight stands guard in front of the name, sword up. Taken out of flow on
+   purpose: in the line box he would grow the sticky header, and every sticky
+   panel's height budget (--shot-h) is measured off that header. At 40px he
+   overhangs the 28px line by ~6px each way, into the nav's 14px padding. */
+.knight {
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 54px;
+  width: 33px;
 }
-.shoe path { stroke-width: 4.2; }   /* ~1.7px rendered — the small-doodle ink weight */
-/* the ring has to clear the shoe, which overhangs the 28px line box by ~3px.
+.knight path { stroke-width: 4.2; }   /* ~1.9px rendered — the small-doodle ink weight */
+/* the ring has to clear the knight, who overhangs the 28px line box by ~6px.
    Same shape as the chat log's ring — the site's one existing focus style. */
-.wordmark:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; border-radius: 2px; }
+.wordmark:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 8px; border-radius: 2px; }
 .topnav nav { display: flex; gap: clamp(14px, 3vw, 32px); }
 .topnav nav a {
   color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem;
@@ -143,18 +143,13 @@ a, button, summary, [role="button"], label[for], .btn {
   padding: calc(var(--rule-h) * 3) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 4) calc(var(--margin-x) + clamp(16px, 4vw, 64px));
 }
 .hero-inner { max-width: 780px; position: relative; z-index: var(--z-content); container-type: inline-size; }
-.hello {
-  font-weight: 500;
-  color: var(--ink-soft);
-  margin-bottom: var(--rule-h);
-}
 h1 {
   font-weight: 700;
-  /* "Product designer" measures 7.70em, and the two-row read dies the moment it wraps.
-     Sized off the container, not the viewport, so it holds one line at every width and
-     stays right if the hero padding ever moves. 12.4cqw = 7.70em fit with ~4% slack for
-     the fallback face during swap; the 5.4rem cap still governs from ~700px up. */
-  font-size: clamp(1.9rem, 12.4cqw, 5.4rem);
+  /* "/N00B-Labs" measures 5.49em and is a name: it must never wrap. Sized off the
+     container, not the viewport, so it holds one line at every width and stays right if
+     the hero padding ever moves. 17.5cqw = 5.49em fit with ~4% slack for the fallback
+     face during swap; the 6rem cap governs from ~550px of container up. */
+  font-size: clamp(1.9rem, 17.5cqw, 6rem);
   line-height: 1.08;
   letter-spacing: -0.02em;
   margin-bottom: calc(var(--rule-h) * 1.5);
@@ -918,8 +913,8 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
    header eat a tenth of a phone viewport — so the whole bar steps down together. */
 @media (max-width: 640px) {
   .topnav { padding-left: calc(var(--margin-x) + 12px); padding-right: 16px; }
-  .wordmark { font-size: 1rem; padding-left: 34px; }
-  .shoe { width: 30px; }
+  .wordmark { font-size: 1rem; padding-left: 30px; }
+  .knight { width: 24px; }
   .topnav nav { gap: 8px; }
   .topnav nav a { font-size: 0.875rem; }   /* 14px — the floor, not below it */
 }

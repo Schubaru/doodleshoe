@@ -18,31 +18,16 @@ const OVERLAY = `
   .rc-ring{position:fixed;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:2px solid #1f2330;
     z-index:2147483646;pointer-events:none;animation:rc-ring .45s ease-out forwards}
   @keyframes rc-ring{from{transform:scale(.3);opacity:.6}to{transform:scale(1.25);opacity:0}}
-  #rc-card{position:fixed;inset:0;z-index:2147483645;pointer-events:none;opacity:0;transition:opacity .45s ease;
-    background:#fff;background-image:linear-gradient(to bottom,transparent 55px,#d3dfe9 55px,#d3dfe9 56px,transparent 56px);
-    background-size:100% 56px;font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif;color:#1f2330}
-  #rc-card::before{content:"";position:absolute;top:0;bottom:0;left:132px;width:2px;background:#d6453a}
-  #rc-card.on{opacity:1}
   #rc-cap{position:fixed;left:50%;bottom:92px;transform:translate(-50%,12px);z-index:2147483644;pointer-events:none;opacity:0;
     transition:opacity .35s ease,transform .35s ease;background:#1f2330;color:#fff;border-radius:999px;padding:9px 18px;
     font:600 14px/20px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;white-space:nowrap}
   #rc-cap.on{opacity:1;transform:translate(-50%,0)}
-  #rc-card .in{position:absolute;left:184px;top:236px;right:120px}
-  #rc-card .k{margin-top:28px;font:600 16px/28px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#5f6472}
-  #rc-card h1{margin:0;font-weight:700;font-size:92px;line-height:112px;letter-spacing:-.02em}
-  #rc-card p{margin:0;font-size:30px;line-height:56px;color:#5f6472}
   \`;
   const boot = () => {
     const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
-    const l = document.createElement('link'); l.rel = 'stylesheet';
-    l.href = 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=block';
-    document.head.appendChild(l);
     const c = document.createElement('div'); c.id = 'rc-cur';
     c.innerHTML = '<svg width="26" height="26" viewBox="0 0 26 26"><path d="M3 2 L3 21 L8 16.4 L11.6 24 L15 22.4 L11.5 15 L18 15 Z" fill="#1f2330" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>';
     document.body.appendChild(c);
-    const card = document.createElement('div'); card.id = 'rc-card';
-    card.innerHTML = '<div class="in"><h1></h1><p></p><div class="k"></div></div>';
-    document.body.appendChild(card);
   };
   if (document.body) boot(); else document.addEventListener('DOMContentLoaded', boot);
   window.__rc = {
@@ -50,9 +35,6 @@ const OVERLAY = `
     down(on) { document.getElementById('rc-cur').classList.toggle('down', on); },
     ring(x, y) { const r = document.createElement('div'); r.className = 'rc-ring'; r.style.left = x + 'px'; r.style.top = y + 'px';
       document.body.appendChild(r); setTimeout(() => r.remove(), 500); },
-    card(on, k, h, p) { const c = document.getElementById('rc-card'); if (k !== undefined) {
-      c.querySelector('.k').textContent = k; c.querySelector('h1').textContent = h; c.querySelector('p').textContent = p; }
-      c.classList.toggle('on', on); },
     caption(t) { let c = document.getElementById('rc-cap'); if (!c) { c = document.createElement('div'); c.id = 'rc-cap'; document.body.appendChild(c); }
       if (t) c.textContent = t; c.classList.toggle('on', !!t); },
     hide(on) { document.getElementById('rc-cur').style.opacity = on ? 0 : 1; },
@@ -61,7 +43,7 @@ const OVERLAY = `
 
 const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
-export async function record(out, { url, init = {}, dpr = 2 }, script) {
+export async function record(out, { url, init = {}, dpr = 2, setup }, script) {
   fs.rmSync(out, { recursive: true, force: true });
   fs.mkdirSync(out + '/frames', { recursive: true });
   const browser = await chromium.launch();
@@ -71,6 +53,7 @@ export async function record(out, { url, init = {}, dpr = 2 }, script) {
     for (const [k, v] of Object.entries(init)) if (localStorage.getItem(k) === null) localStorage.setItem(k, v);
   }, { init });
   await ctx.addInitScript(OVERLAY);
+  if (setup) await setup(ctx);
   const page = await ctx.newPage();
   await page.goto(url, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
@@ -115,8 +98,6 @@ export async function record(out, { url, init = {}, dpr = 2 }, script) {
     async type(text, delay = 55) { await page.keyboard.type(text, { delay }); },
     key: (k) => page.keyboard.press(k),
     async box(locator) { const b = await locator.boundingBox(); return { x: b.x + b.width / 2, y: b.y + b.height / 2, b }; },
-    cardOn: (k, h, p) => page.evaluate(([k, h, p]) => window.__rc.card(true, k, h, p), [k, h, p]),
-    cardOff: () => page.evaluate(() => window.__rc.card(false)),
     caption: (text) => page.evaluate((t) => window.__rc.caption(t), text),
     hideCursor: (on) => page.evaluate((v) => window.__rc.hide(v), on),
     setPos(x, y) { pos = { x, y }; return page.evaluate(([a, b]) => window.__rc.at(a, b), [x, y]); },

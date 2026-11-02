@@ -4,10 +4,8 @@ const url = 'http://localhost:5180/review?page=main&view=slides&screen=def-01-sa
 await record('take3', { url, init: { 'rv:wordsword:reviewer': 'Alex' } }, async (r) => {
   const p = r.page;
   const btn = (sel) => p.locator(sel).first();
-  await r.cardOn('don-star · 3 of 3', 'Pins follow the element', 'Comment on the phone. Switch to desktop. The pin stays put.');
   await btn('button[aria-label="Hide sidebar"],button[title="Hide sidebar"]').click();
   await r.wait(2400);
-  await r.cardOff();
   const pin = async () => r.box(p.locator('.rv-pin').first());
   let a = await pin();
   r.cam(a.x + 40, a.y + 60, 1.8, 1);

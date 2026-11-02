@@ -7,9 +7,9 @@
 <meta name="description" content="The Claude Code skills I use every day: what each one is for, the prompt I type, what comes back, and the one line that installs it.">
 <meta property="og:title" content="Skills: how I work with Claude">
 <meta property="og:description" content="Nine Claude Code skills, each with the prompt, the output, and one line to install it.">
-<meta property="og:url" content="https://doodleshoe.vercel.app/skills">
+<meta property="og:url" content="https://nooblabs.vercel.app/skills">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M4%2018%20Q1.8%2021.5%203.5%2024.5%20Q5%2026%208.5%2026%20L24%2026%20Q29%2025.5%2030%2020.5%20M4%2018%20Q2%2010%208%207.5%20Q14%207%2015.5%2012.5%20Q23%2014%2030%2020.5%20M4%2018%20Q17%2020.5%2030%2020.5%27%20fill%3D%27none%27%20stroke%3D%27%23151b24%27%20stroke-width%3D%272.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%2724%202%2034%2034%27%3E%3Cpath%20d=%27M40%206%20Q31%203%2030%2012%20Q34%2010%2038%2011%20M30%2016%20Q40%2010%2052%2016%20Q54%2026%2052%2033%20L30%2033%20Q28%2025%2030%2016%20Z%20M33%2025%20Q41%2026%2049%2025%27%20fill=%27none%27%20stroke=%27%23151b24%27%20stroke-width=%273.2%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -48,14 +48,19 @@
 </svg>
 
 <header class="topnav">
-  <a class="wordmark" href="/"><svg class="shoe doodle draw" viewBox="0 0 120 76" aria-hidden="true">
-      <path pathLength="1" d="M10 48 Q3 55 5 63 Q9 70 22 70 L94 70 Q111 69 115 58 Q117 51 106 48"/>
-      <path pathLength="1" d="M6 59 Q48 63 96 61 Q110 60 116 54"/>
-      <path pathLength="1" d="M10 48 Q4 34 14 26 Q24 31 33 27 Q40 14 52 16 Q62 20 63 30 Q82 31 97 38 Q106 42 107 48"/>
-      <path pathLength="1" d="M79 33 Q74 41 75 50"/>
-      <path pathLength="1" d="M19 47 Q14 37 20 31"/>
-      <path pathLength="1" d="M36 29 L46 39 M43 24 L53 34"/>
-    </svg><span>Doodle&nbsp;&lsquo;Schu&rsquo;</span></a>
+  <a class="wordmark" href="/"><svg class="knight doodle draw" viewBox="4 1 72 88" aria-hidden="true">
+      <path pathLength="1" d="M40 6 Q31 3 30 12 Q34 10 38 11"/>
+      <path pathLength="1" d="M30 16 Q40 10 52 16 Q54 26 52 33 L30 33 Q28 25 30 16 Z"/>
+      <path pathLength="1" d="M33 25 Q41 26 49 25"/>
+      <path pathLength="1" d="M32 35 Q28 50 30 62 Q41 66 52 62 Q54 50 50 35"/>
+      <path pathLength="1" d="M31 50 Q41 52 51 50"/>
+      <path pathLength="1" d="M36 64 Q35 74 34 80 M47 64 Q48 74 49 80"/>
+      <path pathLength="1" d="M34 80 Q28 86 38 85 M49 80 Q55 86 45 85"/>
+      <path pathLength="1" d="M30 40 Q22 42 19 48"/>
+      <path pathLength="1" d="M8 44 Q16 40 24 44 Q25 55 16 62 Q7 55 8 44 Z"/>
+      <path pathLength="1" d="M52 38 Q60 34 63 27"/>
+      <path pathLength="1" d="M63 27 Q66 17 69 8 M60 16 Q66 14 72 13"/>
+    </svg><span>N00B&nbsp;Labs&trade;</span></a>
   <nav aria-label="Site">
     <a href="/skills/" aria-current="page">Skills</a>
     <a href="/arbiter/">The Arbiter</a>
@@ -237,9 +242,18 @@
         <h3 class="skill-label">Paste in Claude Code</h3>
         <div class="copyline prompt"><code><span class="cmd">/noob-inc</span> build my agent office</code><button class="copy" type="button" hidden></button></div>
       </div>
-      <figure class="shot skill-shot">
+      <figure class="shot skill-shot reel">
         <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
-        <img loading="lazy" decoding="async" src="/assets/skill-noob-inc.png" width="1200" height="616" alt="My N00B Inc office in its view-only mode: a board with two agents, one still working, and the pixel office beside it. The agent marked Working is the Claude Code session that built this page.">
+        <!-- recorded off a local N00B Inc with three seeded sessions, 2 November 2026: view only, then admin, one loop -->
+        <video class="demo" muted loop playsinline preload="none" width="1280" height="720"
+               poster="/assets/noob-inc-poster.jpg"
+               aria-label="A N00B Inc office in two modes. View only: a visitor picks a name at the door, sends one agent for coffee from the pixel office, and sends two emotes that land in the onlooker log. Admin: the owner allows a waiting permission prompt, answers an agent's question from the board, opens another agent's details by clicking them in the office, and copies the view-only link.">
+          <source src="/assets/noob-inc-demo.mp4" type="video/mp4">
+        </video>
+        <div class="reel-ctl" hidden>
+          <button class="reel-btn" type="button" data-reel="toggle" aria-label="Pause demo"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
+          <button class="reel-btn" type="button" data-reel="expand" aria-label="Expand demo"><svg aria-hidden="true"><use href="#i-expand"/></svg></button>
+        </div>
       </figure>
       <footer class="study-built">
         <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="Vercel"><title>Vercel</title><use href="#i-vercel"/></svg></li><li><svg role="img" aria-label="Supabase"><title>Supabase</title><use href="#i-supabase"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li></ul>

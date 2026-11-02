@@ -35,7 +35,7 @@ Two things it cannot do: log into anything, and record a native iOS app. For tho
 recorded differently: Playwright drives the real Wordsword board (`~/wordsword/review`,
 `npm run dev` on :5180) with real mouse and keys, Chrome's screencast captures it in real
 time, and `cam2mp4` crops each take with an eased camera and crossfades them into one loop.
-The cursor, title cards and caption are drawn into the page by `rec.mjs`.
+The cursor and caption are drawn into the page by `rec.mjs`.
 
 ```bash
 cd don-star-reel
@@ -45,3 +45,18 @@ swiftc -O cam2mp4.swift -o cam2mp4
 
 `run-all.sh` really answers the take-2 question with the skill's `board.py`, so the board file
 ends with that thread in it. Poster: a still from the reply (`assets/don-star-poster.jpg`).
+
+## The noob-inc reel (`noob-inc-reel/`)
+
+`assets/noob-inc-demo.mp4` is recorded the same way, with `don-star-reel/rec.mjs` and `cam2mp4`,
+against a local N00B Inc (`~/noob-inc`, `npm run dev -- -p 3100`, sign-in skipped by `DEV_BYPASS_AUTH`).
+That app reads the real database, so `seed.mjs` fires three made-up sessions through the real bridge
+and holds a permission prompt and a question open for the admin take to answer. The recording browser
+filters the feed down to those three and shows a made-up share link; nothing real is on screen.
+
+```bash
+cd noob-inc-reel
+./run-all.sh   # seeds, records view only then admin, deletes the seed, encodes
+```
+
+Poster: the last admin frame (`assets/noob-inc-poster.jpg`).
