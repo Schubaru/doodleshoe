@@ -1,12 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "doodleshoe",
-      "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "python3 -m http.server $PORT"],
-      "port": 4321,
-      "autoPort": true
-    }
+    { "name": "doodleshoe", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8412"], "port": 8412 }
   ]
 }
