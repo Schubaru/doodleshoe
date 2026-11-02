@@ -11,7 +11,7 @@ export const deskPoint = (page, i) => page.evaluate((i) => {
 
 export const hideDevBadge = (page) => page.addStyleTag({ content: 'nextjs-portal{display:none!important}' });
 
-export const VIEWER = 'Doodleshoe reader';
+export const VIEWER = 'N00B Labs reader';
 
 // The board in the recording shows only the seeded agents: the feed is filtered in the recording browser, the database is untouched.
 export async function onlySeeded(ctx) {

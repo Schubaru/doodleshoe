@@ -1,4 +1,4 @@
-// The skills page: the shoe draws in, and every install line gets a copy button (an icon; the label is aria-label).
+// The skills page: the knight draws in, and every install line gets a copy button (an icon; the label is aria-label).
 // Without JS the buttons stay hidden and the commands are still selectable text.
 (() => {
   const motionOK = matchMedia('(prefers-reduced-motion: no-preference)').matches;

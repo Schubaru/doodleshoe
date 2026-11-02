@@ -10,7 +10,7 @@ Hiring managers, design leads, and potential collaborators evaluating Alex Schum
 
 ## Product Purpose
 
-Alex's personal portfolio at doodleshoe.vercel.app. Positions Alex as a **product design engineer**: a designer who builds real, working software with AI tools (Claude Code, Cursor, Zapier). The case studies walk through what each project is, how it works, and how it was built — proof of craft on both the design and engineering side. Success = the visitor scrolls at least two case studies, feels delight, and clicks a contact link.
+**N00B Labs™**: Alex's personal portfolio at nooblabs.vercel.app (formerly doodleshoe). The mascot is the Wordsword knight. Positions Alex as a **product design engineer**: a designer who builds real, working software with AI tools (Claude Code, Cursor, Zapier). The case studies walk through what each project is, how it works, and how it was built — proof of craft on both the design and engineering side. Success = the visitor scrolls at least two case studies, feels delight, and clicks a contact link.
 
 ## Brand Personality
 

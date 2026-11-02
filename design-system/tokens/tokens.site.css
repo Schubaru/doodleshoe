@@ -1,4 +1,4 @@
-/* ————— doodleshoe site layer —————
+/* ————— N00B Labs site layer —————
    Hand-authored, and authoritative. tokens.css is generated from style-spec.json and
    carries the ramps, the type scale, space, radius and a generic elevation table.
    These are the things the generator has no concept of, and they are the things that
@@ -72,7 +72,7 @@
 
   /* ——— the hand ——— */
   --doodle-stroke-w: 2.6;        /* doodle stroke at a 100-unit viewBox */
-  --doodle-stroke-w-small: 4.2;  /* small doodles (the shoe): heavier, so it survives the scale-down */
+  --doodle-stroke-w-small: 4.2;  /* small doodles (the wordmark knight): heavier, so it survives the scale-down */
   --doodle-tape: oklch(0.9 0.006 260 / 0.72);
   --doodle-tilt-shot: -1.6deg;
   --doodle-tilt-stamp: 6deg;

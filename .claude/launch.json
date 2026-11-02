@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "doodleshoe", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8412"], "port": 8412 }
+    { "name": "nooblabs", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8412"], "port": 8412 }
   ]
 }

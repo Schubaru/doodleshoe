@@ -1,6 +1,6 @@
-# doodleshoe Design System
+# N00B Labs Design System
 
-> Source of truth for every UI decision in this project. Read this before touching any UI. Built with the `key-components` skill on 2026-09-10. Version 1.1.0.
+> Source of truth for every UI decision in this project. Read this before touching any UI. Built with the `key-components` skill on 2026-09-10. Version 1.5.0.
 
 ## 1. Overview
 
@@ -27,7 +27,7 @@ Decide once, ripple everywhere. Components never contain literal values. Roles d
 Three principles are specific to this system and outrank convenience:
 
 1. **There is no second pen.** Emphasis comes from weight, size and the neubrutalist frame. Never from hue.
-2. **A mark that cannot name its job does not go on the page.** The cast is the shoe, the monkey, the knight and his challenger, the diver, and the masking tape. Scattered decoration is what made this page loud once, and it is gone.
+2. **A mark that cannot name its job does not go on the page.** The cast is the knight (the mascot, in the wordmark and on Wordsword's built-with line) and his challenger, the monkey, the diver, and the masking tape. Scattered decoration is what made this page loud once, and it is gone.
 3. **Everything works without JavaScript.** Animation only enhances. `prefers-reduced-motion: reduce` gets the static drawn state, the sticky beats become plain stacked sections, and demo reels hold on their poster frame.
 
 ## 3. Foundations
@@ -111,7 +111,7 @@ Full anatomy, purpose, don'ts and a `source` line pointing at the owning CSS blo
 | CopyLine | actions | A command a visitor can take, on the skills page. The `prompt` variant (flat grey wash, no shadow, icon inside the box, the skill's `/command` highlighted) is the line pasted into Claude Code | Prose, and anything inside a sticky panel |
 | ChatButton | actions | One of the Arbiter's three replies, the only control on the night surface | Anywhere on paper. Its shadow colour assumes the black page. |
 | Stamp | status | The graded mark on a case study: what state the work is actually in | Anything clickable. It is a mark, and its rotation says so. |
-| TopNav | navigation | The sticky header: the wordmark (home), the shoe, two destinations: Skills and The Arbiter | Growing. Every sticky panel's height budget is measured off it. |
+| TopNav | navigation | The sticky header: the wordmark (home), the knight, two destinations: Skills and The Arbiter | Growing. Every sticky panel's height budget is measured off it. |
 | SkipLink | navigation | First in the tab order, straight to the work | Any second skip target |
 | Panel | content | The case-study card: a sheet of paper laid on the paper | Short content. Without a head, three beats, shots and a built-with line it is just a bordered box. |
 | Beat | content | One step of the argument: what it is, why it works this way, my role | A stack list. The built-with line already carries the stack. |
@@ -179,6 +179,7 @@ then open `http://localhost:8412/design-system/playground/index.html`. Opening i
 
 ## 8. Changelog
 
+- **1.5.0 — 2026-11-02** — Rebrand: doodleshoe is now **N00B Labs™**, at nooblabs.vercel.app. The shoe is retired; the Wordsword knight is the mascot. He stands in the TopNav's mark slot sword-up (the duel figure minus the visor slits, chest strap and shield boss, which mush below 40px), in a 41px lane that drops to 30px below 640px, overhanging the 28px line by ~6px each way, so the wordmark's focus ring moved out to 8px. The favicon is his helmet alone. The hero is now the name, `/N00B-Labs`, with the slash in `--ink-soft`, over "by Alex Schumacher, Design Engineer."; the "Hi. I'm…" line is gone.
 - **1.4.0 — 2026-11-02** — DemoReel gains a `controls` variant for `/skills`: Pause and Expand sit on the reel's corner as ink icon buttons with a paper edge (the Copy button's ink), 44px, 36px below 480px. A pause sticks, even when the reel scrolls back on screen. Expand opens the same loop in a native `<dialog>` on the night backdrop, with the browser's own controls, from the frame the card was on; Esc, the backdrop or Close returns it. Reduced motion keeps the poster until someone presses Play. The don-star card's screenshot is now this reel: three takes recorded off the real Wordsword board.
 - **1.3.0 — 2026-11-02** — CopyLine gains a `prompt` variant: the line you paste into Claude Code now has its own copy button, set flat on a grey wash with no shadow and an in-box icon, so it reads apart from the terminal command above it. The skill's own `/command` is the one highlighted run in it; the old `›` marker is gone, and the line no longer selects itself whole on click. Its label reads "Paste in Claude Code". Skill names on `/skills` carry a leading `/` in `--ink-soft`, the same soft mark as the home page's slash.
 - **1.2.0 — 2026-11-02** — Each skill on `/skills` is now a Panel: the case-study sheet, with the built-with line as its footer. On this page that line shows the tools the skill works with as brand-colored logos (Claude, plus Figma, Slack and the rest where used). The logos are the one exception to the single-hue rule, and they live only on this page. The why paragraphs are gone, and the link reads "SKILL.md on GitHub". CopyLine's Copy half is now an icon that turns into a tick, with its label in `aria-label`.

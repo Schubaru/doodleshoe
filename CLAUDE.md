@@ -1,6 +1,6 @@
-# doodleshoe
+# N00B Labs
 
-Alex Schumacher's portfolio: one long-scroll page, vanilla HTML/CSS/JS, no framework and no build step. Deployed on Vercel.
+N00B Labs™, Alex Schumacher's portfolio: one long-scroll page, vanilla HTML/CSS/JS, no framework and no build step. Deployed on Vercel.
 
 Design system: read design-system/DESIGN_SYSTEM.md before touching any UI.
 
