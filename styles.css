@@ -710,11 +710,8 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   padding: calc(var(--rule-h) * 3) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 2) calc(var(--margin-x) + clamp(16px, 4vw, 64px));
   max-width: 900px;
 }
-.about h2 {
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  margin-bottom: var(--rule-h);
-}
+/* its own page now: same one-word title as /skills */
+.about h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-bottom: var(--rule-h); }
 .about p { max-width: 52em; }
 .links { display: flex; gap: 16px; margin-top: calc(var(--rule-h) * 1.5); }
 

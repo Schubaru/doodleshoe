@@ -207,7 +207,7 @@
     "name": "TopNav",
     "category": "navigation",
     "tier": "core",
-    "purpose": "The sticky header: the wordmark with the knight standing guard in front of it, and two destinations: Skills and The Arbiter.",
+    "purpose": "The sticky header: the wordmark with the knight standing guard in front of it, and two destinations: Skills and About.",
     "useFor": "One per page, always. It is the only chrome the site has.",
     "dontUseFor": "Growing. Its height is what every sticky panel's height budget is measured off, which is why the knight is taken out of flow and overhangs into the nav's padding.",
     "anatomy": "Wordmark at 700/1.4rem with the knight absolutely positioned in a 41px lane (30px below 640px), then three nav links with an ink underline on hover. Paper at 88 percent with a 6px backdrop blur, 2px ink bottom border.",
@@ -221,7 +221,7 @@
       "default"
     ],
     "source": "styles.css:98",
-    "html": "<div style=\"position:relative;padding-bottom:8px\"><header class=\"topnav\" style=\"position:static;padding-left:20px\"><a class=\"wordmark\" href=\"#\"><svg class=\"knight doodle\" viewBox=\"4 1 72 88\" aria-hidden=\"true\"><path d=\"M40 6 Q31 3 30 12 Q34 10 38 11\"/><path d=\"M30 16 Q40 10 52 16 Q54 26 52 33 L30 33 Q28 25 30 16 Z\"/><path d=\"M33 25 Q41 26 49 25\"/><path d=\"M32 35 Q28 50 30 62 Q41 66 52 62 Q54 50 50 35\"/><path d=\"M31 50 Q41 52 51 50\"/><path d=\"M36 64 Q35 74 34 80 M47 64 Q48 74 49 80\"/><path d=\"M34 80 Q28 86 38 85 M49 80 Q55 86 45 85\"/><path d=\"M30 40 Q22 42 19 48\"/><path d=\"M8 44 Q16 40 24 44 Q25 55 16 62 Q7 55 8 44 Z\"/><path d=\"M52 38 Q60 34 63 27\"/><path d=\"M63 27 Q66 17 69 8 M60 16 Q66 14 72 13\"/></svg><span>N00B&nbsp;Labs&trade;</span></a><nav aria-label=\"Site\"><a href=\"#\">Work</a><a href=\"#\">The Arbiter</a><a href=\"#\">About</a></nav></header></div>"
+    "html": "<div style=\"position:relative;padding-bottom:8px\"><header class=\"topnav\" style=\"position:static;padding-left:20px\"><a class=\"wordmark\" href=\"#\"><svg class=\"knight doodle\" viewBox=\"4 1 72 88\" aria-hidden=\"true\"><path d=\"M40 6 Q31 3 30 12 Q34 10 38 11\"/><path d=\"M30 16 Q40 10 52 16 Q54 26 52 33 L30 33 Q28 25 30 16 Z\"/><path d=\"M33 25 Q41 26 49 25\"/><path d=\"M32 35 Q28 50 30 62 Q41 66 52 62 Q54 50 50 35\"/><path d=\"M31 50 Q41 52 51 50\"/><path d=\"M36 64 Q35 74 34 80 M47 64 Q48 74 49 80\"/><path d=\"M34 80 Q28 86 38 85 M49 80 Q55 86 45 85\"/><path d=\"M30 40 Q22 42 19 48\"/><path d=\"M8 44 Q16 40 24 44 Q25 55 16 62 Q7 55 8 44 Z\"/><path d=\"M52 38 Q60 34 63 27\"/><path d=\"M63 27 Q66 17 69 8 M60 16 Q66 14 72 13\"/></svg><span>N00B&nbsp;Labs&trade;</span></a><nav aria-label=\"Site\"><a href=\"#\">Skills</a><a href=\"#\">About</a></nav></header></div>"
   },
   {
     "name": "SkipLink",
