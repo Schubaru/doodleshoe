@@ -132,7 +132,8 @@ a, button, summary, [role="button"], label[for], .btn {
   color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem;
   border-bottom: 2px solid transparent;
 }
-.topnav nav a:hover { border-bottom-color: var(--ink); }
+.topnav nav a:hover,
+.topnav nav a[aria-current] { border-bottom-color: var(--ink); }
 
 /* ————— hero ————— */
 .hero {
@@ -253,7 +254,7 @@ h1 {
 /* the deck has to read as a deck, not as another line of body copy — 1.1rem sat one
    notch off 1rem and the whole header ran flat. 1.25rem still sits inside the 28px
    line box, so the panel's height budget does not move. */
-.study-sub {
+.study-sub, .skill-sub {
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--ink-soft);
@@ -344,7 +345,7 @@ h1 {
    move at once, which is what fixes a ramp that ran 1rem / 1.1rem / 1.15rem and read
    as one flat step. Only one beat is ever visible at a time, so these never stack into
    a column of eyebrows. */
-.beat h3 {
+.beat h3, .skill-label {
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 0.76rem;
@@ -732,6 +733,107 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   gap: 8px;
 }
 
+/* ————— skills page ————— */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skills-head {
+  padding: calc(var(--rule-h) * 3) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 2) calc(var(--margin-x) + clamp(16px, 4vw, 64px));
+  max-width: 900px;
+}
+/* one short word, no container to size against: the hero's cqw display size doesn't apply */
+.skills-head h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-bottom: var(--rule-h); }
+.skills-head .lede { margin-bottom: var(--rule-h); }
+.skills-note { margin-top: 14px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); }
+.skills-note a { color: var(--ink); }
+
+/* CopyLine: a command you can take. The Button's frame and resting shadow, so it reads as a
+   control; the Copy half is the ink fill. Commands wrap at their spaces rather than scroll,
+   and copy exactly what they show. */
+.copyline {
+  display: flex;
+  margin-top: 6px;
+  max-width: 62ch;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.copyline code {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  user-select: all;
+}
+/* a flag and its value never part, and neither does a hyphenated skill name */
+.copyline .nb { white-space: nowrap; }
+.copy {
+  flex: none;
+  min-width: 9ch;   /* Copy and Copied, same width, so the line never jumps */
+  padding: 0 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 0;
+  transition: background-color 0.12s ease-out, color 0.12s ease-out;
+}
+.copy:hover { background: var(--paper); color: var(--ink); }
+.copy:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; }
+
+.skill-list {
+  width: calc(100% - var(--margin-x) - var(--gutter-x) - clamp(16px, 4vw, 64px) * 2);
+  margin-left: calc(var(--margin-x) + clamp(16px, 4vw, 64px));
+  padding-bottom: calc(var(--rule-h) * 3);
+}
+.skill {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  padding: calc(var(--rule-h) * 2) 0;
+  scroll-margin-top: 60px;
+}
+.skill h2 { font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; }
+.why { max-width: 48ch; margin: var(--rule-h) 0; text-wrap: pretty; }
+.skill-label { margin-top: 14px; }
+.prompt code { font-family: var(--font-mono); font-size: 0.9rem; }
+.prompt code::before { content: "› "; color: var(--ink-soft); }
+.alt-install { margin-top: 14px; }
+.alt-install summary { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); }
+.alt-install summary:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; }
+.skill .site-link { display: inline-block; margin-top: 18px; }
+/* a skill whose output is words gets them taped in as a note, set the way they came back:
+   bullets for the Slack brief, a ledger for the audit runs, mono for a prompt */
+.note {
+  border: 2.5px solid var(--ink);
+  background: var(--paper);
+  padding: 20px 22px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  display: grid;
+  gap: 8px;
+}
+.note-src {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+.note ul { padding-left: 1.1em; display: grid; gap: 2px; }
+.note-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); }
+.note-mono { font-family: var(--font-mono); font-size: 0.75rem; }
+.note-fixed { border-top: 2px dashed var(--rule); padding-top: 10px; font-weight: 500; }
+.ledger { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; }
+.ledger dt { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); padding-top: 2px; }
+
+
 /* ————— responsive ————— */
 @media (max-width: 900px) {
   :root { --margin-x: 30px; --gutter-x: 0px; }
@@ -743,6 +845,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   /* the stack becomes a column of one line + a row of pills, so let the pills lead */
   .study-built { gap: 12px; }
   .stamp { position: static; display: inline-block; margin-top: 10px; }
+  .skill { grid-template-columns: 1fr; }
   .hero { padding-top: calc(var(--rule-h) * 2); }
   /* no right gutter at this width — he would sit on the content */
   .monkey { display: none; }
@@ -761,6 +864,8 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   .shoe { width: 30px; }
   .topnav nav { gap: 8px; }
   .topnav nav a { font-size: 0.875rem; }   /* 14px — the floor, not below it */
+  /* four links don't fit beside the wordmark at 375; the Arbiter is one scroll away anyway */
+  .topnav .nav-wide { display: none; }
 }
 
 
