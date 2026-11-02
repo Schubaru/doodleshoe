@@ -44,11 +44,12 @@
     "category": "actions",
     "tier": "core",
     "purpose": "An install command a visitor can take: the command as selectable mono text, with an ink Copy half.",
-    "useFor": "Commands on the skills page, one per skill plus the install-everything line at the top.",
-    "dontUseFor": "Prose, or a prompt someone types into Claude; that is the plain mono '›' line above it. Never inside a sticky panel: it has no place in their height budget.",
+    "useFor": "Commands on the skills page, one per skill plus the install-everything line at the top. The prompt variant carries the line you paste into Claude Code.",
+    "dontUseFor": "Prose. Never inside a sticky panel: it has no place in their height budget.",
     "anatomy": "2.5px ink frame with the Button's 4px resting shadow. Mono command at 0.85rem, wrapping at its spaces. The Copy half is mono caps on ink, 9ch wide so Copy and Copied never shift the line. Hidden without JS; the command stays selectable.",
     "variants": [
-      "default"
+      "default",
+      "prompt"
     ],
     "sizes": [
       "md"

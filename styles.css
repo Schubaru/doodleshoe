@@ -812,8 +812,14 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 .skill .study-built { grid-column: 1 / -1; margin-top: 0; }
 .tools { flex: 1 1 auto; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
 .tools svg { display: block; width: 22px; height: 22px; }
-.prompt code { font-family: var(--font-mono); font-size: 0.9rem; }
-.prompt code::before { content: "› "; color: var(--ink-soft); }
+/* the prompt is a CopyLine too, but it goes to Claude, not the terminal: a flat grey wash with
+   no shadow tells the two lines apart, and its copy icon sits in the box instead of an ink half.
+   The only highlight is the skill's own /command. */
+.copyline.prompt { background: color-mix(in oklch, var(--ink-faint) 55%, var(--paper)); box-shadow: none; }
+.prompt code { user-select: text; }
+.prompt .cmd { white-space: nowrap; background: var(--ink-faint); padding: 1px 4px; border-radius: 2px; }
+.prompt .copy { background: transparent; color: var(--ink); }
+.prompt .copy:hover { background: var(--ink-faint); color: var(--ink); }
 .alt-install { margin-top: 14px; }
 .alt-install summary { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); }
 .alt-install summary:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; }
