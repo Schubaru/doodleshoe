@@ -100,7 +100,7 @@ When a value in `tokens.site.css` moves, the same value in `styles.css` moves wi
 
 ## 4. Components
 
-Inventory tier: **custom**. Fifteen components, which is every component this site has. The generic Core tier (Input, Select, Checkbox, Toast, Modal, Badge) has no instance here, so it was not built: an API nobody calls is a liability, and this site has no forms and no dialogs.
+Inventory tier: **custom**. Fifteen components, which is every component this site has. The generic Core tier (Input, Select, Checkbox, Toast, Modal, Badge) has no instance here, so it was not built: an API nobody calls is a liability. The site has no forms, and its one dialog is the DemoReel's enlarged view, so a Modal would serve a single caller.
 
 Full anatomy, purpose, don'ts and a `source` line pointing at the owning CSS block are in `components/manifest.json`, one entry each.
 
@@ -116,7 +116,7 @@ Full anatomy, purpose, don'ts and a `source` line pointing at the owning CSS blo
 | Panel | content | The case-study card: a sheet of paper laid on the paper | Short content. Without a head, three beats, shots and a built-with line it is just a bordered box. |
 | Beat | content | One step of the argument: what it is, why it works this way, my role | A stack list. The built-with line already carries the stack. |
 | TapedShot | content | Real screenshots taped to the paper, in three arrangements that must stay distinct | Mockups, device frames, or anything that is not the software running |
-| DemoReel | content | The same taped frame, but the thing actually moving | Anything a still already proves |
+| DemoReel | content | The same taped frame, but the thing actually moving. On `/skills` it carries Pause and Expand, and Expand opens the same loop in a dialog | Anything a still already proves |
 | Doodle | content | Hand-authored inline SVG in one ink at one weight | Scattered marks. Every one of the old ones is gone. |
 | Annotation | content | A margin note in the reader's own hand | Anything load-bearing |
 | Chat | content | The Arbiter's dialogue tree: 309 nodes, 927 replies, no exit | A general chat component |
@@ -179,6 +179,7 @@ then open `http://localhost:8412/design-system/playground/index.html`. Opening i
 
 ## 8. Changelog
 
+- **1.4.0 — 2026-11-02** — DemoReel gains a `controls` variant for `/skills`: Pause and Expand sit on the reel's corner as ink icon buttons with a paper edge (the Copy button's ink), 44px, 36px below 480px. A pause sticks, even when the reel scrolls back on screen. Expand opens the same loop in a native `<dialog>` on the night backdrop, with the browser's own controls, from the frame the card was on; Esc, the backdrop or Close returns it. Reduced motion keeps the poster until someone presses Play. The don-star card's screenshot is now this reel: three takes recorded off the real Wordsword board.
 - **1.3.0 — 2026-11-02** — CopyLine gains a `prompt` variant: the line you paste into Claude Code now has its own copy button, set flat on a grey wash with no shadow and an in-box icon, so it reads apart from the terminal command above it. The skill's own `/command` is the one highlighted run in it; the old `›` marker is gone, and the line no longer selects itself whole on click. Its label reads "Paste in Claude Code". Skill names on `/skills` carry a leading `/` in `--ink-soft`, the same soft mark as the home page's slash.
 - **1.2.0 — 2026-11-02** — Each skill on `/skills` is now a Panel: the case-study sheet, with the built-with line as its footer. On this page that line shows the tools the skill works with as brand-colored logos (Claude, plus Figma, Slack and the rest where used). The logos are the one exception to the single-hue rule, and they live only on this page. The why paragraphs are gone, and the link reads "SKILL.md on GitHub". CopyLine's Copy half is now an icon that turns into a tick, with its label in `aria-label`.
 - **1.1.0 — 2026-11-02** — The Arbiter moved to its own page, `/arbiter`: the black sheet fills the screen under the nav, and its 927-reply tree left `main.js` for `arbiter/arbiter.js` (the home page's script went from 73KB to 7KB). The nav is now the wordmark home plus Skills and The Arbiter, on every page. Added CopyLine for the new `/skills` page: the Button's frame and resting shadow around a selectable mono command, with an ink Copy half that JS reveals. TapedShot gains a note form (`.note`) for skills whose output is words, taped in the way it came back. The page reuses the rest of the system as it stands (topnav, lede, deck, the mono label tier, SiteLink, the taped shot).

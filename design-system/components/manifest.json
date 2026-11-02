@@ -145,17 +145,20 @@
     "category": "content",
     "tier": "core",
     "purpose": "The same taped frame, but a silent looping video of the thing actually running.",
-    "useFor": "When the work is motion and a still cannot carry it. 368 Dinos is the one instance.",
+    "useFor": "When the work is motion and a still cannot carry it. 368 Dinos plays bare; the don-star card on /skills wears the controls variant.",
     "dontUseFor": "Anything a screenshot already proves. A reel costs bandwidth and attention that a still does not.",
-    "anatomy": "A video inside a .shot with preload none and a real screenshot as poster, so it costs nothing until it is nearly on screen and a reduced-motion visitor keeps a true still. Autoplay lives in JS, never in the markup: that is what keeps the motion contract in one place.",
+    "anatomy": "A video inside a .shot with preload none and a real screenshot as poster, so it costs nothing until it is nearly on screen and a reduced-motion visitor keeps a true still. Autoplay lives in JS, never in the markup: that is what keeps the motion contract in one place. The controls variant adds .reel on the figure and a .reel-ctl pair of .reel-btn icon buttons (Pause/Play, Expand); JS reveals them and builds the enlarged dialog (.reel-box) from the same video.",
     "variants": [
-      "default"
+      "default",
+      "controls"
     ],
     "sizes": [
       "md"
     ],
     "states": [
-      "default"
+      "default",
+      "paused",
+      "expanded"
     ],
     "source": "styles.css:294",
     "html": "<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\"><defs><symbol id=\"pg-tape\" viewBox=\"0 0 90 30\"><path d=\"M4 6 L86 3 L88 24 L2 27 L5 17 Z\" fill=\"var(--tape)\" stroke=\"none\"/></symbol></defs></svg><div style=\"padding:24px 8px\"><figure class=\"shot\" style=\"max-width:260px;margin:0\"><video class=\"demo\" muted loop playsinline preload=\"none\" poster=\"../../assets/dinos-shot.png\" src=\"../../assets/dinos-demo.mp4\"></video><svg class=\"tape t1\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg><svg class=\"tape t2\" viewBox=\"0 0 90 30\" aria-hidden=\"true\"><use href=\"#pg-tape\"/></svg></figure><p class=\"annot\" style=\"margin-top:12px\">Shown at its poster frame, which is exactly what a reduced-motion visitor gets.</p></div>"

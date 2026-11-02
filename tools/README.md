@@ -28,3 +28,20 @@ plays back at life speed**. Frames come out at 2x for retina; 480x780 in gives a
 
 Two things it cannot do: log into anything, and record a native iOS app. For those,
 `Cmd+Shift+5` and hand the file over.
+
+## The don-star reel (`don-star-reel/`)
+
+`assets/don-star-demo.mp4` is a person using a tool, not a page playing itself, so it is
+recorded differently: Playwright drives the real Wordsword board (`~/wordsword/review`,
+`npm run dev` on :5180) with real mouse and keys, Chrome's screencast captures it in real
+time, and `cam2mp4` crops each take with an eased camera and crossfades them into one loop.
+The cursor, title cards and caption are drawn into the page by `rec.mjs`.
+
+```bash
+cd don-star-reel
+swiftc -O cam2mp4.swift -o cam2mp4
+./run-all.sh   # clears the board, records the takes, replies with board.py between them, encodes
+```
+
+`run-all.sh` really answers the take-2 question with the skill's `board.py`, so the board file
+ends with that thread in it. Poster: a still from the reply (`assets/don-star-poster.jpg`).

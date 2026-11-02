@@ -1,0 +1,7 @@
+{ "fps": 30, "kbps": 2200, "w": 1280, "h": 720, "viewW": 1280, "viewH": 720, "fade": 380,
+  "takes": [
+    { "dir": "take1", "trimStart": 250 },
+    { "dir": "take2a", "trimStart": 250 },
+    { "dir": "take2b", "trimStart": 1150 },
+    { "dir": "take3", "trimStart": 250 }
+  ] }

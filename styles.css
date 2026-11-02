@@ -848,6 +848,48 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 .note-fixed { border-top: 2px dashed var(--rule); padding-top: 10px; font-weight: 500; }
 .ledger { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; }
 .ledger dt { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); padding-top: 2px; }
+/* a reel you can stop: pause and expand sit on its corner in the Copy button's ink, with a paper
+   edge so they hold on dark frames too. Expand opens the same loop large, with the browser's own
+   controls, in the site's one dialog. */
+.reel-ctl { position: absolute; right: 12px; bottom: 12px; display: flex; gap: 8px; }
+.reel-btn {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  color: var(--paper);
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  transition: background-color 0.12s ease-out, color 0.12s ease-out;
+}
+.reel-btn svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+}
+.reel-btn:hover { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+.reel-btn:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 3px; }
+/* a phone-width reel is ~265px wide: full-size buttons would cover a third of it */
+@media (max-width: 480px) {
+  .reel-ctl { right: 8px; bottom: 8px; gap: 6px; }
+  .reel-ctl .reel-btn { width: 36px; height: 36px; }
+  .reel-ctl .reel-btn svg { width: 16px; height: 16px; }
+}
+.reel-box {
+  margin: auto;
+  width: min(1280px, calc(100vw - 32px), calc((100dvh - 64px) * 16 / 9));
+  max-width: none;
+  padding: 0;
+  border: 2.5px solid var(--paper);
+  background: var(--ink);
+}
+.reel-box::backdrop { background: color-mix(in oklch, var(--night) 90%, transparent); }
+.reel-box video { display: block; width: 100%; height: auto; }
+.reel-box .reel-btn { position: absolute; top: 12px; right: 12px; z-index: 1; }
+.reel-box .reel-btn:focus-visible { outline-color: var(--night-ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .reel-box[open] { animation: reel-in 0.28s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reel-box[open]::backdrop { animation: reel-fade 0.28s ease-out; }
+}
+@keyframes reel-in { from { opacity: 0; transform: scale(0.96); } }
+@keyframes reel-fade { from { opacity: 0; } }
 
 
 /* ————— responsive ————— */
