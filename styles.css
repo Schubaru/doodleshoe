@@ -768,19 +768,20 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 }
 /* a flag and its value never part, and neither does a hyphenated skill name */
 .copyline .nb { white-space: nowrap; }
+/* icon only: copy, then a tick for 1.6s. The label lives in aria-label. */
 .copy {
   flex: none;
-  min-width: 9ch;   /* Copy and Copied, same width, so the line never jumps */
-  padding: 0 14px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  width: 44px;
+  display: grid;
+  place-items: center;
   color: var(--paper);
   background: var(--ink);
   border: 0;
   transition: background-color 0.12s ease-out, color 0.12s ease-out;
+}
+.copy svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
 }
 .copy:hover { background: var(--paper); color: var(--ink); }
 .copy:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; }
@@ -788,25 +789,34 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 .skill-list {
   width: calc(100% - var(--margin-x) - var(--gutter-x) - clamp(16px, 4vw, 64px) * 2);
   margin-left: calc(var(--margin-x) + clamp(16px, 4vw, 64px));
-  padding-bottom: calc(var(--rule-h) * 3);
+  display: grid;
+  gap: calc(var(--rule-h) * 3);
+  padding: var(--rule-h) 0 calc(var(--rule-h) * 3);
 }
+/* each skill is a Panel: the same sheet laid on the paper, with the built-with line as its
+   footer. There the line names the tools the skill drives, as their own logos. */
 .skill {
   display: grid;
   grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-  gap: clamp(28px, 4vw, 64px);
+  gap: var(--rule-h) clamp(28px, 4vw, 64px);
   align-items: start;
-  padding: calc(var(--rule-h) * 2) 0;
-  scroll-margin-top: 60px;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: clamp(24px, 4vw, 48px);
+  scroll-margin-top: 80px;
 }
 .skill h2 { font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; }
-.why { max-width: 48ch; margin: var(--rule-h) 0; text-wrap: pretty; }
+.skill .skill-sub { margin-bottom: var(--rule-h); }
 .skill-label { margin-top: 14px; }
+.skill .study-built { grid-column: 1 / -1; margin-top: 0; }
+.tools { flex: 1 1 auto; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.tools svg { display: block; width: 22px; height: 22px; }
 .prompt code { font-family: var(--font-mono); font-size: 0.9rem; }
 .prompt code::before { content: "› "; color: var(--ink-soft); }
 .alt-install { margin-top: 14px; }
 .alt-install summary { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); }
 .alt-install summary:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; }
-.skill .site-link { display: inline-block; margin-top: 18px; }
 /* a skill whose output is words gets them taped in as a note, set the way they came back:
    bullets for the Slack brief, a ledger for the audit runs, a finding for an audit */
 .note {
@@ -852,7 +862,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 }
 
 @media (max-width: 480px) {
-  .panel { box-shadow: 5px 5px 0 var(--ink); }
+  .panel, .skill { box-shadow: 5px 5px 0 var(--ink); }
 }
 
 /* The wordmark got 65% wider with the rename, and the nav already had only ~26px

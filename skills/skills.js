@@ -1,4 +1,4 @@
-// The skills page: the shoe draws in, and every install line gets a Copy button.
+// The skills page: the shoe draws in, and every install line gets a copy button (an icon; the label is aria-label).
 // Without JS the buttons stay hidden and the commands are still selectable text.
 (() => {
   const motionOK = matchMedia('(prefers-reduced-motion: no-preference)').matches;
@@ -15,6 +15,8 @@
   const status = document.getElementById('copy-status');
   document.querySelectorAll('.copyline .copy').forEach((btn) => {
     const cmd = btn.previousElementSibling.textContent;
+    btn.innerHTML = '<svg aria-hidden="true"><use href="#i-copy"/></svg>';
+    const icon = btn.querySelector('use');
     btn.hidden = false;
     btn.setAttribute('aria-label', 'Copy: ' + cmd);
     btn.addEventListener('click', async () => {
@@ -24,10 +26,10 @@
         status.textContent = 'Selected ' + cmd;
         return;
       }
-      btn.textContent = 'Copied';
+      icon.setAttribute('href', '#i-check');
       status.textContent = 'Copied ' + cmd;
       clearTimeout(btn.t);
-      btn.t = setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+      btn.t = setTimeout(() => icon.setAttribute('href', '#i-copy'), 1600);
     });
   });
 })();
