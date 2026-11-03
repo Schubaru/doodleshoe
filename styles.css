@@ -782,7 +782,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 /* its own page now: same one-word title as /skills */
 .about h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-bottom: var(--rule-h); }
 .about p { max-width: 36em; text-wrap: pretty; }   /* em, not ch: this face's zero is narrow, so 65ch is ~400px */
-.about .lede { margin-bottom: var(--rule-h); }
+.about .lede, .about p:has(+ p) { margin-bottom: var(--rule-h); }
 /* the lab first, then the person: the founder gets a case study's h2, not the page title's */
 .about h2 {
   font-weight: 700;
@@ -790,6 +790,14 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   line-height: 1.1;
   margin: calc(var(--rule-h) * 3) 0 var(--rule-h);
 }
+/* the mission: three short clauses stacked, one per line, set in the h2's weight on the rule grid */
+.about .about-mission {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  line-height: calc(var(--rule-h) * 1.5);
+  margin-bottom: var(--rule-h);
+}
+.about-mission span { display: block; }
 /* the Lab's dl, wider label column: "Product designer" is the longest role */
 .about-roles { max-width: calc(11.5rem + 24px + 34em); margin-bottom: var(--rule-h); }
 .about-roles > div { display: grid; grid-template-columns: 11.5rem minmax(0, 1fr); gap: 0 24px; align-items: baseline; }
