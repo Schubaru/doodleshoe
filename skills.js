@@ -62,6 +62,19 @@
     run();
   });
 
+  // Filter pills: one pressed at a time; a pill with no data-show (All) keeps every card.
+  const filter = document.querySelector('.skill-filter');
+  if (filter) {
+    const pills = filter.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.skill-list .skill');
+    pills.forEach((pill) => pill.addEventListener('click', () => {
+      const keep = pill.dataset.show && pill.dataset.show.split(' ');
+      pills.forEach((p) => p.setAttribute('aria-pressed', p === pill));
+      cards.forEach((card) => { card.hidden = !!keep && !keep.includes(card.id); });
+    }));
+    filter.hidden = false;
+  }
+
   if (!navigator.clipboard) return;
   const status = document.getElementById('copy-status');
   document.querySelectorAll('.copyline .copy').forEach((btn) => {

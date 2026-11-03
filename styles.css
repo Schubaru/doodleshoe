@@ -899,6 +899,39 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   padding: clamp(24px, 4vw, 48px);
   scroll-margin-top: 80px;
 }
+.skill[hidden] { display: none; }
+/* the filter wears the SiteLink pill; the pressed one keeps the ink fill. Too wide for a phone,
+   so it scrolls sideways to the screen edge, and the cut-off pill says there is more. */
+.skill-filter {
+  display: flex;
+  gap: 8px;
+  margin-left: calc(var(--margin-x) + clamp(16px, 4vw, 64px));
+  padding: 6px 6px 6px 0;   /* room for the hover lift and the focus ring inside the scroller */
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.skill-filter::-webkit-scrollbar { display: none; }
+.skill-filter[hidden] { display: none; }
+.filter-pill {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: var(--rule-h);
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 5px 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.12s ease-out, background-color 0.12s ease-out, color 0.12s ease-out;
+}
+.filter-pill:hover { background: var(--ink-faint); transform: translateY(-1px); }
+.filter-pill:active { transform: translateY(1px); }
+.filter-pill[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.filter-pill:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 2px; }
 .skill h2 { font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; }
 .skill .skill-sub { margin-bottom: var(--rule-h); }
 .skill-label { margin-top: 14px; }
