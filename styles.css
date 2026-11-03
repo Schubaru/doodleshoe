@@ -157,7 +157,17 @@ h1 {
 /* the "er" and the "/" — the only two characters that turn the job title into two roles */
 .h1-soft { color: var(--ink-soft); }
 .h1-slash { margin-left: -0.06em; }   /* the slash's own sidebearing already sets it off the margin */
-.hero-what { max-width: 36em; margin-top: var(--rule-h); text-wrap: pretty; }
+/* the credit tucks under the name (the h1's own line box is the gap); the statement below it outranks it */
+.hero h1 { margin-bottom: 0; }
+.hero-by { font-weight: 500; color: var(--ink-soft); }
+.hero-what {
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 500;
+  line-height: calc(var(--rule-h) * 1.25);
+  max-width: 22em;
+  margin-top: calc(var(--rule-h) * 1.5);
+  text-wrap: balance;
+}
 .lede {
   font-size: 1.2rem;
   line-height: calc(var(--rule-h) * 1.25);
@@ -222,28 +232,25 @@ h1 {
   .m-arm { transform: rotate(4deg); }
 }
 
-/* ————— the lab: the value prop, between the name and the proof ————— */
-/* set on the panels' left edge like .work-head; the two lists are what comes out of the
-   lab and what goes in, and every item links to the thing itself */
+/* ————— the lab: what comes out and what goes in, between the name and the proof ————— */
+/* set on the panels' left edge like .work-head; two sheets side by side, every item links
+   to the thing itself (a case study, or a card on /skills) */
 .lab {
   padding: calc(var(--rule-h) * 2) clamp(20px, 6vw, 80px) var(--rule-h) calc(var(--margin-x) + clamp(16px, 4vw, 72px));
   max-width: calc(100% - var(--gutter-x));
 }
-.lab h2 {
-  font-weight: 700;
-  font-size: clamp(2rem, 5.6vw, 3.4rem);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  max-width: 15em;
-  text-wrap: balance;
-  margin-bottom: var(--rule-h);
-}
 .lab-cols {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);   /* the Apps row holds two names on one line */
-  gap: var(--rule-h) clamp(32px, 6vw, 96px);
-  margin-top: calc(var(--rule-h) * 2);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);   /* nine skills want the wider sheet */
+  gap: calc(var(--rule-h) * 1.5) clamp(28px, 4vw, 48px);
   max-width: 980px;
+}
+/* the case-study sheet at a smaller size: same border, a lighter shadow so it doesn't outrank the studies */
+.lab-panel {
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: var(--rule-h) clamp(20px, 3vw, 32px) 0;
 }
 /* a signpost, so it takes the beat label's tier, not the type ramp */
 .lab-label {
@@ -255,20 +262,9 @@ h1 {
   color: var(--ink-soft);
   margin-bottom: var(--rule-h);
 }
-/* fixed label column: on a phone "Wordsword, N00B Portfolios" wraps inside its own column, not under "Apps" */
-.lab-make > div { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); align-items: baseline; }
-.lab-make > div + div { margin-top: var(--rule-h); }
-.lab-make dt { font-weight: 700; font-size: 1.5rem; }
-.lab-make dd { font-size: 1.1rem; }
-.lab-skills {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 22px;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-.lab-skills li { padding-bottom: var(--rule-h); }
+.lab-list { list-style: none; font-weight: 700; font-size: 1.2rem; }
+.lab-list li { padding-bottom: var(--rule-h); }
+.lab-skills { display: flex; flex-wrap: wrap; gap: 0 22px; }
 .lab a:not(.btn), .about a:not(.btn) {
   color: var(--ink);
   text-decoration: underline;
@@ -280,8 +276,10 @@ h1 {
 .lab a:not(.btn):hover, .about a:not(.btn):hover { text-decoration-color: var(--ink); }
 .lab a:focus-visible, .about a:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; border-radius: 2px; }
 @media (max-width: 720px) {
-  .lab-cols { grid-template-columns: 1fr; gap: calc(var(--rule-h) * 2); }
+  .lab-cols { grid-template-columns: 1fr; }
 }
+/* the skills ask closes the page, on the same left edge as everything above it */
+.outro { padding: calc(var(--rule-h) * 2) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 3) calc(var(--margin-x) + clamp(16px, 4vw, 72px)); }
 
 /* ————— case studies ————— */
 /* the section's title: a page-level heading like /skills and /about, set on the panels' left edge */
@@ -996,6 +994,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 
 @media (max-width: 480px) {
   .panel, .skill { box-shadow: 5px 5px 0 var(--ink); }
+  .lab-panel { box-shadow: 4px 4px 0 var(--ink); }
 }
 
 /* The wordmark got 65% wider with the rename, and the nav already had only ~26px
