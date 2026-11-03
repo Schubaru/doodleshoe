@@ -780,7 +780,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 /* its own page now: same one-word title as /skills */
 .about h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-bottom: var(--rule-h); }
 .about p { max-width: 36em; text-wrap: pretty; }   /* em, not ch: this face's zero is narrow, so 65ch is ~400px */
-.about .lede, .about p:has(+ p) { margin-bottom: var(--rule-h); }
+.about p:has(+ p) { margin-bottom: var(--rule-h); }
 /* the lab first, then the person: the founder gets a case study's h2, not the page title's */
 .about h2 {
   font-weight: 700;
@@ -788,22 +788,31 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   line-height: 1.1;
   margin: calc(var(--rule-h) * 3) 0 var(--rule-h);
 }
-/* the mission: three short clauses stacked, one per line, set in the h2's weight on the rule grid */
-.about .about-mission {
+/* the mission: a notebook checklist. Each line is a native <details>, so it opens by click, tap,
+   Enter or Space with no JS; the box is the only affordance, and ticking it is the reveal */
+.mission { max-width: 36em; }
+.mission-item summary {
+  display: flex; align-items: center; gap: 14px;
+  list-style: none;
+  cursor: pointer;
   font-weight: 700;
-  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
-  line-height: calc(var(--rule-h) * 1.5);
-  margin-bottom: var(--rule-h);
+  font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+  line-height: calc(var(--rule-h) * 2);
+  width: fit-content;
 }
-.about-mission span { display: block; }
-/* the Lab's dl, wider label column: "Product designer" is the longest role */
-.about-roles { max-width: calc(11.5rem + 24px + 34em); margin-bottom: var(--rule-h); }
-.about-roles > div { display: grid; grid-template-columns: 11.5rem minmax(0, 1fr); gap: 0 24px; align-items: baseline; }
-.about-roles > div + div { margin-top: var(--rule-h); }
-.about-roles dt { font-weight: 700; font-size: 1.25rem; }
-@media (max-width: 560px) {
-  .about-roles > div { grid-template-columns: 1fr; }
+.mission-item summary::-webkit-details-marker { display: none; }
+.mission-item summary:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 2px; border-radius: 2px; }
+.mission-item p { padding-left: 44px; margin-bottom: var(--rule-h); }   /* hangs under the words, not the box */
+.tick { width: 30px; height: 30px; flex: none; }
+.tick .tick-mark { stroke-width: 3.4; stroke-dashoffset: 1; opacity: 0; }   /* a round cap still paints a dot at zero length */
+.mission-item[open] .tick-mark { stroke-dashoffset: 0; opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .tick .tick-box { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: center; }
+  .mission-item summary:hover .tick-box { transform: rotate(-6deg); }
+  .tick .tick-mark { transition: stroke-dashoffset 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .mission-item[open] p { animation: mission-in 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
 }
+@keyframes mission-in { from { opacity: 0; transform: translateY(-6px); } }
 .links { display: flex; gap: 16px; margin-top: calc(var(--rule-h) * 1.5); }
 
 /* ————— footer ————— */
