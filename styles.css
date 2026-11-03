@@ -234,7 +234,7 @@ h1 {
 
 /* ————— the lab: what comes out and what goes in, after the proof and above the one ask ————— */
 /* set on the panels' left edge like .work-head; two sheets side by side, every item links
-   to the thing itself (a case study, or a card on /skills) */
+   to the thing itself (a case study, or a skill card above) */
 .lab {
   padding: calc(var(--rule-h) * 2) clamp(20px, 6vw, 80px) var(--rule-h) calc(var(--margin-x) + clamp(16px, 4vw, 72px));
   max-width: calc(100% - var(--gutter-x));
@@ -282,13 +282,13 @@ h1 {
 .outro { padding: calc(var(--rule-h) * 2) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 3) calc(var(--margin-x) + clamp(16px, 4vw, 72px)); }
 
 /* ————— case studies ————— */
-/* the section's title: a page-level heading like /skills and /about, set on the panels' left edge */
+/* the page title, like /about's, set on the panels' left edge */
 .work-head {
   padding: calc(var(--rule-h) * 2) clamp(20px, 6vw, 80px) 0 calc(var(--margin-x) + clamp(16px, 4vw, 72px));
   max-width: 900px;
   scroll-margin-top: 56px;   /* clears the sticky nav when the tab lands here */
 }
-.work-head h2 { font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1.08; margin-bottom: var(--rule-h); }
+.work-head h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); letter-spacing: normal; margin-bottom: var(--rule-h); }
 .study { position: relative; }
 .pin { padding: calc(var(--rule-h) * 2) 0; }
 
@@ -777,7 +777,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   padding: calc(var(--rule-h) * 3) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 2) calc(var(--margin-x) + clamp(16px, 4vw, 64px));
   max-width: 900px;
 }
-/* its own page now: same one-word title as /skills */
+/* its own page now: same one-word title as Skills */
 .about h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-bottom: var(--rule-h); }
 .about p { max-width: 36em; text-wrap: pretty; }   /* em, not ch: this face's zero is narrow, so 65ch is ~400px */
 .about p:has(+ p) { margin-bottom: var(--rule-h); }
@@ -826,14 +826,15 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   gap: 8px;
 }
 
-/* ————— skills page ————— */
+/* ————— skills (home) ————— */
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .skills-head {
   padding: calc(var(--rule-h) * 3) clamp(20px, 6vw, 80px) calc(var(--rule-h) * 2) calc(var(--margin-x) + clamp(16px, 4vw, 64px));
   max-width: 900px;
+  scroll-margin-top: 56px;   /* clears the sticky nav when the tab lands here */
 }
 /* one short word, no container to size against: the hero's cqw display size doesn't apply */
-.skills-head h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-bottom: var(--rule-h); }
+.skills-head h2 { font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: var(--rule-h); }
 .skills-head .lede { margin-bottom: var(--rule-h); }
 .skills-note { margin-top: 14px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); }
 .skills-note a { color: var(--ink); }

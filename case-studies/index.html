@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case studies: Alex Schumacher, Design Engineer</title>
+<meta name="description" content="Alex Schumacher designs products, then builds them. Case studies: Unscary.ai, Wordsword, N00B Portfolios, 368 Dinos, and one very terse Discord bot.">
+<meta property="og:title" content="Case studies: Alex Schumacher, Design Engineer">
+<meta property="og:description" content="Alex Schumacher designs products, then builds them. Case studies: Unscary.ai, Wordsword, N00B Portfolios, 368 Dinos, and one very terse Discord bot.">
+<meta property="og:url" content="https://nooblabs.vercel.app/case-studies">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%2724%202%2034%2034%27%3E%3Cpath%20d=%27M40%206%20Q31%203%2030%2012%20Q34%2010%2038%2011%20M30%2016%20Q40%2010%2052%2016%20Q54%2026%2052%2033%20L30%2033%20Q28%2025%2030%2016%20Z%20M33%2025%20Q41%2026%2049%2025%27%20fill=%27none%27%20stroke=%27%23151b24%27%20stroke-width=%273.2%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#work">Skip to the work</a>
+
+<!-- shared doodle symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="d-tape" viewBox="0 0 90 30">
+      <path d="M4 6 L86 3 L88 24 L2 27 L5 17 Z" fill="var(--tape)" stroke="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="topnav">
+  <a class="wordmark" href="/"><svg class="knight doodle draw" viewBox="4 1 72 88" aria-hidden="true">
+      <path pathLength="1" d="M40 6 Q31 3 30 12 Q34 10 38 11"/>
+      <path pathLength="1" d="M30 16 Q40 10 52 16 Q54 26 52 33 L30 33 Q28 25 30 16 Z"/>
+      <path pathLength="1" d="M33 25 Q41 26 49 25"/>
+      <path pathLength="1" d="M32 35 Q28 50 30 62 Q41 66 52 62 Q54 50 50 35"/>
+      <path pathLength="1" d="M31 50 Q41 52 51 50"/>
+      <path pathLength="1" d="M36 64 Q35 74 34 80 M47 64 Q48 74 49 80"/>
+      <path pathLength="1" d="M34 80 Q28 86 38 85 M49 80 Q55 86 45 85"/>
+      <path pathLength="1" d="M30 40 Q22 42 19 48"/>
+      <path pathLength="1" d="M8 44 Q16 40 24 44 Q25 55 16 62 Q7 55 8 44 Z"/>
+      <path pathLength="1" d="M52 38 Q60 34 63 27"/>
+      <path pathLength="1" d="M63 27 Q66 17 69 8 M60 16 Q66 14 72 13"/>
+    </svg><span>N00B&nbsp;Labs&trade;</span></a>
+  <nav aria-label="Site">
+    <a href="/#skills">Skills</a>
+    <a href="/case-studies/" aria-current="page">Case studies</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ WORK ============ -->
+  <header class="work-head" id="work">
+    <h1>Case studies</h1>
+    <p class="lede">Projects designed and built with Claude&nbsp;Code.</p>
+  </header>
+
+  <!-- Unscary.ai -->
+  <section class="study" id="b43" data-progress>
+    <div class="pin"><div class="panel">
+      <header class="study-head">
+        <h2>Unscary.ai</h2>
+        <p class="study-sub">Teaching whole teams to actually use AI.</p>
+        <span class="stamp">IN PRODUCTION</span>
+      </header>
+      <div class="study-body">
+        <figure class="shot stack-shot">
+          <img class="s1" src="/assets/b43-hub.webp" alt="Unscary, Unscary.ai's iPhone app: a Learn tab greeting 'Welcome back, Sarah', a Monday-to-Friday week strip set to three lessons a week, and the next lesson ('What is AI, really?') waiting behind a Start button" width="644" height="1400">
+          <img class="s2" src="/assets/b43-rep.png" alt="A lesson in progress, 'Same tool, two answers': two chat exchanges compared side by side, one vague and one that added 'I have chicken and twenty minutes', then three choices for why the second answer fit better" width="644" height="1400">
+          <img class="s3" src="/assets/b43-progress.png" alt="The Progress tab: 350 points across 20 lessons, a Level 5 bar, and standing on the four rungs: Recognize strong, Try developing, Standardize marked as the frontier, Automate developing" width="644" height="1400">
+          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+        </figure>
+        <div class="beats">
+          <div class="beat">
+            <h3>What it is</h3>
+            <p>An AI-enablement platform. Seven modules take a team from “what's a prompt” to shipping their own reusable AI skills. Unscary is the same ladder as an iPhone app: the screens on the left are its.</p>
+          </div>
+          <div class="beat">
+            <h3>Why it works this way</h3>
+            <p>Bryce Murray founded it, and had already taught this material live for years. Nobody learns a tool by watching someone else use it, though, so that training became five interactive formats instead of lecture videos: sort it, sequence it, build the prompt, place the chips, ending at a Skill Builder that turns a conversation into a skill the whole team can run.</p>
+          </div>
+          <div class="beat">
+            <h3>My role</h3>
+            <p>I was the founding designer on it: researched learning frameworks and game design to turn Bryce's teaching into lessons. Sketched it in Figma, built it in Cursor, then moved to Claude Code, where it still lives. React, TypeScript, Supabase underneath; the Skill Builder took three rebuilds before it graded itself: live-LLM tests score every deploy, and if it gets dumber, the build says so.</p>
+          </div>
+        </div>
+      </div>
+      <footer class="study-built">
+        <span class="built-stack">Figma · React · TypeScript · Supabase · Playwright · Cursor · Claude&nbsp;Code</span>
+        <span class="study-links">
+          <a class="site-link" href="https://www.b43.ai/">b43.ai&nbsp;→</a>
+          <a class="site-link" href="https://www.unscary.ai/">unscary.ai&nbsp;→</a>
+        </span>
+      </footer>
+    </div></div>
+  </section>
+
+  <!-- WORDSWORD -->
+  <section class="study" id="wordsword" data-progress>
+    <div class="pin"><div class="panel">
+      <header class="study-head">
+        <h2>Wordsword</h2>
+        <p class="study-sub">A dictionary that keeps your words.</p>
+        <span class="stamp">iOS · v1</span>
+      </header>
+      <div class="study-body">
+        <figure class="shot phone-shot">
+          <img class="s1" src="/assets/wordsword-home.png" alt="Wordsword home screen: a giant 'type a word' prompt on college-ruled paper with a red margin line, with the last word looked up (halcyon) waiting in a sheet at the bottom" width="560" height="1217">
+          <img class="s2" src="/assets/wordsword-chain.png" alt="Wordsword follow-up chain: 'sanguine' defined in plain English, then tapped through to 'optimistic', with 'Use it in a sentence' and 'Explain it differently' as the only controls" width="560" height="1217">
+          <img class="s3" src="/assets/wordsword-cards.png" alt="Wordsword flashcards: the word 'optimistic' on card 1 of 6, with Pass and Got it beneath and the knight doodle watching from the corner" width="560" height="1217">
+          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+        </figure>
+        <div class="beats">
+          <div class="beat">
+            <h3>What it is</h3>
+            <p>You're mid-book. A word stops you. Wordsword answers in plain English in about three seconds, then keeps the word: into a wordlist, back as flashcards, until it sticks.</p>
+          </div>
+          <div class="beat">
+            <h3>Why it works this way</h3>
+            <p>A text box would make it a chatbot: you type, it talks, you never get back to the book. So the chat is tap-only: the next three questions you'd actually ask, already written. And every lookup files itself, because nobody remembers to.</p>
+          </div>
+          <div class="beat">
+            <h3>How I built it</h3>
+            <p>SwiftUI and SwiftData. Apple's on-device model rewrites stuffy definitions into plain English: free, private, works on a plane. Then I taught the app to screenshot itself: a debug mode walks every screen for the App&nbsp;Store. The shots on the left are its work.</p>
+          </div>
+        </div>
+      </div>
+      <footer class="study-built">
+        <!-- the duel: Wordsword's knight (left) vs. a challenger, fought on the built-with line -->
+        <svg class="duel doodle draw" viewBox="0 0 160 106" aria-hidden="true">
+          <g transform="translate(0,14)">
+            <g class="duel-k">
+              <path pathLength="1" d="M40 6 Q31 3 30 12 Q34 10 38 11"/>
+              <path pathLength="1" d="M30 16 Q40 10 52 16 Q54 26 52 33 L30 33 Q28 25 30 16 Z"/>
+              <path pathLength="1" d="M33 25 Q41 26 49 25 M37 29 L37 31 M44 29 L44 31"/>
+              <path pathLength="1" d="M32 35 Q28 50 30 62 Q41 66 52 62 Q54 50 50 35"/>
+              <path pathLength="1" d="M31 50 Q41 52 51 50"/>
+              <path pathLength="1" d="M36 40 Q41 45 46 41 M46 40 Q41 45 36 44"/>
+              <path pathLength="1" d="M36 64 Q35 74 34 80 M47 64 Q48 74 49 80"/>
+              <path pathLength="1" d="M34 80 Q28 86 38 85 M49 80 Q55 86 45 85"/>
+              <path pathLength="1" d="M30 40 Q22 42 19 48"/>
+              <path pathLength="1" d="M8 44 Q16 40 24 44 Q25 55 16 62 Q7 55 8 44 Z"/>
+              <path pathLength="1" d="M13 50 Q16 48 19 51 Q17 54 15 55 Q13 53 13 50 Z"/>
+              <g class="duel-arm">
+                <path pathLength="1" d="M52 38 Q60 34 63 27"/>
+                <path pathLength="1" d="M63 27 Q66 17 69 8 M60 16 Q66 14 72 13"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(160,14) scale(-1,1)">
+            <g class="duel-k duel-k--rival">
+              <path pathLength="1" d="M40 9 Q42 1 36 -3 Q28 -8 19 -4"/>
+              <path pathLength="1" d="M35 -2 Q30 2 29 7"/>
+              <path pathLength="1" d="M26 -6 Q23 0 21 4"/>
+              <path pathLength="1" d="M29 18 Q35 8 41 7 Q47 8 53 18 Q56 27 53 35 L29 35 Q26 26 29 18 Z"/>
+              <path pathLength="1" d="M32 26 Q41 28 50 26 M41 22 L41 33"/>
+              <path pathLength="1" d="M31 37 Q26 52 29 64 Q41 69 53 64 Q56 52 51 37"/>
+              <path pathLength="1" d="M30 52 Q41 54 52 52"/>
+              <path pathLength="1" d="M36 41 L41 47 L46 41"/>
+              <path pathLength="1" d="M36 66 Q35 76 33 82 M48 66 Q49 76 50 82"/>
+              <path pathLength="1" d="M33 82 Q26 88 37 87 M50 82 Q57 88 46 87"/>
+              <path pathLength="1" d="M31 42 Q22 44 19 50"/>
+              <path pathLength="1" d="M8 43 Q17 39 26 43 Q26 55 17 64 Q8 55 8 43 Z"/>
+              <path pathLength="1" d="M12 48 L17 53 L22 48"/>
+              <g class="duel-arm">
+                <path pathLength="1" d="M53 39 Q61 35 64 28"/>
+                <path pathLength="1" d="M64 28 Q68 17 72 5 M60 17 Q67 15 74 14"/>
+              </g></g>
+          </g>
+          <!-- impact burst, centred where the blades cross -->
+          <path class="duel-spark" pathLength="1" d="M78.5 32 Q78.9 29.5 78.5 27 M83.5 37 Q86 37.4 88.5 37 M73.5 37 Q71 37.4 68.5 37 M76 41.3 Q74.5 43.4 73.5 45.7 M81 41.3 Q82.5 43.4 83.5 45.7"/>
+        </svg>
+        <span class="built-stack">SwiftUI &middot; SwiftData &middot; Datamuse &middot; on-device AI &middot; Claude&nbsp;Code</span></footer>
+    </div></div>
+  </section>
+
+  <!-- N00B PORTFOLIOS -->
+  <section class="study" id="noob" data-progress>
+    <div class="pin"><div class="panel">
+      <header class="study-head">
+        <h2>N00B Portfolios</h2>
+        <p class="study-sub">Paper trading for people who've never traded.</p>
+        <span class="stamp">LIVE</span>
+      </header>
+      <div class="study-body">
+        <figure class="shot wide-shot">
+          <img class="s1" src="/assets/noob-hero.png" alt="N00B Portfolios overview: a $10,788.24 paper portfolio up $55.12 today, its green growth curve running the width of the screen, with three saved portfolios in the sidebar and a Trade button" width="800" height="262">
+          <img class="s2" src="/assets/noob-search.png" alt="N00B Portfolios asset search: suggested picks VOO, VTI, QQQ and AAPL grouped into index funds and blue-chip stocks" width="320" height="341">
+          <img class="s3" src="/assets/noob-trade.png" alt="N00B Portfolios trade panel for AAPL at $333.75: a plain-English description of the company, its dividend schedule, and key fundamentals" width="360" height="563">
+          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+        </figure>
+        <div class="beats">
+          <div class="beat">
+            <h3>What it is</h3>
+            <p>Real tickers, real prices, fake money. Beginners practice the whole thing (portfolios, trades, dividends, allocation) with no way to lose rent.</p>
+          </div>
+          <div class="beat">
+            <h3>Why it works this way</h3>
+            <p>Fake prices teach fake lessons, so the market data is live. And green-up, red-down is a language beginners have not learned yet: every gain carries a number and a sign, never color alone. Beginner-safe has to mean accessible or it means nothing.</p>
+          </div>
+          <div class="beat">
+            <h3>How I built it</h3>
+            <p>React and Supabase. Every market call goes through an edge function, so the API keys never touch the browser, and a nightly job snapshots prices into the real time-series behind the charts. It started as a throwaway prototype. So I threw it away and built it again.</p>
+          </div>
+        </div>
+      </div>
+      <footer class="study-built">
+        <span class="built-stack">React · TypeScript · Supabase · Alpaca&nbsp;API · Cursor · Claude&nbsp;Code</span>
+        <span class="study-links">
+          <a class="site-link" href="https://noobportfolios.com/">noobportfolios.com&nbsp;→</a>
+        </span>
+      </footer>
+    </div></div>
+  </section>
+
+  <!-- 368 DINOS -->
+  <section class="study" id="dinos" data-progress>
+    <div class="pin"><div class="panel">
+      <header class="study-head">
+        <h2>368 Dinos</h2>
+        <p class="study-sub">Rescue 368 dinosaurs. Or don't, and live with it.</p>
+        <span class="stamp">PLAYABLE</span>
+      </header>
+      <div class="study-body">
+        <figure class="shot tall-shot">
+          <!-- the game playing itself, recorded off the real page — poster first, motion only if it's wanted -->
+          <video class="demo" muted loop playsinline preload="none" width="960" height="1560"
+                 poster="/assets/dinos-shot.png"
+                 aria-label="368 Dinos playing itself: pairs of pixel dinosaurs drop onto a 6 by 6 grid, three of a kind flash and vanish, and the rescued counter climbs">
+            <source src="/assets/dinos-demo.mp4" type="video/mp4">
+          </video>
+          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+        </figure>
+        <div class="beats">
+          <div class="beat">
+            <h3>What it is</h3>
+            <p>A tiny browser puzzle. Match three dinos to rescue them; let the board fill and it's an <strong>EXTINCTION EVENT</strong>. No accounts, no gems, no tutorial: you'll get it in five seconds.</p>
+          </div>
+          <div class="beat">
+            <h3>Why it works this way</h3>
+            <p>A five-second game has no business asking for an install, an account, or a tutorial. One pointer handler tells a 6-pixel drag from a tap, so desktop and mobile play the same game. It also has full keyboard controls and screen-reader announcements. Yes, in a dino game.</p>
+          </div>
+          <div class="beat">
+            <h3>How I built it</h3>
+            <p>Three files. Zero dependencies. No build step. Every dino is hand-inlined SVG. One afternoon, start to finish, and it's playable right here:</p>
+            <a class="btn play-btn" href="/dinos/">Play it →</a>
+          </div>
+        </div>
+      </div>
+      <footer class="study-built">
+        <span class="built-stack">HTML · CSS · vanilla JS · 0 dependencies · Claude&nbsp;Code</span>
+      </footer>
+    </div></div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>Hand-drawn SVG · vanilla HTML/CSS/JS · no framework · no build step. The paper is one CSS gradient. The knight is on loan from Wordsword. Site built in Claude&nbsp;Code.</p>
+  <p>© 2026 Alex Schumacher</p>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>

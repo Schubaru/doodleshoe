@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>N00B Labs™ by Alex Schumacher, Design Engineer</title>
-<meta name="description" content="Alex Schumacher designs products, then builds them. Case studies: Unscary.ai, Wordsword, N00B Portfolios, 368 Dinos, and one very terse Discord bot.">
+<meta name="description" content="The Claude Code skills I use every day: what each one is for, the prompt I type, what comes back, and the one line that installs it.">
 <meta property="og:title" content="N00B Labs™ by Alex Schumacher, Design Engineer">
 <meta property="og:description" content="Punk-rock doodles, college-rule paper, and real shipped software.">
 <!-- versioned filename on purpose: LinkedIn caches the image bytes by URL, so a
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#work">Skip to the work</a>
+<a class="skip" href="#skills">Skip to the skills</a>
 
 <!-- shared doodle symbols -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -31,6 +31,27 @@
     <symbol id="d-tape" viewBox="0 0 90 30">
       <path d="M4 6 L86 3 L88 24 L2 27 L5 17 Z" fill="var(--tape)" stroke="none"/>
     </symbol>
+    <!-- copy / copied, drawn in the ink of the button they sit in -->
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="1.5"/><path d="M15.5 8.5V6A1.5 1.5 0 0 0 14 4.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <!-- a demo reel's pause / play / expand / close, same pen -->
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.5 5.5v13M15.5 5.5v13"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5l-6 6M10 19.5H4.5V14M4.5 19.5l6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <!-- the tools each skill works with, in their own brand colours (Simple Icons; Playwright from devicon) -->
+    <symbol id="i-claude" viewBox="0 0 24 24"><path fill="#D97757" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol>
+    <symbol id="i-slack" viewBox="0 0 24 24"><path fill="#E01E5A" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z"/><path fill="#36C5F0" d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z"/><path fill="#2EB67D" d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312z"/><path fill="#ECB22E" d="M15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></symbol>
+    <symbol id="i-figma" viewBox="-9.5 0 57 57"><path fill="#1ABCFE" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path fill="#0ACF83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/><path fill="#FF7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/><path fill="#F24E1E" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path fill="#A259FF" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/></symbol>
+    <symbol id="i-storybook" viewBox="0 0 24 24"><path fill="#FF4785" d="M16.71.243l-.12 2.71a.18.18 0 00.29.15l1.06-.8.9.7a.18.18 0 00.28-.14l-.1-2.76 1.33-.1a1.2 1.2 0 011.279 1.2v21.596a1.2 1.2 0 01-1.26 1.2l-16.096-.72a1.2 1.2 0 01-1.15-1.16l-.75-19.797a1.2 1.2 0 011.13-1.27L16.7.222zM13.64 9.3c0 .47 3.16.24 3.59-.08 0-3.2-1.72-4.89-4.859-4.89-3.15 0-4.899 1.72-4.899 4.290 0 4.45 5.999 4.53 5.999 6.959 0 .7-.32 1.1-1.05 1.1-.96 0-1.35-.49-1.3-2.16 0-.36-3.649-.48-3.769 0-.27 4.03 2.23 5.2 5.099 5.2 2.79 0 4.969-1.49 4.969-4.18 0-4.77-6.099-4.64-6.099-6.999 0-.97.72-1.1 1.13-1.1.45 0 1.25.07 1.19 1.870z"/></symbol>
+    <symbol id="i-supabase" viewBox="0 0 24 24"><path fill="#3ECF8E" d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></symbol>
+    <symbol id="i-vercel" viewBox="0 0 24 24"><path fill="#000" d="M24 22.525H0l12-21.05 12 21.05z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="#181717" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.930 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="#000" d="M12.152 6.896c-.948 0-2.415-1.078-3.960-1.040-2.040.027-3.910 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.090 1.013 1.454 2.208 3.090 3.792 3.039 1.520-.065 2.090-.987 3.935-.987 1.831 0 2.350.987 3.960.948 1.637-.026 2.676-1.480 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.220-4.857-.026-3.040 2.480-4.494 2.597-4.559-1.429-2.090-3.623-2.324-4.390-2.376-2-.156-3.675 1.090-4.610 1.090zM15.530 3.830c.843-1.012 1.400-2.427 1.245-3.830-1.207.052-2.662.805-3.532 1.818-.780.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+    <symbol id="i-playwright" viewBox="7 8 112 112"><path d="M43.662 70.898c-4.124 1.17-6.829 3.222-8.611 5.272 1.707-1.494 3.993-2.865 7.077-3.739 3.155-.894 5.846-.888 8.069-.459v-1.739c-1.897-.173-4.072-.035-6.536.664ZM34.863 56.28l-15.314 4.035s.279.394.796.92l12.984-3.421s-.184 2.371-1.782 4.492c3.022-2.287 3.316-6.025 3.316-6.025Zm12.819 35.991C26.131 98.076 14.729 73.1 11.277 60.137 9.682 54.153 8.986 49.621 8.8 46.697a4.955 4.955 0 0 1 .011-.794c-1.118.068-1.653.649-1.544 2.328.186 2.923.882 7.454 2.477 13.44 3.45 12.961 14.854 37.937 36.405 32.132 4.691-1.264 8.215-3.565 10.86-6.504-2.438 2.202-5.49 3.937-9.327 4.972Zm4.05-51.276v1.534h8.453c-.173-.543-.348-1.032-.522-1.534h-7.932Z" fill="#2D4552"/><path d="M62.074 53.627c3.802 1.08 5.812 3.745 6.875 6.104l4.239 1.204s-.578-8.255-8.045-10.376c-6.985-1.985-11.284 3.881-11.807 4.64 2.032-1.448 4.999-2.633 8.738-1.572Zm33.741 6.142c-6.992-1.994-11.289 3.884-11.804 4.633 2.034-1.446 4.999-2.632 8.737-1.566 3.796 1.081 5.804 3.743 6.87 6.104l4.245 1.208s-.588-8.257-8.048-10.379Zm-4.211 21.766-35.261-9.858s.382 1.935 1.846 4.441l29.688 8.3c2.444-1.414 3.726-2.883 3.726-2.883Zm-24.446 21.218c-27.92-7.485-24.544-43.059-20.027-59.916 1.86-6.947 3.772-12.11 5.358-15.572-.946-.195-1.73.304-2.504 1.878-1.684 3.415-3.837 8.976-5.921 16.76-4.516 16.857-7.892 52.429 20.027 59.914 13.159 3.525 23.411-1.833 31.053-10.247-7.254 6.57-16.515 10.253-27.986 7.182Z" fill="#2D4552"/><path d="M51.732 83.935v-7.179l-19.945 5.656s1.474-8.563 11.876-11.514c3.155-.894 5.846-.888 8.069-.459V40.995h9.987c-1.087-3.36-2.139-5.947-3.023-7.744-1.461-2.975-2.96-1.003-6.361 1.842-2.396 2.001-8.45 6.271-17.561 8.726-9.111 2.457-16.476 1.805-19.55 1.273-4.357-.752-6.636-1.708-6.422 1.605.186 2.923.882 7.455 2.477 13.44 3.45 12.962 14.854 37.937 36.405 32.132 5.629-1.517 9.603-4.515 12.357-8.336h-8.309v.002Zm-32.185-23.62 15.316-4.035s-.446 5.892-6.188 7.405c-5.743 1.512-9.128-3.371-9.128-3.371Z" fill="#E2574C"/><path d="M109.372 41.336c-3.981.698-13.532 1.567-25.336-1.596-11.807-3.162-19.64-8.692-22.744-11.292-4.4-3.685-6.335-6.246-8.24-2.372-1.684 3.417-3.837 8.977-5.921 16.762-4.516 16.857-7.892 52.429 20.027 59.914 27.912 7.479 42.772-25.017 47.289-41.875 2.084-7.783 2.998-13.676 3.25-17.476.287-4.305-2.67-3.055-8.324-2.064ZM53.28 55.282s4.4-6.843 11.862-4.722c7.467 2.121 8.045 10.376 8.045 10.376L53.28 55.282Zm18.215 30.706c-13.125-3.845-15.15-14.311-15.15-14.311l35.259 9.858c0-.002-7.117 8.25-20.109 4.453Zm12.466-21.51s4.394-6.838 11.854-4.711c7.46 2.124 8.048 10.379 8.048 10.379l-19.902-5.668Z" fill="#2EAD33"/><path d="M44.762 78.733 31.787 82.41s1.41-8.029 10.968-11.212l-7.347-27.573-.635.193c-9.111 2.457-16.476 1.805-19.55 1.273-4.357-.751-6.636-1.708-6.422 1.606.186 2.923.882 7.454 2.477 13.44 3.45 12.961 14.854 37.937 36.405 32.132l.635-.199-3.555-13.337ZM19.548 60.315l15.316-4.035s-.446 5.892-6.188 7.405c-5.743 1.512-9.128-3.371-9.128-3.371Z" fill="#D65348"/><path d="m72.086 86.132-.594-.144c-13.125-3.844-15.15-14.311-15.15-14.311l18.182 5.082L84.15 39.77l-.116-.031c-11.807-3.162-19.64-8.692-22.744-11.292-4.4-3.685-6.335-6.246-8.24-2.372-1.682 3.417-3.836 8.977-5.92 16.762-4.516 16.857-7.892 52.429 20.027 59.914l.572.129 4.357-16.748Zm-18.807-30.85s4.4-6.843 11.862-4.722c7.467 2.121 8.045 10.376 8.045 10.376l-19.907-5.654Z" fill="#1D8D22"/><path d="m45.423 78.544-3.48.988c.822 4.634 2.271 9.082 4.545 13.011.396-.087.788-.163 1.192-.273a25.224 25.224 0 0 0 2.98-1.023c-2.541-3.771-4.222-8.114-5.237-12.702Zm-1.359-32.64c-1.788 6.674-3.388 16.28-2.948 25.915a20.061 20.061 0 0 1 2.546-.923l.644-.144c-.785-10.292.912-20.78 2.825-27.915a139.404 139.404 0 0 1 1.455-5.05 45.171 45.171 0 0 1-2.578 1.53 132.234 132.234 0 0 0-1.944 6.587Z" fill="#C04B41"/></symbol>
+    <symbol id="i-notion" viewBox="0 0 24 24"><path fill="#000" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></symbol>
+    <!-- Granola publishes no vector mark, so its official favicon stands in -->
+    <symbol id="i-granola" viewBox="0 0 24 24"><image href="/assets/tool-granola.png" width="24" height="24"/></symbol>
   </defs>
 </svg>
 
@@ -69,8 +90,8 @@
       <path pathLength="1" d="M63 27 Q66 17 69 8 M60 16 Q66 14 72 13"/>
     </svg><span>N00B&nbsp;Labs&trade;</span></a>
   <nav aria-label="Site">
-    <a href="/#work">Case studies</a>
-    <a href="/skills/">Skills</a>
+    <a href="/#skills">Skills</a>
+    <a href="/case-studies/">Case studies</a>
     <a href="/about/">About</a>
   </nav>
 </header>
@@ -90,212 +111,264 @@
 
   </section>
 
-  <!-- ============ WORK ============ -->
-  <header class="work-head" id="work">
-    <h2>Case studies</h2>
-    <p class="lede">Projects designed and built with Claude&nbsp;Code.</p>
-  </header>
+  <!-- ============ SKILLS ============ -->
+  <section class="skills-head" id="skills">
+    <h2>Skills</h2>
+    <p class="lede">I made these skills to work with conversational AI and build as a product designer. Use any of these in Claude Code.</p>
+    <div class="copyline">
+      <code>npx skills add Schubaru/skills</code>
+      <button class="copy" type="button" hidden></button>
+    </div>
+  </section>
 
-  <!-- Unscary.ai -->
-  <section class="study" id="b43" data-progress>
-    <div class="pin"><div class="panel">
-      <header class="study-head">
-        <h2>Unscary.ai</h2>
-        <p class="study-sub">Teaching whole teams to actually use AI.</p>
-        <span class="stamp">IN PRODUCTION</span>
-      </header>
-      <div class="study-body">
-        <figure class="shot stack-shot">
-          <img class="s1" src="assets/b43-hub.webp" alt="Unscary, Unscary.ai's iPhone app: a Learn tab greeting 'Welcome back, Sarah', a Monday-to-Friday week strip set to three lessons a week, and the next lesson ('What is AI, really?') waiting behind a Start button" width="644" height="1400">
-          <img class="s2" src="assets/b43-rep.png" alt="A lesson in progress, 'Same tool, two answers': two chat exchanges compared side by side, one vague and one that added 'I have chicken and twenty minutes', then three choices for why the second answer fit better" width="644" height="1400">
-          <img class="s3" src="assets/b43-progress.png" alt="The Progress tab: 350 points across 20 lessons, a Level 5 bar, and standing on the four rungs: Recognize strong, Try developing, Standardize marked as the frontier, Automate developing" width="644" height="1400">
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-        </figure>
-        <div class="beats">
-          <div class="beat">
-            <h3>What it is</h3>
-            <p>An AI-enablement platform. Seven modules take a team from “what's a prompt” to shipping their own reusable AI skills. Unscary is the same ladder as an iPhone app: the screens on the left are its.</p>
-          </div>
-          <div class="beat">
-            <h3>Why it works this way</h3>
-            <p>Bryce Murray founded it, and had already taught this material live for years. Nobody learns a tool by watching someone else use it, though, so that training became five interactive formats instead of lecture videos: sort it, sequence it, build the prompt, place the chips, ending at a Skill Builder that turns a conversation into a skill the whole team can run.</p>
-          </div>
-          <div class="beat">
-            <h3>My role</h3>
-            <p>I was the founding designer on it: researched learning frameworks and game design to turn Bryce's teaching into lessons. Sketched it in Figma, built it in Cursor, then moved to Claude Code, where it still lives. React, TypeScript, Supabase underneath; the Skill Builder took three rebuilds before it graded itself: live-LLM tests score every deploy, and if it gets dumber, the build says so.</p>
-          </div>
-        </div>
+  <div class="skill-list" id="list">
+
+    <!-- TK before launch: every .why is a draft for Alex to rewrite in their own words.
+         Every shot is a real run: the projects and dates are in each note or alt text. -->
+
+
+    <article class="skill" id="don-star">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>don-star</h2>
+        <p class="skill-sub">An AI design canvas where designers and engineers build together, right in your GitHub repo.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill don-star</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install don-star <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/don-star</span> set up the board for [your project]</code><button class="copy" type="button" hidden></button></div>
       </div>
+      <figure class="shot skill-shot reel">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <!-- recorded off the real Wordsword board, 2 November 2026: three takes, one loop -->
+        <video class="demo" muted loop playsinline preload="none" width="1280" height="720"
+               poster="/assets/don-star-poster.jpg"
+               aria-label="The don-star board for Wordsword, in three parts. The Design tool picks the live Add to wordlist button, rounds its corners and fills it red, then queues the edits. A question pinned on the Similar chips gets an answer from /don-star in the thread, with the files it read. Switching the board from iPhone to desktop keeps the pin on its chip.">
+          <source src="/assets/don-star-demo.mp4" type="video/mp4">
+        </video>
+        <div class="reel-ctl" hidden>
+          <button class="reel-btn" type="button" data-reel="toggle" aria-label="Pause demo"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
+          <button class="reel-btn" type="button" data-reel="expand" aria-label="Expand demo"><svg aria-hidden="true"><use href="#i-expand"/></svg></button>
+        </div>
+      </figure>
       <footer class="study-built">
-        <span class="built-stack">Figma · React · TypeScript · Supabase · Playwright · Cursor · Claude&nbsp;Code</span>
-        <span class="study-links">
-          <a class="site-link" href="https://www.b43.ai/">b43.ai&nbsp;→</a>
-          <a class="site-link" href="https://www.unscary.ai/">unscary.ai&nbsp;→</a>
-        </span>
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li><li><svg role="img" aria-label="Supabase"><title>Supabase</title><use href="#i-supabase"/></svg></li><li><svg role="img" aria-label="Vercel"><title>Vercel</title><use href="#i-vercel"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/don-star">SKILL.md on GitHub&nbsp;→</a></span>
       </footer>
-    </div></div>
-  </section>
+    </article>
 
-  <!-- WORDSWORD -->
-  <section class="study" id="wordsword" data-progress>
-    <div class="pin"><div class="panel">
-      <header class="study-head">
-        <h2>Wordsword</h2>
-        <p class="study-sub">A dictionary that keeps your words.</p>
-        <span class="stamp">iOS · v1</span>
-      </header>
-      <div class="study-body">
-        <figure class="shot phone-shot">
-          <img class="s1" src="assets/wordsword-home.png" alt="Wordsword home screen: a giant 'type a word' prompt on college-ruled paper with a red margin line, with the last word looked up (halcyon) waiting in a sheet at the bottom" width="560" height="1217">
-          <img class="s2" src="assets/wordsword-chain.png" alt="Wordsword follow-up chain: 'sanguine' defined in plain English, then tapped through to 'optimistic', with 'Use it in a sentence' and 'Explain it differently' as the only controls" width="560" height="1217">
-          <img class="s3" src="assets/wordsword-cards.png" alt="Wordsword flashcards: the word 'optimistic' on card 1 of 6, with Pass and Got it beneath and the knight doodle watching from the corner" width="560" height="1217">
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-        </figure>
-        <div class="beats">
-          <div class="beat">
-            <h3>What it is</h3>
-            <p>You're mid-book. A word stops you. Wordsword answers in plain English in about three seconds, then keeps the word: into a wordlist, back as flashcards, until it sticks.</p>
-          </div>
-          <div class="beat">
-            <h3>Why it works this way</h3>
-            <p>A text box would make it a chatbot: you type, it talks, you never get back to the book. So the chat is tap-only: the next three questions you'd actually ask, already written. And every lookup files itself, because nobody remembers to.</p>
-          </div>
-          <div class="beat">
-            <h3>How I built it</h3>
-            <p>SwiftUI and SwiftData. Apple's on-device model rewrites stuffy definitions into plain English: free, private, works on a plane. Then I taught the app to screenshot itself: a debug mode walks every screen for the App&nbsp;Store. The shots on the left are its work.</p>
-          </div>
-        </div>
+    <article class="skill" id="deviceroy">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>deviceroy</h2>
+        <p class="skill-sub">Finds where device-specific UI pays off most on iOS and Android.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill deviceroy</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install deviceroy <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/deviceroy</span> audit [your project] for iPhone. read-only.</code><button class="copy" type="button" hidden></button></div>
       </div>
+      <figure class="shot skill-shot">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <img loading="lazy" decoding="async" src="/assets/skill-deviceroy.png" width="1200" height="692" alt="deviceroy's iPhone report for Wordsword: 13 screens, one Fix-first problem, text that doesn't grow with the iPhone's text size setting.">
+      </figure>
       <footer class="study-built">
-        <!-- the duel: Wordsword's knight (left) vs. a challenger, fought on the built-with line -->
-        <svg class="duel doodle draw" viewBox="0 0 160 106" aria-hidden="true">
-          <g transform="translate(0,14)">
-            <g class="duel-k">
-              <path pathLength="1" d="M40 6 Q31 3 30 12 Q34 10 38 11"/>
-              <path pathLength="1" d="M30 16 Q40 10 52 16 Q54 26 52 33 L30 33 Q28 25 30 16 Z"/>
-              <path pathLength="1" d="M33 25 Q41 26 49 25 M37 29 L37 31 M44 29 L44 31"/>
-              <path pathLength="1" d="M32 35 Q28 50 30 62 Q41 66 52 62 Q54 50 50 35"/>
-              <path pathLength="1" d="M31 50 Q41 52 51 50"/>
-              <path pathLength="1" d="M36 40 Q41 45 46 41 M46 40 Q41 45 36 44"/>
-              <path pathLength="1" d="M36 64 Q35 74 34 80 M47 64 Q48 74 49 80"/>
-              <path pathLength="1" d="M34 80 Q28 86 38 85 M49 80 Q55 86 45 85"/>
-              <path pathLength="1" d="M30 40 Q22 42 19 48"/>
-              <path pathLength="1" d="M8 44 Q16 40 24 44 Q25 55 16 62 Q7 55 8 44 Z"/>
-              <path pathLength="1" d="M13 50 Q16 48 19 51 Q17 54 15 55 Q13 53 13 50 Z"/>
-              <g class="duel-arm">
-                <path pathLength="1" d="M52 38 Q60 34 63 27"/>
-                <path pathLength="1" d="M63 27 Q66 17 69 8 M60 16 Q66 14 72 13"/>
-              </g>
-            </g>
-          </g>
-          <g transform="translate(160,14) scale(-1,1)">
-            <g class="duel-k duel-k--rival">
-              <path pathLength="1" d="M40 9 Q42 1 36 -3 Q28 -8 19 -4"/>
-              <path pathLength="1" d="M35 -2 Q30 2 29 7"/>
-              <path pathLength="1" d="M26 -6 Q23 0 21 4"/>
-              <path pathLength="1" d="M29 18 Q35 8 41 7 Q47 8 53 18 Q56 27 53 35 L29 35 Q26 26 29 18 Z"/>
-              <path pathLength="1" d="M32 26 Q41 28 50 26 M41 22 L41 33"/>
-              <path pathLength="1" d="M31 37 Q26 52 29 64 Q41 69 53 64 Q56 52 51 37"/>
-              <path pathLength="1" d="M30 52 Q41 54 52 52"/>
-              <path pathLength="1" d="M36 41 L41 47 L46 41"/>
-              <path pathLength="1" d="M36 66 Q35 76 33 82 M48 66 Q49 76 50 82"/>
-              <path pathLength="1" d="M33 82 Q26 88 37 87 M50 82 Q57 88 46 87"/>
-              <path pathLength="1" d="M31 42 Q22 44 19 50"/>
-              <path pathLength="1" d="M8 43 Q17 39 26 43 Q26 55 17 64 Q8 55 8 43 Z"/>
-              <path pathLength="1" d="M12 48 L17 53 L22 48"/>
-              <g class="duel-arm">
-                <path pathLength="1" d="M53 39 Q61 35 64 28"/>
-                <path pathLength="1" d="M64 28 Q68 17 72 5 M60 17 Q67 15 74 14"/>
-              </g></g>
-          </g>
-          <!-- impact burst, centred where the blades cross -->
-          <path class="duel-spark" pathLength="1" d="M78.5 32 Q78.9 29.5 78.5 27 M83.5 37 Q86 37.4 88.5 37 M73.5 37 Q71 37.4 68.5 37 M76 41.3 Q74.5 43.4 73.5 45.7 M81 41.3 Q82.5 43.4 83.5 45.7"/>
-        </svg>
-        <span class="built-stack">SwiftUI &middot; SwiftData &middot; Datamuse &middot; on-device AI &middot; Claude&nbsp;Code</span></footer>
-    </div></div>
-  </section>
-
-  <!-- N00B PORTFOLIOS -->
-  <section class="study" id="noob" data-progress>
-    <div class="pin"><div class="panel">
-      <header class="study-head">
-        <h2>N00B Portfolios</h2>
-        <p class="study-sub">Paper trading for people who've never traded.</p>
-        <span class="stamp">LIVE</span>
-      </header>
-      <div class="study-body">
-        <figure class="shot wide-shot">
-          <img class="s1" src="assets/noob-hero.png" alt="N00B Portfolios overview: a $10,788.24 paper portfolio up $55.12 today, its green growth curve running the width of the screen, with three saved portfolios in the sidebar and a Trade button" width="800" height="262">
-          <img class="s2" src="assets/noob-search.png" alt="N00B Portfolios asset search: suggested picks VOO, VTI, QQQ and AAPL grouped into index funds and blue-chip stocks" width="320" height="341">
-          <img class="s3" src="assets/noob-trade.png" alt="N00B Portfolios trade panel for AAPL at $333.75: a plain-English description of the company, its dividend schedule, and key fundamentals" width="360" height="563">
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-        </figure>
-        <div class="beats">
-          <div class="beat">
-            <h3>What it is</h3>
-            <p>Real tickers, real prices, fake money. Beginners practice the whole thing (portfolios, trades, dividends, allocation) with no way to lose rent.</p>
-          </div>
-          <div class="beat">
-            <h3>Why it works this way</h3>
-            <p>Fake prices teach fake lessons, so the market data is live. And green-up, red-down is a language beginners have not learned yet: every gain carries a number and a sign, never color alone. Beginner-safe has to mean accessible or it means nothing.</p>
-          </div>
-          <div class="beat">
-            <h3>How I built it</h3>
-            <p>React and Supabase. Every market call goes through an edge function, so the API keys never touch the browser, and a nightly job snapshots prices into the real time-series behind the charts. It started as a throwaway prototype. So I threw it away and built it again.</p>
-          </div>
-        </div>
-      </div>
-      <footer class="study-built">
-        <span class="built-stack">React · TypeScript · Supabase · Alpaca&nbsp;API · Cursor · Claude&nbsp;Code</span>
-        <span class="study-links">
-          <a class="site-link" href="https://noobportfolios.com/">noobportfolios.com&nbsp;→</a>
-        </span>
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/deviceroy">SKILL.md on GitHub&nbsp;→</a></span>
       </footer>
-    </div></div>
-  </section>
+    </article>
 
-  <!-- 368 DINOS -->
-  <section class="study" id="dinos" data-progress>
-    <div class="pin"><div class="panel">
-      <header class="study-head">
-        <h2>368 Dinos</h2>
-        <p class="study-sub">Rescue 368 dinosaurs. Or don't, and live with it.</p>
-        <span class="stamp">PLAYABLE</span>
-      </header>
-      <div class="study-body">
-        <figure class="shot tall-shot">
-          <!-- the game playing itself, recorded off the real page — poster first, motion only if it's wanted -->
-          <video class="demo" muted loop playsinline preload="none" width="960" height="1560"
-                 poster="assets/dinos-shot.png"
-                 aria-label="368 Dinos playing itself: pairs of pixel dinosaurs drop onto a 6 by 6 grid, three of a kind flash and vanish, and the rescued counter climbs">
-            <source src="assets/dinos-demo.mp4" type="video/mp4">
-          </video>
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-        </figure>
-        <div class="beats">
-          <div class="beat">
-            <h3>What it is</h3>
-            <p>A tiny browser puzzle. Match three dinos to rescue them; let the board fill and it's an <strong>EXTINCTION EVENT</strong>. No accounts, no gems, no tutorial: you'll get it in five seconds.</p>
-          </div>
-          <div class="beat">
-            <h3>Why it works this way</h3>
-            <p>A five-second game has no business asking for an install, an account, or a tutorial. One pointer handler tells a 6-pixel drag from a tap, so desktop and mobile play the same game. It also has full keyboard controls and screen-reader announcements. Yes, in a dino game.</p>
-          </div>
-          <div class="beat">
-            <h3>How I built it</h3>
-            <p>Three files. Zero dependencies. No build step. Every dino is hand-inlined SVG. One afternoon, start to finish, and it's playable right here:</p>
-            <a class="btn play-btn" href="dinos/">Play it →</a>
-          </div>
-        </div>
+    <article class="skill" id="ui-surgeon">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>ui-surgeon</h2>
+        <p class="skill-sub">Turns the UI changes you just made into a checklist a reviewer can follow.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill ui-surgeon</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install ui-surgeon <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/ui-surgeon</span> write up the changes I just made to [your screen]</code><button class="copy" type="button" hidden></button></div>
       </div>
+      <figure class="shot skill-shot">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <div class="note">
+          <p class="note-src">/skills · the change that put this card here</p>
+          <p><strong>UI Change Checklist</strong></p>
+          <p class="note-meta">Project: N00B Labs /skills · Scope: the skill list</p>
+          <ul>
+            <li>Put this card where an older skill used to be.</li>
+            <li>Added a next-steps card at the end.</li>
+            <li>Header and share text now say nine skills.</li>
+          </ul>
+          <p class="note-meta">Notes: copy only. No new styles, no layout changes.</p>
+          <p class="note-fixed">Follow-up: check both new cards at phone width.</p>
+        </div>
+      </figure>
       <footer class="study-built">
-        <span class="built-stack">HTML · CSS · vanilla JS · 0 dependencies · Claude&nbsp;Code</span>
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/ui-surgeon">SKILL.md on GitHub&nbsp;→</a></span>
       </footer>
-    </div></div>
-  </section>
+    </article>
+
+    <article class="skill" id="key-components">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>key-components</h2>
+        <p class="skill-sub">Builds a design system in your repo, connected to Figma and Storybook.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill key-components</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install key-components <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/key-components</span> reverse-engineer a design system from this site</code><button class="copy" type="button" hidden></button></div>
+      </div>
+      <figure class="shot skill-shot">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <img loading="lazy" decoding="async" src="/assets/skill-key-components.png" width="1200" height="605" alt="This site's design system playground, showing the Panel component: the Wordsword case-study card with its stamp, beat and built-with line.">
+      </figure>
+      <footer class="study-built">
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li><li><svg role="img" aria-label="Figma"><title>Figma</title><use href="#i-figma"/></svg></li><li><svg role="img" aria-label="Storybook"><title>Storybook</title><use href="#i-storybook"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/key-components">SKILL.md on GitHub&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="skill" id="test-mite">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>test-mite</h2>
+        <p class="skill-sub">Crawls your repo, tests every edge case, and evaluates the UX.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill test-mite</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install test-mite <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/test-mite</span> add routing tests for every screen in [your project]</code><button class="copy" type="button" hidden></button></div>
+      </div>
+      <figure class="shot skill-shot">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <img loading="lazy" decoding="async" src="/assets/skill-test-mite.png" width="1200" height="526" alt="test-mite's findings page for N00B Portfolios: seven routes, each with its passing tests, and /portfolio/:id at 2 of 3, the one real bug it found.">
+      </figure>
+      <footer class="study-built">
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li><li><svg role="img" aria-label="Playwright"><title>Playwright</title><use href="#i-playwright"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/test-mite">SKILL.md on GitHub&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="skill" id="app-store">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>app-store</h2>
+        <p class="skill-sub">Prepares an iOS app for its App Store launch.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill app-store</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install app-store <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/app-store</span> am I ready to submit?</code><button class="copy" type="button" hidden></button></div>
+      </div>
+      <figure class="shot skill-shot">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <div class="note">
+          <p class="note-src">Wordsword · four runs, one app</p>
+          <dl class="ledger">
+            <dt>Aug 18</dt><dd>Not submittable. 5 blockers.</dd>
+            <dt>Aug 23</dt><dd>3 blockers. v1 keeps accounts, so account deletion gets built.</dd>
+            <dt>Oct 22</dt><dd>2 blockers.</dd>
+            <dt>Nov 1</dt><dd><strong>1 blocker, and it's waiting on Apple.</strong></dd>
+          </dl>
+        </div>
+      </figure>
+      <footer class="study-built">
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li><li><svg role="img" aria-label="Apple"><title>Apple</title><use href="#i-apple"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/app-store">SKILL.md on GitHub&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="skill" id="noob-inc">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>noob-inc</h2>
+        <p class="skill-sub">Mostly for fun: a shared office where you watch your agents work.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill noob-inc</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install noob-inc <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/noob-inc</span> build my agent office</code><button class="copy" type="button" hidden></button></div>
+      </div>
+      <figure class="shot skill-shot reel">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <!-- recorded off a local N00B Inc with three seeded sessions, 2 November 2026: view only, then admin, one loop -->
+        <video class="demo" muted loop playsinline preload="none" width="1280" height="720"
+               poster="/assets/noob-inc-poster.jpg"
+               aria-label="A N00B Inc office in two modes. View only: a visitor picks a name at the door, sends one agent for coffee from the pixel office, and sends two emotes that land in the onlooker log. Admin: the owner allows a waiting permission prompt, answers an agent's question from the board, opens another agent's details by clicking them in the office, and copies the view-only link.">
+          <source src="/assets/noob-inc-demo.mp4" type="video/mp4">
+        </video>
+        <div class="reel-ctl" hidden>
+          <button class="reel-btn" type="button" data-reel="toggle" aria-label="Pause demo"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
+          <button class="reel-btn" type="button" data-reel="expand" aria-label="Expand demo"><svg aria-hidden="true"><use href="#i-expand"/></svg></button>
+        </div>
+      </figure>
+      <footer class="study-built">
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="Vercel"><title>Vercel</title><use href="#i-vercel"/></svg></li><li><svg role="img" aria-label="Supabase"><title>Supabase</title><use href="#i-supabase"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/noob-inc">SKILL.md on GitHub&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="skill" id="last-push">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>last-push</h2>
+        <p class="skill-sub">A short list of what you last pushed to your repo.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill last-push</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install last-push <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/last-push</span> what did I just push?</code><button class="copy" type="button" hidden></button></div>
+      </div>
+      <figure class="shot skill-shot">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <div class="note">
+          <p class="note-src">Wordsword · its last push</p>
+          <p><strong>Last push — 5 commits</strong></p>
+          <ul>
+            <li>Daily puzzle never changed after launch. Now new each midnight.</li>
+            <li>Puzzle results show streaks and win rate.</li>
+            <li>“Explain it differently” finds a new angle every tap.</li>
+            <li>Flashcards work without an account.</li>
+            <li>Account screen stops promising sync that doesn't exist.</li>
+            <li>Follow-up chips frosted; definition no longer bleeds through.</li>
+            <li>Privacy policy and support pages live for App Store.</li>
+          </ul>
+        </div>
+      </figure>
+      <footer class="study-built">
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li><li><svg role="img" aria-label="Slack"><title>Slack</title><use href="#i-slack"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/last-push">SKILL.md on GitHub&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="skill" id="next-steps">
+      <div class="skill-text">
+        <h2><span class="h1-soft">/</span>next-steps</h2>
+        <p class="skill-sub">Reads your meeting notes, ranks what you owe, and writes the prompt to start.</p>
+        <h3 class="skill-label">Install, in your terminal</h3>
+        <div class="copyline"><code>npx skills add Schubaru/skills <span class="nb">--skill next-steps</span></code><button class="copy" type="button" hidden></button></div>
+        <details class="alt-install"><summary>Or as a plugin, inside Claude Code</summary><div class="copyline"><code>/plugin install next-steps <span class="nb">--marketplace Schubaru/skills</span></code><button class="copy" type="button" hidden></button></div></details>
+        <h3 class="skill-label">Paste in Claude Code</h3>
+        <div class="copyline prompt"><code><span class="cmd">/next-steps</span> what's next from [your Granola link]?</code><button class="copy" type="button" hidden></button></div>
+      </div>
+      <figure class="shot skill-shot">
+        <svg class="tape t1" aria-hidden="true"><use href="#d-tape"/></svg>
+        <div class="note">
+          <p class="note-src">A made-up meeting · placeholder names</p>
+          <p><strong>Your next steps</strong></p>
+          <ul>
+            <li>Send Sam the revised onboarding flow (by Thu, Sam committed)</li>
+            <li>Review the pricing page copy (by Fri)</li>
+          </ul>
+          <p class="note-meta">Why #1: Sam is waiting on it for a client call.</p>
+          <p><strong>Prompt for #1</strong> · Claude Code · [your repo]</p>
+          <p class="note-meta">Goal, why now, context, where, steps, what done means, what to ask first.</p>
+        </div>
+      </figure>
+      <footer class="study-built">
+        <ul class="built-stack tools" aria-label="Works with"><li><svg role="img" aria-label="Claude"><title>Claude</title><use href="#i-claude"/></svg></li><li><svg role="img" aria-label="GitHub"><title>GitHub</title><use href="#i-github"/></svg></li><li><svg role="img" aria-label="Slack"><title>Slack</title><use href="#i-slack"/></svg></li><li><svg role="img" aria-label="Granola"><title>Granola</title><use href="#i-granola"/></svg></li><li><svg role="img" aria-label="Notion"><title>Notion</title><use href="#i-notion"/></svg></li></ul>
+        <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/next-steps">SKILL.md on GitHub&nbsp;→</a></span>
+      </footer>
+    </article>
+
+  </div>
+
+  <p class="sr-only" id="copy-status" role="status"></p>
 
   <!-- diver transition -->
   <div class="dive-strip" id="dive" data-progress aria-hidden="true">
@@ -353,24 +426,24 @@
       <div class="lab-panel">
         <h2 class="lab-label">Apps &amp; Games</h2>
         <ul class="lab-list">
-          <li><a href="#b43">Unscary.ai</a></li>
-          <li><a href="#wordsword">Wordsword</a></li>
-          <li><a href="#noob">N00B&nbsp;Portfolios</a></li>
-          <li><a href="#dinos">368&nbsp;Dinos</a></li>
+          <li><a href="/case-studies/#b43">Unscary.ai</a></li>
+          <li><a href="/case-studies/#wordsword">Wordsword</a></li>
+          <li><a href="/case-studies/#noob">N00B&nbsp;Portfolios</a></li>
+          <li><a href="/case-studies/#dinos">368&nbsp;Dinos</a></li>
         </ul>
       </div>
       <div class="lab-panel">
         <h2 class="lab-label">Skills &amp; Tools</h2>
         <ul class="lab-list lab-skills">
-          <li><a href="/skills/#don-star"><span class="h1-soft">/</span>don-star</a></li>
-          <li><a href="/skills/#deviceroy"><span class="h1-soft">/</span>deviceroy</a></li>
-          <li><a href="/skills/#ui-surgeon"><span class="h1-soft">/</span>ui-surgeon</a></li>
-          <li><a href="/skills/#key-components"><span class="h1-soft">/</span>key-components</a></li>
-          <li><a href="/skills/#test-mite"><span class="h1-soft">/</span>test-mite</a></li>
-          <li><a href="/skills/#app-store"><span class="h1-soft">/</span>app-store</a></li>
-          <li><a href="/skills/#noob-inc"><span class="h1-soft">/</span>noob-inc</a></li>
-          <li><a href="/skills/#last-push"><span class="h1-soft">/</span>last-push</a></li>
-          <li><a href="/skills/#next-steps"><span class="h1-soft">/</span>next-steps</a></li>
+          <li><a href="#don-star"><span class="h1-soft">/</span>don-star</a></li>
+          <li><a href="#deviceroy"><span class="h1-soft">/</span>deviceroy</a></li>
+          <li><a href="#ui-surgeon"><span class="h1-soft">/</span>ui-surgeon</a></li>
+          <li><a href="#key-components"><span class="h1-soft">/</span>key-components</a></li>
+          <li><a href="#test-mite"><span class="h1-soft">/</span>test-mite</a></li>
+          <li><a href="#app-store"><span class="h1-soft">/</span>app-store</a></li>
+          <li><a href="#noob-inc"><span class="h1-soft">/</span>noob-inc</a></li>
+          <li><a href="#last-push"><span class="h1-soft">/</span>last-push</a></li>
+          <li><a href="#next-steps"><span class="h1-soft">/</span>next-steps</a></li>
         </ul>
       </div>
     </div>
@@ -378,16 +451,17 @@
 
   <!-- the one ask, after the proof -->
   <div class="outro">
-    <a class="btn" href="/skills/">Get the skills →</a>
+    <a class="btn" href="/case-studies/">Case studies →</a>
   </div>
 
 </main>
 
 <footer class="colophon">
-  <p>Hand-drawn SVG · vanilla HTML/CSS/JS · no framework · no build step. The paper is one CSS gradient. The knight is on loan from Wordsword. Site built in Claude&nbsp;Code.</p>
+  <p>Every skill here is MIT licensed. Read the SKILL.md before you install one: a skill runs with whatever permissions your agent has.</p>
   <p>© 2026 Alex Schumacher</p>
 </footer>
 
 <script src="main.js" defer></script>
+<script src="skills.js" defer></script>
 </body>
 </html>

@@ -140,7 +140,8 @@
   // ---- demo reels: preload="none" until they're nearly on screen, then loop silently ----
   // Autoplay lives here rather than in the markup so reduced-motion users keep the poster,
   // which is a real screenshot of the same thing — never a blank frame.
-  const reels = document.querySelectorAll('video.demo');
+  // skill reels (.reel) carry their own Pause, so skills.js plays those
+  const reels = document.querySelectorAll('.shot:not(.reel) > video.demo');
   if (reels.length && motionOK && 'IntersectionObserver' in window) {
     const vio = new IntersectionObserver((entries) => {
       for (const e of entries) {

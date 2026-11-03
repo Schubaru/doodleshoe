@@ -1,15 +1,7 @@
-// The skills page: the knight draws in, and every install line gets a copy button (an icon; the label is aria-label).
+// The home page's skills: every install line gets a copy button (an icon; the label is aria-label).
 // Without JS the buttons stay hidden and the commands are still selectable text.
 (() => {
   const motionOK = matchMedia('(prefers-reduced-motion: no-preference)').matches;
-
-  if (motionOK && 'IntersectionObserver' in window) {
-    document.documentElement.classList.add('js-anim');
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('drawn'); io.unobserve(e.target); }
-    }, { threshold: 0.4 });
-    document.querySelectorAll('.draw').forEach((el) => io.observe(el));
-  }
 
   // Demo reels loop silently while on screen; autoplay lives here, never in the markup, and
   // reduced motion keeps the poster until someone presses play. A pause sticks, even back on
