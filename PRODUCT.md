@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Hiring managers, design leads, and potential collaborators evaluating Alex Schumacher. They arrive from a resume link or LinkedIn, give the site 30–90 seconds, and are deciding one thing: "is this person worth a conversation?" Secondary audience: fellow designers/builders who might share it.
+Hiring managers, design leads, and potential collaborators evaluating Alex Schumacher. They arrive from a resume link or LinkedIn, give the site 30–90 seconds, and are deciding one thing: "is this person worth a conversation?" Secondary audience: builders who might use the tools, play the games or take the skills. The site doubles as the N00B Labs business site, and the home page's value-prop section talks to them. Whether the lab takes client work is undecided, so no copy promises it.
 
 ## Product Purpose
 

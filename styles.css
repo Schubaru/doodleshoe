@@ -221,6 +221,68 @@ h1 {
   .m-arm { transform: rotate(4deg); }
 }
 
+/* ————— the lab: the value prop, between the name and the proof ————— */
+/* set on the panels' left edge like .work-head; the two lists are what comes out of the
+   lab and what goes in, and every item links to the thing itself */
+.lab {
+  padding: calc(var(--rule-h) * 2) clamp(20px, 6vw, 80px) var(--rule-h) calc(var(--margin-x) + clamp(16px, 4vw, 72px));
+  max-width: calc(100% - var(--gutter-x));
+}
+.lab h2 {
+  font-weight: 700;
+  font-size: clamp(2rem, 5.6vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  max-width: 15em;
+  text-wrap: balance;
+  margin-bottom: var(--rule-h);
+}
+.lab .lede { max-width: 36em; text-wrap: pretty; }
+.lab-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);   /* the Apps row holds three names on one line */
+  gap: var(--rule-h) clamp(32px, 6vw, 96px);
+  margin-top: calc(var(--rule-h) * 2);
+  max-width: 980px;
+}
+/* a signpost, so it takes the beat label's tier, not the type ramp */
+.lab-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: var(--rule-h);
+}
+/* fixed label column: on a phone "Wordsword, N00B Portfolios" wraps inside its own column, not under "Apps" */
+.lab-make > div { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); align-items: baseline; }
+.lab-make > div + div { margin-top: var(--rule-h); }
+.lab-make dt { font-weight: 700; font-size: 1.5rem; }
+.lab-make dd { font-size: 1.1rem; }
+.lab-skills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 22px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.lab-skills li { padding-bottom: var(--rule-h); }
+.lab a:not(.btn) {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--ink-faint);
+  transition: text-decoration-color 0.12s ease-out;
+}
+.lab a:not(.btn):hover { text-decoration-color: var(--ink); }
+.lab a:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; border-radius: 2px; }
+@media (max-width: 720px) {
+  .lab-cols { grid-template-columns: 1fr; gap: calc(var(--rule-h) * 2); }
+}
+
 /* ————— case studies ————— */
 /* the section's title: a page-level heading like /skills and /about, set on the panels' left edge */
 .work-head {
