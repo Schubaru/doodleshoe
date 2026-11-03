@@ -157,6 +157,7 @@ h1 {
 /* the "er" and the "/" — the only two characters that turn the job title into two roles */
 .h1-soft { color: var(--ink-soft); }
 .h1-slash { margin-left: -0.06em; }   /* the slash's own sidebearing already sets it off the margin */
+.hero-what { max-width: 36em; margin-top: var(--rule-h); text-wrap: pretty; }
 .lede {
   font-size: 1.2rem;
   line-height: calc(var(--rule-h) * 1.25);
@@ -237,10 +238,9 @@ h1 {
   text-wrap: balance;
   margin-bottom: var(--rule-h);
 }
-.lab .lede { max-width: 36em; text-wrap: pretty; }
 .lab-cols {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);   /* the Apps row holds three names on one line */
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);   /* the Apps row holds two names on one line */
   gap: var(--rule-h) clamp(32px, 6vw, 96px);
   margin-top: calc(var(--rule-h) * 2);
   max-width: 980px;
@@ -269,7 +269,7 @@ h1 {
   font-size: 1.2rem;
 }
 .lab-skills li { padding-bottom: var(--rule-h); }
-.lab a:not(.btn) {
+.lab a:not(.btn), .about a:not(.btn) {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -277,8 +277,8 @@ h1 {
   text-decoration-color: var(--ink-faint);
   transition: text-decoration-color 0.12s ease-out;
 }
-.lab a:not(.btn):hover { text-decoration-color: var(--ink); }
-.lab a:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; border-radius: 2px; }
+.lab a:not(.btn):hover, .about a:not(.btn):hover { text-decoration-color: var(--ink); }
+.lab a:focus-visible, .about a:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 5px; border-radius: 2px; }
 @media (max-width: 720px) {
   .lab-cols { grid-template-columns: 1fr; gap: calc(var(--rule-h) * 2); }
 }
@@ -781,7 +781,23 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 }
 /* its own page now: same one-word title as /skills */
 .about h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-bottom: var(--rule-h); }
-.about p { max-width: 52em; }
+.about p { max-width: 36em; text-wrap: pretty; }   /* em, not ch: this face's zero is narrow, so 65ch is ~400px */
+.about .lede { margin-bottom: var(--rule-h); }
+/* the lab first, then the person: the founder gets a case study's h2, not the page title's */
+.about h2 {
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  line-height: 1.1;
+  margin: calc(var(--rule-h) * 3) 0 var(--rule-h);
+}
+/* the Lab's dl, wider label column: "Product designer" is the longest role */
+.about-roles { max-width: calc(11.5rem + 24px + 34em); margin-bottom: var(--rule-h); }
+.about-roles > div { display: grid; grid-template-columns: 11.5rem minmax(0, 1fr); gap: 0 24px; align-items: baseline; }
+.about-roles > div + div { margin-top: var(--rule-h); }
+.about-roles dt { font-weight: 700; font-size: 1.25rem; }
+@media (max-width: 560px) {
+  .about-roles > div { grid-template-columns: 1fr; }
+}
 .links { display: flex; gap: 16px; margin-top: calc(var(--rule-h) * 1.5); }
 
 /* ————— footer ————— */
