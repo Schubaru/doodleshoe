@@ -222,6 +222,13 @@ h1 {
 }
 
 /* ————— case studies ————— */
+/* the section's title: a page-level heading like /skills and /about, set on the panels' left edge */
+.work-head {
+  padding: calc(var(--rule-h) * 2) clamp(20px, 6vw, 80px) 0 calc(var(--margin-x) + clamp(16px, 4vw, 72px));
+  max-width: 900px;
+  scroll-margin-top: 56px;   /* clears the sticky nav when the tab lands here */
+}
+.work-head h2 { font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1.08; margin-bottom: var(--rule-h); }
 .study { position: relative; }
 .pin { padding: calc(var(--rule-h) * 2) 0; }
 
