@@ -232,7 +232,7 @@ h1 {
   .m-arm { transform: rotate(4deg); }
 }
 
-/* ————— the lab: what comes out and what goes in, between the name and the proof ————— */
+/* ————— the lab: what comes out and what goes in, after the proof and above the one ask ————— */
 /* set on the panels' left edge like .work-head; two sheets side by side, every item links
    to the thing itself (a case study, or a card on /skills) */
 .lab {
