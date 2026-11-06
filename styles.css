@@ -835,7 +835,7 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 }
 /* one short word, no container to size against: the hero's cqw display size doesn't apply */
 .skills-head h2 { font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: var(--rule-h); }
-.skills-head .lede { margin-bottom: var(--rule-h); }
+.skills-head .lede { margin-bottom: var(--rule-h); max-width: 38em; }   /* two lines at desktop; 34em wraps it to three */
 .skills-note { margin-top: 14px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); }
 .skills-note a { color: var(--ink); }
 
