@@ -124,7 +124,7 @@
   <!-- filter pills: each names the cards it keeps; hidden until skills.js wires them -->
   <div class="skill-filter" role="group" aria-label="Filter skills" hidden>
     <button class="filter-pill" type="button" aria-pressed="true">All</button>
-    <button class="filter-pill" type="button" aria-pressed="false" data-show="don-star ui-surgeon key-components">Design</button>
+    <button class="filter-pill" type="button" aria-pressed="false" data-show="ui-surgeon key-components">Design</button>
     <button class="filter-pill" type="button" aria-pressed="false" data-show="deviceroy test-mite app-store">Evaluate</button>
     <button class="filter-pill" type="button" aria-pressed="false" data-show="last-push next-steps noob-inc">Project management</button>
   </div>
@@ -135,6 +135,9 @@
          Every shot is a real run: the projects and dates are in each note or alt text. -->
 
 
+    <!-- don-star is hidden while it's being fixed: unwrap the <template> to bring it back
+         (and re-add it to the Design pill and the Skills & Tools list). -->
+    <template id="don-star-wip">
     <article class="skill" id="don-star">
       <div class="skill-text">
         <h2><span class="h1-soft">/</span>don-star</h2>
@@ -163,6 +166,7 @@
         <span class="study-links"><a class="site-link" href="https://github.com/Schubaru/skills/tree/main/skills/don-star">SKILL.md on GitHub&nbsp;→</a></span>
       </footer>
     </article>
+    </template>
 
     <article class="skill" id="deviceroy">
       <div class="skill-text">
@@ -443,7 +447,6 @@
       <div class="lab-panel">
         <h2 class="lab-label">Skills &amp; Tools</h2>
         <ul class="lab-list lab-skills">
-          <li><a href="#don-star"><span class="h1-soft">/</span>don-star</a></li>
           <li><a href="#deviceroy"><span class="h1-soft">/</span>deviceroy</a></li>
           <li><a href="#ui-surgeon"><span class="h1-soft">/</span>ui-surgeon</a></li>
           <li><a href="#key-components"><span class="h1-soft">/</span>key-components</a></li>
