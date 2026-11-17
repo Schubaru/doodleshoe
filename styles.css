@@ -1018,6 +1018,46 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 @keyframes reel-fade { from { opacity: 0; } }
 
 
+/* ————— games ————— */
+/* A shelf of small Panels in the case studies' lane, on .work-head's left edge. Each sheet carries
+   the Dinos reel as it is (a taped tall-shot that main.js plays on sight) and the built-with line
+   as its footer. Subgrid lines the title, deck, reel and footer up across a row, so a two-line
+   deck never knocks one reel lower than its neighbour. */
+.game-list {
+  width: calc(100% - var(--margin-x) - var(--gutter-x) - clamp(16px, 4vw, 72px) * 2);
+  margin-left: calc(var(--margin-x) + clamp(16px, 4vw, 72px));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  gap: calc(var(--rule-h) * 2) clamp(24px, 3vw, 40px);
+  padding: calc(var(--rule-h) * 2) 0 calc(var(--rule-h) * 3);
+}
+.game {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: clamp(20px, 2.4vw, 32px);
+  scroll-margin-top: 80px;
+}
+@supports (grid-template-rows: subgrid) {
+  .game { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; }
+}
+/* the stamp rides the title's row instead of floating over the deck, at every width */
+.game-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.game-head h2 { font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2rem); line-height: 1.15; text-wrap: balance; }
+.game-head .stamp { position: static; flex: none; margin: 0; }
+.game-sub { font-weight: 500; color: var(--ink-soft); margin-top: 4px; max-width: 34ch; text-wrap: pretty; }
+/* the reel takes the sheet's full width, tipped the other way on every second sheet */
+.game .shot { max-width: none; margin: calc(var(--rule-h) * 1.5) 0 var(--rule-h); align-self: start; }
+.game:nth-child(even) .shot { transform: rotate(1.4deg); }
+.game:nth-child(even) .t1 { left: auto; right: 22%; transform: rotate(5deg); }
+.game .study-built { margin-top: 0; align-self: end; }
+.game .play-btn { margin-top: 0; font-size: 0.85rem; padding: 7px 14px; }
+@media (max-width: 480px) {
+  .game { box-shadow: 5px 5px 0 var(--ink); }
+}
+
 /* ————— responsive ————— */
 @media (max-width: 900px) {
   :root { --margin-x: 30px; --gutter-x: 0px; }
@@ -1049,6 +1089,12 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   .knight { width: 24px; }
   .topnav nav { gap: 8px; }
   .topnav nav a { font-size: 0.875rem; }   /* 14px — the floor, not below it */
+}
+/* Four tabs (Games joined) need ~418px beside the full wordmark. Below that the knight alone is
+   the home link; the name stays as its accessible label, and the bar stays one row. */
+@media (max-width: 419px) {
+  .wordmark { align-self: center; height: var(--rule-h); padding-left: 24px; }
+  .wordmark span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 
 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Games from N00B Labs</title>
+<meta name="description" content="Five small games by Alex Schumacher: Haiklu, Plexicon, Linking Words, 368 Dinos and Word Wheel. Four of them are about words.">
+<meta property="og:title" content="Games from N00B Labs">
+<meta property="og:description" content="Five small games by Alex Schumacher: Haiklu, Plexicon, Linking Words, 368 Dinos and Word Wheel. Four of them are about words.">
+<meta property="og:url" content="https://nooblabs.vercel.app/games">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%2724%202%2034%2034%27%3E%3Cpath%20d=%27M40%206%20Q31%203%2030%2012%20Q34%2010%2038%2011%20M30%2016%20Q40%2010%2052%2016%20Q54%2026%2052%2033%20L30%2033%20Q28%2025%2030%2016%20Z%20M33%2025%20Q41%2026%2049%2025%27%20fill=%27none%27%20stroke=%27%23151b24%27%20stroke-width=%273.2%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#games">Skip to the games</a>
+
+<!-- shared doodle symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="d-tape" viewBox="0 0 90 30">
+      <path d="M4 6 L86 3 L88 24 L2 27 L5 17 Z" fill="var(--tape)" stroke="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="topnav">
+  <a class="wordmark" href="/"><svg class="knight doodle draw" viewBox="4 1 72 88" aria-hidden="true">
+      <path pathLength="1" d="M40 6 Q31 3 30 12 Q34 10 38 11"/>
+      <path pathLength="1" d="M30 16 Q40 10 52 16 Q54 26 52 33 L30 33 Q28 25 30 16 Z"/>
+      <path pathLength="1" d="M33 25 Q41 26 49 25"/>
+      <path pathLength="1" d="M32 35 Q28 50 30 62 Q41 66 52 62 Q54 50 50 35"/>
+      <path pathLength="1" d="M31 50 Q41 52 51 50"/>
+      <path pathLength="1" d="M36 64 Q35 74 34 80 M47 64 Q48 74 49 80"/>
+      <path pathLength="1" d="M34 80 Q28 86 38 85 M49 80 Q55 86 45 85"/>
+      <path pathLength="1" d="M30 40 Q22 42 19 48"/>
+      <path pathLength="1" d="M8 44 Q16 40 24 44 Q25 55 16 62 Q7 55 8 44 Z"/>
+      <path pathLength="1" d="M52 38 Q60 34 63 27"/>
+      <path pathLength="1" d="M63 27 Q66 17 69 8 M60 16 Q66 14 72 13"/>
+    </svg><span>N00B&nbsp;Labs&trade;</span></a>
+  <nav aria-label="Site">
+    <a href="/#skills">Skills</a>
+    <a href="/case-studies/">Case studies</a>
+    <a href="/games/" aria-current="page">Games</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+
+<main>
+
+  <header class="work-head" id="games">
+    <h1>Games</h1>
+    <p class="lede">Five small games. Four of them are about words.</p>
+  </header>
+
+  <!-- each reel is the real game playing a past day (no spoilers for today), recorded the way
+       368 Dinos' was: 132 frames at 12fps. Poster first; main.js plays them on sight. -->
+  <div class="game-list">
+
+    <article class="game" id="haiklu">
+      <header class="game-head">
+        <h2>Haiklu</h2>
+        <span class="stamp">ORIGINAL</span>
+      </header>
+      <p class="game-sub">A haiku a day with one word missing. Four guesses, each scored for how close it lands.</p>
+      <figure class="shot tall-shot">
+        <video class="demo" muted loop playsinline preload="none" width="960" height="1560"
+               poster="/assets/haiklu-poster.jpg"
+               aria-label="Haiklu being played: a haiku with a blank, three guesses scored 65, 95 and then 100, and the missing word, gossamer, written into the poem">
+          <source src="/assets/haiklu-demo.mp4" type="video/mp4">
+        </video>
+        <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+      </figure>
+      <footer class="study-built">
+        <span class="built-stack">Daily · web + iOS</span>
+        <span class="study-links"><a class="site-link" href="https://haiklu.vercel.app/">Play Haiklu&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="game" id="plexicon">
+      <header class="game-head">
+        <h2>Plexicon</h2>
+      </header>
+      <p class="game-sub">One five-letter word a day, in six guesses. Then what it means.</p>
+      <figure class="shot tall-shot">
+        <video class="demo" muted loop playsinline preload="none" width="960" height="1560"
+               poster="/assets/plexicon-poster.jpg"
+               aria-label="Plexicon being played: four five-letter guesses, each letter ringed when it's in place and underlined when it's in the word, closing in on DITSY">
+          <source src="/assets/plexicon-demo.mp4" type="video/mp4">
+        </video>
+        <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+      </figure>
+      <footer class="study-built">
+        <span class="built-stack">Daily · web + iOS</span>
+        <span class="study-links"><a class="site-link" href="https://plexicon.vercel.app/">Play Plexicon&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="game" id="linking-words">
+      <header class="game-head">
+        <h2>Linking Words</h2>
+      </header>
+      <p class="game-sub">Sixteen words, four groups of four that mean the same thing. A new board every midnight.</p>
+      <figure class="shot tall-shot">
+        <video class="demo" muted loop playsinline preload="none" width="960" height="1560"
+               poster="/assets/linking-poster.jpg"
+               aria-label="Linking Words being played: sixteen word tiles sorted into four groups, kind, agree, harmless and speed, with one near miss along the way">
+          <source src="/assets/linking-demo.mp4" type="video/mp4">
+        </video>
+        <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+      </figure>
+      <footer class="study-built">
+        <span class="built-stack">Daily · web + iOS</span>
+        <span class="study-links"><a class="site-link" href="https://linking-words.vercel.app/">Play Linking Words&nbsp;→</a></span>
+      </footer>
+    </article>
+
+    <article class="game" id="dinos">
+      <header class="game-head">
+        <h2>368 Dinos</h2>
+      </header>
+      <p class="game-sub">Match three dinos to rescue them. Let the board fill and it's an extinction event.</p>
+      <figure class="shot tall-shot">
+        <video class="demo" muted loop playsinline preload="none" width="960" height="1560"
+               poster="/assets/dinos-poster.jpg"
+               aria-label="368 Dinos playing itself: pairs of pixel dinosaurs drop onto a 6 by 6 grid, three of a kind flash and vanish, and the rescued counter climbs">
+          <source src="/assets/dinos-demo.mp4" type="video/mp4">
+        </video>
+        <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+      </figure>
+      <footer class="study-built">
+        <span class="built-stack">Web · plays right here</span>
+        <!-- in-site, so the solid Button, not a SiteLink -->
+        <a class="btn play-btn" href="/dinos/">Play 368 Dinos&nbsp;→</a>
+      </footer>
+    </article>
+
+    <article class="game" id="word-wheel">
+      <header class="game-head">
+        <h2>Word Wheel</h2>
+      </header>
+      <p class="game-sub">Drag across the wheel to spell the words that fill the board. Bonus words pay extra.</p>
+      <figure class="shot tall-shot">
+        <video class="demo" muted loop playsinline preload="none" width="960" height="1560"
+               poster="/assets/wordwheel-poster.jpg"
+               aria-label="Word Wheel being played in the Wordsword app: a finger drags across the letters G, I, N and S to spell sin, gin, sign and sing, the board fills in, and level 1 is done">
+          <source src="/assets/wordwheel-demo.mp4" type="video/mp4">
+        </video>
+        <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+      </figure>
+      <footer class="study-built">
+        <span class="built-stack">iOS · level by level</span>
+        <span class="study-links"><a class="site-link" href="https://getwordsword.vercel.app/">Available on Wordsword app&nbsp;→</a></span>
+      </footer>
+    </article>
+
+  </div>
+
+</main>
+
+<footer class="colophon">
+  <p>Hand-drawn SVG · vanilla HTML/CSS/JS · no framework · no build step. The paper is one CSS gradient. The knight is on loan from Wordsword. Site built in Claude&nbsp;Code.</p>
+  <p>© 2026 Alex Schumacher</p>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>
