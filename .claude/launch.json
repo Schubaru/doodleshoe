@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "nooblabs", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8412"], "port": 8412 }
+    { "name": "nooblabs", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8412"], "port": 8412 },
+    { "name": "noob-portfolios", "runtimeExecutable": "npm", "runtimeArgs": ["--prefix", "/Users/alexschumacher/N00B Portfolios", "run", "dev"], "port": 8080 }
   ]
 }

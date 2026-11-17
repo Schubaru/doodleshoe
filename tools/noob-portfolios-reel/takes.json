@@ -1,0 +1,2 @@
+{ "fps": 30, "kbps": 1800, "w": 1280, "h": 720, "viewW": 1280, "viewH": 720, "fade": 380, "loop": true,
+  "takes": [ { "dir": "take1", "trimStart": 400 } ] }

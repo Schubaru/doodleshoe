@@ -18,15 +18,6 @@
 <body>
 <a class="skip" href="#work">Skip to the work</a>
 
-<!-- shared doodle symbols -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="d-tape" viewBox="0 0 90 30">
-      <path d="M4 6 L86 3 L88 24 L2 27 L5 17 Z" fill="var(--tape)" stroke="none"/>
-    </symbol>
-  </defs>
-</svg>
-
 <header class="topnav">
   <a class="wordmark" href="/"><svg class="knight doodle draw" viewBox="4 1 72 88" aria-hidden="true">
       <path pathLength="1" d="M40 6 Q31 3 30 12 Q34 10 38 11"/>
@@ -67,11 +58,13 @@
       </header>
       <div class="study-body">
         <figure class="shot stack-shot">
-          <img class="s1" src="/assets/b43-hub.webp" alt="Unscary, Unscary.ai's iPhone app: a Learn tab greeting 'Welcome back, Sarah', a Monday-to-Friday week strip set to three lessons a week, and the next lesson ('What is AI, really?') waiting behind a Start button" width="644" height="1400">
-          <img class="s2" src="/assets/b43-rep.png" alt="A lesson in progress, 'Same tool, two answers': two chat exchanges compared side by side, one vague and one that added 'I have chicken and twenty minutes', then three choices for why the second answer fit better" width="644" height="1400">
-          <img class="s3" src="/assets/b43-progress.png" alt="The Progress tab: 350 points across 20 lessons, a Level 5 bar, and standing on the four rungs: Recognize strong, Try developing, Standardize marked as the frontier, Automate developing" width="644" height="1400">
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+          <img class="s1" data-pos="front" src="/assets/b43-hub.webp" alt="Unscary, Unscary.ai's iPhone app: a Learn tab greeting 'Welcome back, Sarah', a Monday-to-Friday week strip set to three lessons a week, and the next lesson ('What is AI, really?') waiting behind a Start button" width="644" height="1400">
+          <img class="s2" data-pos="left" src="/assets/b43-rep.png" alt="A lesson in progress, 'Same tool, two answers': two chat exchanges compared side by side, one vague and one that added 'I have chicken and twenty minutes', then three choices for why the second answer fit better" width="644" height="1400">
+          <img class="s3" data-pos="right" src="/assets/b43-progress.png" alt="The Progress tab: 350 points across 20 lessons, a Level 5 bar, and standing on the four rungs: Recognize strong, Try developing, Standardize marked as the frontier, Automate developing" width="644" height="1400">
+          <div class="reel-ctl" hidden>
+            <button class="reel-btn" type="button" data-shuffle="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19"/></svg></button>
+            <button class="reel-btn" type="button" data-shuffle="1" aria-label="Next screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19"/></svg></button>
+          </div>
         </figure>
         <div class="beats">
           <div class="beat">
@@ -111,8 +104,6 @@
           <img class="s1" src="/assets/wordsword-home.png" alt="Wordsword home screen: a giant 'type a word' prompt on college-ruled paper with a red margin line, with the last word looked up (halcyon) waiting in a sheet at the bottom" width="560" height="1217">
           <img class="s2" src="/assets/wordsword-chain.png" alt="Wordsword follow-up chain: 'sanguine' defined in plain English, then tapped through to 'optimistic', with 'Use it in a sentence' and 'Explain it differently' as the only controls" width="560" height="1217">
           <img class="s3" src="/assets/wordsword-cards.png" alt="Wordsword flashcards: the word 'optimistic' on card 1 of 6, with Pass and Got it beneath and the knight doodle watching from the corner" width="560" height="1217">
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
         </figure>
         <div class="beats">
           <div class="beat">
@@ -193,11 +184,11 @@
       </header>
       <div class="study-body">
         <figure class="shot wide-shot">
-          <img class="s1" src="/assets/noob-hero.png" alt="N00B Portfolios overview: a $10,788.24 paper portfolio up $55.12 today, its green growth curve running the width of the screen, with three saved portfolios in the sidebar and a Trade button" width="800" height="262">
-          <img class="s2" src="/assets/noob-search.png" alt="N00B Portfolios asset search: suggested picks VOO, VTI, QQQ and AAPL grouped into index funds and blue-chip stocks" width="320" height="341">
-          <img class="s3" src="/assets/noob-trade.png" alt="N00B Portfolios trade panel for AAPL at $333.75: a plain-English description of the company, its dividend schedule, and key fundamentals" width="360" height="563">
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
-          <svg class="tape t2" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
+          <video class="demo" muted loop playsinline preload="none" width="1280" height="720"
+                 poster="/assets/noob-portfolios-poster.jpg"
+                 aria-label="N00B Portfolios being used: Trade opens a search, Apple is picked, its panel explains the company, its dividend and its fundamentals in plain English, then $250 of it is bought with paper money and the buy lands at the top of Recent Transactions">
+            <source src="/assets/noob-portfolios-demo.mp4" type="video/mp4">
+          </video>
         </figure>
         <div class="beats">
           <div class="beat">
@@ -239,7 +230,6 @@
                  aria-label="368 Dinos playing itself: pairs of pixel dinosaurs drop onto a 6 by 6 grid, three of a kind flash and vanish, and the rescued counter climbs">
             <source src="/assets/dinos-demo.mp4" type="video/mp4">
           </video>
-          <svg class="tape t1" viewBox="0 0 90 30" aria-hidden="true"><use href="#d-tape"/></svg>
         </figure>
         <div class="beats">
           <div class="beat">

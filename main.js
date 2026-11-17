@@ -152,4 +152,23 @@
     }, { rootMargin: '200px' });
     reels.forEach((v) => vio.observe(v));
   }
+
+  // ---- Unscary's stack: shuffle a peeking screen forward. Without JS it stays a still trio ----
+  const NEXT = { right: 'front', front: 'left', left: 'right' };
+  const PREV = { left: 'front', front: 'right', right: 'left' };
+  document.querySelectorAll('.stack-shot').forEach((fig) => {
+    const ctl = fig.querySelector('.reel-ctl');
+    if (!ctl) return;
+    const shots = [...fig.querySelectorAll('img[data-pos]')];
+    const shuffle = (map) => shots.forEach((s) => { s.dataset.pos = map[s.dataset.pos]; });
+    ctl.hidden = false;
+    fig.classList.add('js-shuffle');
+    ctl.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-shuffle]');
+      if (b) shuffle(b.dataset.shuffle === '1' ? NEXT : PREV);
+    });
+    shots.forEach((s) => s.addEventListener('click', () => {
+      if (s.dataset.pos !== 'front') shuffle(s.dataset.pos === 'right' ? NEXT : PREV);
+    }));
+  });
 })();
