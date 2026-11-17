@@ -141,7 +141,8 @@
   // Autoplay lives here rather than in the markup so reduced-motion users keep the poster,
   // which is a real screenshot of the same thing — never a blank frame.
   // skill reels (.reel) carry their own Pause, so skills.js plays those
-  const reels = document.querySelectorAll('.shot:not(.reel) > video.demo');
+  // game cards play on hover/focus instead, below
+  const reels = [...document.querySelectorAll('.shot:not(.reel) > video.demo')].filter((v) => !v.closest('.game'));
   if (reels.length && motionOK && 'IntersectionObserver' in window) {
     const vio = new IntersectionObserver((entries) => {
       for (const e of entries) {
@@ -151,6 +152,48 @@
       }
     }, { rootMargin: '200px' });
     reels.forEach((v) => vio.observe(v));
+  }
+
+  // ---- Games: only the card you're on plays. Hover or keyboard focus where there's a mouse;
+  // on touch, whichever card sits nearest the middle of the screen. Every other card shows its poster.
+  const games = [...document.querySelectorAll('.game')].filter((g) => g.querySelector('video.demo'));
+  if (games.length && motionOK) {
+    const vid = (g) => g.querySelector('video.demo');
+    const start = (g) => { const v = vid(g); v.preload = 'auto'; v.play().catch(() => {}); };
+    const stop = (g) => {
+      const v = vid(g);
+      if (!v.paused || v.currentTime) { v.pause(); v.load(); } // load() puts the poster back
+    };
+    if (matchMedia('(hover: hover)').matches) {
+      games.forEach((g) => {
+        g.addEventListener('mouseenter', () => start(g));
+        g.addEventListener('mouseleave', () => stop(g));
+        g.addEventListener('focusin', () => start(g));
+        g.addEventListener('focusout', () => stop(g));
+      });
+    } else if ('IntersectionObserver' in window) {
+      const near = new Set();
+      let current = null;
+      const pick = () => {
+        const cx = innerWidth / 2, cy = innerHeight / 2;
+        let best = null, bestD = Infinity;
+        near.forEach((g) => {
+          const r = g.getBoundingClientRect();
+          const d = Math.hypot(r.left + r.width / 2 - cx, r.top + r.height / 2 - cy);
+          if (d < bestD) { bestD = d; best = g; }
+        });
+        if (best === current) return;
+        if (current) stop(current);
+        current = best;
+        if (best) start(best);
+      };
+      // a band through the middle fifth of the screen: a card has to cross it to play
+      const gio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting ? near.add(e.target) : near.delete(e.target)));
+        pick();
+      }, { rootMargin: '-40% 0px -40% 0px' });
+      games.forEach((g) => gio.observe(g));
+    }
   }
 
   // ---- Unscary's stack: shuffle a peeking screen forward. Without JS it stays a still trio ----
