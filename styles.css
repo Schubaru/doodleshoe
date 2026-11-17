@@ -124,7 +124,15 @@ a, button, summary, [role="button"], label[for], .btn {
 /* the ring has to clear the knight, who overhangs the 28px line box by ~6px.
    Same shape as the chat log's ring — the site's one existing focus style. */
 .wordmark:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 8px; border-radius: 2px; }
-.topnav nav { display: flex; gap: clamp(14px, 3vw, 32px); }
+/* The nav is a popover so phones can fold it into a drawer with no script (About
+   loads none). The UA gives every [popover] fixed/centred/bordered styles even
+   while closed — undo them so the inline tabs stay exactly as they were. */
+.topnav nav {
+  display: flex; gap: clamp(14px, 3vw, 32px);
+  position: static; inset: auto; width: auto; height: auto; margin: 0;
+  padding: 0; border: 0; overflow: visible; color: inherit; background: none;
+}
+.menu-btn, .menu-close { display: none; }
 .topnav nav a {
   color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem;
   border-bottom: 2px solid transparent;
@@ -363,6 +371,8 @@ h1 {
 .phone-shot .s2 { top: 4.4%; left: 21%; }
 .phone-shot .s3 { top: 8.8%; left: 42%; }
 .tall-shot { max-width: 420px; }
+/* a whole phone screen moving (780x1696): narrower than a tall-shot reel, so it gets its own cap */
+.phone-reel { max-width: 340px; }
 
 /* Unscary.ai: three screens, one in focus. The other two wait behind it, one peeking out each
    side, and the arrows (or a click on a peeking screen) shuffle the next one forward. Positions are
@@ -527,6 +537,8 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
 .enhanced .phone-shot { max-width: min(460px, calc(var(--shot-h) * 0.70)); }   /* 0.70 < the box's 0.724: the 3/6deg fan costs height too */
 /* 0.6 leaves room for the -1.6deg tilt on top of the reel's own 960x1560 (0.615) */
 .enhanced .tall-shot  { max-width: min(420px, calc(var(--shot-h) * 0.6)); }
+/* 0.45, just under the screen's 0.46, so the 2.5px border fits too */
+.enhanced .phone-reel { max-width: min(340px, calc(var(--shot-h) * 0.45)); }
 /* 0.88, not the box's own 0.943 — the wings' 7deg rotation costs height the aspect-ratio
    does not declare, and the panel clips whatever does not fit */
 .enhanced .stack-shot { max-width: min(560px, calc(var(--shot-h) * 0.88)); }

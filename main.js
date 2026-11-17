@@ -4,6 +4,11 @@
   const root = document.documentElement;
   const qs = new URLSearchParams(location.search);
 
+  // the phone drawer: a same-page link (/#skills on home) scrolls but wouldn't close it
+  document.getElementById('site-menu')?.addEventListener('click', (e) => {
+    if (e.target.closest('a') && e.currentTarget.matches(':popover-open')) e.currentTarget.hidePopover();
+  });
+
   if (motionOK && !qs.has('plain')) {
     root.classList.add('js-anim');
     // the sticky panel is clipped to the viewport — below this height the stacked layout is honest instead.
