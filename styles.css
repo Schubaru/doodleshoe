@@ -1062,10 +1062,71 @@ html:not(.enhanced) #wordsword .study-built { margin-top: calc(var(--rule-h) * 3
   .topnav nav a { font-size: 0.875rem; }   /* 14px — the floor, not below it */
 }
 /* Four tabs (Games joined) need ~418px beside the full wordmark. Below that the knight alone is
-   the home link; the name stays as its accessible label, and the bar stays one row. */
-@media (max-width: 419px) {
-  .wordmark { align-self: center; height: var(--rule-h); padding-left: 24px; }
-  .wordmark span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+   the home link; the name stays as its accessible label, and the bar stays one row.
+   Only for browsers without popover — everywhere else the tabs are in the drawer. */
+@supports not selector(:popover-open) {
+  @media (max-width: 419px) {
+    .wordmark { align-self: center; height: var(--rule-h); padding-left: 24px; }
+    .wordmark span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  }
+}
+
+/* ————— phone menu: the tabs fold into a drawer of ruled paper ————— */
+@supports selector(:popover-open) {
+  @media (max-width: 640px) {
+    /* 44px to tap, but only 28px in the line box: the header height is the
+       sticky panels' height budget, so the button must not grow it */
+    .menu-btn, .menu-close {
+      display: grid; place-items: center;
+      width: 44px; height: 44px;
+      padding: 0; border: 0; background: none; color: var(--ink);
+    }
+    .menu-btn { align-self: center; margin: -8px -10px -8px 0; }
+    .menu-btn svg, .menu-close svg { width: 24px; height: 24px; }
+    .menu-btn path, .menu-close path { stroke-width: 2.2; }
+    .menu-btn:focus-visible, .menu-close:focus-visible { outline: 2.5px solid var(--ink); outline-offset: -4px; border-radius: 2px; }
+    /* sits exactly where the hamburger was, so the lines read as turning into the X */
+    .menu-close { position: absolute; top: 6px; right: 6px; }
+
+    .topnav nav {
+      position: fixed; inset: 0 0 0 auto;
+      width: min(80vw, 300px); height: 100dvh;
+      flex-direction: column; align-items: flex-start; gap: 0;
+      padding: calc(var(--rule-h) * 3) 28px var(--rule-h);
+      overflow-y: auto;
+      background-color: var(--paper);
+      background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--rule-h) - 1px), var(--rule) calc(var(--rule-h) - 1px), var(--rule) var(--rule-h));
+      border-left: 2px solid var(--ink);
+      translate: 100% 0;
+      transition: translate 0.36s cubic-bezier(0.16, 1, 0.3, 1), display 0.36s allow-discrete, overlay 0.36s allow-discrete;
+    }
+    .topnav nav:not(:popover-open) { display: none; }
+    .topnav nav:popover-open { translate: 0 0; }
+    /* two rules per link: 56px targets, every word still on a line */
+    .topnav nav a { font-size: 1.25rem; font-weight: 600; line-height: calc(var(--rule-h) * 2); }
+
+    .topnav nav::backdrop {
+      background: color-mix(in oklab, var(--ink) 30%, transparent);
+      opacity: 0;
+      transition: opacity 0.36s ease-out, display 0.36s allow-discrete, overlay 0.36s allow-discrete;
+    }
+    .topnav nav:popover-open::backdrop { opacity: 1; }
+
+    /* the X inks itself in as the drawer lands */
+    .menu-close path { transition: stroke-dashoffset 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.18s; }
+    .menu-close path + path { transition-delay: 0.3s; }
+
+    @starting-style {
+      .topnav nav:popover-open { translate: 100% 0; }
+      .topnav nav:popover-open::backdrop { opacity: 0; }
+      .topnav nav:popover-open .menu-close path { stroke-dashoffset: 1; }
+    }
+
+    body:has(#site-menu:popover-open) { overflow: hidden; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topnav nav, .topnav nav::backdrop, .menu-close path { transition: none !important; }
 }
 
 
